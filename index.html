@@ -1,0 +1,2018 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200, initial-scale=1.0">
+    <title>Lyned Z</title>
+    <link rel="icon" type="image/png" href="/static/Icono.png">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Fuente personalizada ZZZ */
+        @font-face {
+            font-family: 'FuenteZZZ';
+            src: url('/static/FuenteZZZ.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-yellow: #D8FA00;
+            --primary-orange: #D8FA00;
+            --neon-blue: #00F0FF;
+            --dark-bg: #0A0A0F;
+            --card-bg: #1A1A24;
+            --border-glow: rgba(216, 250, 0, 0.3);
+            --gradient-start: #4A90E2;
+            --gradient-mid: #9B59B6;
+            --gradient-end: #E91E63;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: url('/static/fondozzz2.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #FFFFFF;
+            min-height: 100vh;
+            min-width: 1200px;
+            overflow-x: auto;
+            position: relative;
+            zoom: 75%;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 15, 0.3);
+            z-index: -1;
+        }
+
+        .orbitron {
+            font-family: 'FuenteZZZ', sans-serif;
+        }
+
+        .fuente-zzz {
+            font-family: 'FuenteZZZ', sans-serif;
+        }
+
+        .text-small {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        .bg-lime-zzz {
+            background-color: #D8FA00;
+        }
+
+        .text-lime-zzz {
+            color: #D8FA00;
+        }
+
+        .cyber-grid {
+            display: none;
+        }
+
+
+
+
+
+        /* Borde gris mate */
+        .border-gray-matte {
+            border: 4px solid rgba(75, 85, 99, 0.6);
+        }
+
+
+
+        /* Animations */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(255, 215, 0, 0.8),
+                    0 0 60px rgba(255, 215, 0, 0.6);
+            }
+        }
+
+        .animate-slide-in {
+            animation: slideIn 0.6s ease-out;
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .animate-pulse-glow {
+            animation: pulseGlow 2s infinite;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-yellow);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-orange);
+        }
+
+        /* Divisor vertical minimal */
+        .divide-x>*+* {
+            border-left: 1px solid rgba(75, 85, 99, 0.3);
+            position: relative;
+        }
+
+        .divide-x>*+*::before {
+            content: '';
+            position: absolute;
+            left: -1px;
+            top: 10%;
+            bottom: 10%;
+            width: 1px;
+            background: rgba(75, 85, 99, 0.5);
+        }
+
+        /* Hover Effects */
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Percentage Circle */
+        .percentage-circle {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+
+        .percentage-circle svg {
+            transform: rotate(90deg) scaleX(-1);
+            transform-origin: 50% 50%;
+        }
+
+        .percentage-circle circle {
+            fill: none;
+            stroke-width: 10;
+            stroke-linecap: round;
+        }
+
+        .percentage-circle .bg-circle {
+            stroke: rgba(255, 255, 255, 0.1);
+        }
+
+        .percentage-circle .progress-circle {
+            stroke: var(--primary-yellow);
+            stroke-dasharray: 565.48;
+            stroke-dashoffset: calc(565.48 - (565.48 * var(--percentage)) / 100);
+            transition: stroke-dashoffset 1s ease;
+        }
+
+        /* Rank Badge */
+        .rank-badge {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #FFD700, #FF6B35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .invisible-no-space {
+            display: none !important;
+        }    
+
+        /* Stat Bar */
+        .stat-bar {
+            position: relative;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .stat-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            border-radius: 12px;
+            transition: width 1s ease;
+        }
+
+        /* Avatar Grid */
+        .avatar-grid {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        /* Scrollbar horizontal para avatar grid */
+        .avatar-grid::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .avatar-card {
+            position: relative;
+            width: 180px;
+            height: 240px;
+            flex-shrink: 0;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .avatar-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            /* Comienza desde arriba para ver la cara */
+        }
+
+        .avatar-card:hover {
+            border-color: rgba(255, 215, 0, 0.6);
+            transform: scale(1.05);
+        }
+
+        .avatar-card.selected {
+            border-color: var(--primary-yellow);
+        }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 900;
+        }
+
+        @media (max-device-width: 767px) {
+            .uid-modal-overlay {
+                align-items: flex-start;
+                padding-top: 120px;
+            }
+        }
+
+        /* Contenedores con transparencia */
+        .container-transparent {
+            background: rgba(26, 26, 36, 0.85);
+        }
+
+        .card-transparent {
+            background: rgba(17, 24, 39, 0.85);
+        }
+
+        /* Button Styles */
+        .cyber-button {
+            position: relative;
+            padding: 16px 48px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #10B981;
+            background: #000000;
+            border: 3px solid #10B981;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'FuenteZZZ', sans-serif;
+            letter-spacing: 1px;
+            font-style: italic;
+        }
+
+        .cyber-button:hover {
+            transform: scale(1.05);
+            background: #0a0a0a;
+            border-color: #14b98a;
+            color: #14b98a;
+        }
+
+        .cyber-button:active {
+            transform: scale(0.95);
+        }
+
+        /* Input Style */
+        .cyber-input {
+            width: 100%;
+            padding: 20px;
+            font-size: 1.5rem;
+            font-family: 'FuenteZZZ', sans-serif;
+            color: #D8FA00;
+            background: rgba(26, 26, 36, 0.8);
+            border: 2px solid rgba(75, 85, 99, 0.8);
+            border-radius: 12px;
+            outline: none;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .cyber-input:focus {
+            border-color: rgba(107, 114, 128, 1);
+        }
+
+        .cyber-input::placeholder {
+            color: rgba(216, 250, 0, 0.3);
+            font-family: system-ui, sans-serif;
+        }
+
+        /* Header Styles */
+        .header-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100px;
+        }
+
+        .header-title {
+            font-family: 'FuenteZZZ', sans-serif;
+            font-size: 2.5rem;
+            font-weight: normal;
+            color: #FFFFFF;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .header-title:hover {
+            color: #D8FA00;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .header-text {
+            color: #FFFFFF;
+            font-size: 1rem;
+            font-family: system-ui, sans-serif;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .header-text:hover {
+            color: #D8FA00;
+        }
+
+        .language-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .language-button {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #FFFFFF;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-family: system-ui, sans-serif;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            padding: 4px 8px;
+        }
+
+        .language-button:hover {
+            color: #D8FA00;
+        }
+
+        .language-options {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(26, 26, 36, 0.95);
+            border: 1px solid rgba(75, 85, 99, 0.5);
+            border-radius: 8px;
+            margin-top: 8px;
+            min-width: 180px;
+            z-index: 1001;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            color: #FFFFFF;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            font-family: system-ui, sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .language-option:hover {
+            background-color: rgba(75, 85, 99, 0.3);
+            color: #D8FA00;
+        }
+
+        .language-option.selected {
+            background-color: rgba(75, 85, 99, 0.5);
+            color: #D8FA00;
+        }
+
+        /* Adjust content to account for fixed header */
+        .page-with-header {
+            padding-top: 100px;
+        }
+
+        /* Results Container - 10% smaller (legacy mobile uses old class) */
+        .results-container {
+            transform: scale(1);
+            transform-origin: top center;
+        }
+
+        /* —— PC Results (new design) —— */
+        .results-pc-wrap {
+            width: 1030px;
+            max-width: none;
+            margin: 0 auto;
+            padding: 0 16px 32px;
+            flex-shrink: 0;
+        }
+
+        .results-pc-scale {
+            transform: scale(1.15);
+            transform-origin: top center;
+            width: 895px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .dps-switcher {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 14px;
+            margin-top: -30px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+
+        .dps-switcher-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: 2px solid rgba(120, 120, 130, 0.8);
+            background: rgba(20, 20, 28, 0.85);
+            padding: 0;
+            cursor: pointer;
+            overflow: hidden;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .dps-switcher-btn:hover {
+            transform: scale(1.06);
+            border-color: rgba(216, 250, 0, 0.5);
+        }
+
+        .dps-switcher-btn.active {
+            width: 68px;
+            height: 68px;
+            border-color: #D8FA00;
+            box-shadow: 0 0 16px rgba(216, 250, 0, 0.35);
+        }
+
+        .dps-switcher-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .results-pc-card {
+            background: rgba(22, 22, 30, 0.92);
+            border: 2px solid rgba(200, 200, 210, 0.55);
+            border-radius: 20px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 10px;
+            padding: 10px;
+            width: 867px;
+            height: 575px;
+            max-width: none;
+            max-height: none;
+            box-sizing: border-box;
+            flex-shrink: 0;
+        }
+
+        .results-pc-char {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 14px 12px 12px;
+            border-radius: 14px;
+            background: linear-gradient(180deg, rgba(30, 30, 40, 0.75) 0%, rgba(18, 18, 24, 0.45) 100%);
+            border: 0px solid rgba(90, 90, 100, 0.4);
+            min-height: 0;
+        }
+
+        .results-pc-char-top .nickname {
+            font-family: 'FuenteZZZ', sans-serif;
+            font-size: 1.35rem;
+            color: #fff;
+            line-height: 1.1;
+        }
+
+        .results-pc-char-top .cinema {
+            font-size: 0.95rem;
+            color: #9ca3af;
+            margin-top: 2px;
+        }
+
+        .results-pc-char-art {
+            flex: 1;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            margin: 6px 0 0;
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        .results-pc-char-art img {
+            max-height: 100%;
+            width: 100%;
+            object-fit: contain;
+            object-position: bottom center;
+        }
+
+        .results-pc-char-bottom {
+            margin-top: auto;
+            padding-top: 8px;
+        }
+
+        .results-pc-char-bottom .char-name {
+            font-family: 'FuenteZZZ', sans-serif;
+            font-size: 1.5rem;
+            color: #fff;
+        }
+
+        .results-pc-char-bottom .char-uid {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-top: 2px;
+        }
+
+        /* Panel derecho: fila superior 1:2:1, fila inferior 2.3:1.7 (alturas 1:2) */
+        .results-pc-right {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            min-height: 0;
+            min-width: 0;
+        }
+
+        .results-pc-row-top {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 10px;
+            min-height: 0;
+        }
+
+        .results-pc-row-bottom {
+            flex: 2.5;
+            display: grid;
+            grid-template-columns: 2.6fr 1.4fr;
+            gap: 10px;
+            min-height: 0;
+        }
+
+        .results-pc-box {
+            background: rgba(28, 28, 36, 0.95);
+            border: none;
+            border-radius: 14px;
+            padding: 10px 12px;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        .box-ranking {
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .results-pc-box-title {
+            font-size: 0.72rem;
+            color: #9ca3af;
+            margin-bottom: 8px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .box-ranking .rank-label {
+            font-size: 0.72rem;
+            color: #9ca3af;
+            transform: translateY(-3px);
+        }
+
+        .box-ranking .rank-num {
+            font-family: 'FuenteZZZ', sans-serif;
+            font-size: 1.85rem;
+            color: #fff;
+            line-height: 1;
+            margin: 2px 0 4px;
+            transform: translateY(-3px);
+        }
+
+        .box-ranking .grade-img {
+            width: 75px;
+            height: 75px;
+            transform: translateY(-10px);
+            transform: translateX(7px);
+            object-fit: contain;
+        }
+
+        .w-engine-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            min-height: 0;
+            width: 100%;
+        }
+
+        .w-engine-img {
+            max-width: 90%;
+            max-height: 90%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .w-engine-dupe-badge {
+            position: absolute;
+            bottom: 6px;
+            left: 6px;
+            background: rgba(0, 0, 0, 0.72);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-family: system-ui, sans-serif;
+        }
+
+        .box-build-score {
+            align-items: center;
+        }
+
+        .semi-gauge-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+            flex: 1;
+            min-height: 0;
+            margin: 0 auto;
+        }
+
+        .semi-gauge-svg {
+            width: 100%;
+            height: 100%;
+            max-height: 110px;
+            display: block;
+            overflow: visible;
+            transform: translateY(-10px);
+        }
+
+        .semi-gauge-bg {
+            fill: none;
+            stroke: rgba(255, 255, 255, 0.12);
+            stroke-width: 14;
+            stroke-linecap: round;
+        }
+
+        .semi-gauge-fill {
+            fill: none;
+            stroke: #D8FA00;
+            stroke-width: 14;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 0.8s ease;
+        }
+
+        .semi-gauge-pct {
+            position: absolute;
+            left: 50%;
+            top: 65%;
+            transform: translate(-50%, -50%);
+            font-family: 'FuenteZZZ', sans-serif;
+            font-size: 1.45rem;
+            color: #fff;
+            pointer-events: none;
+        }
+
+        .semi-gauge-edge {
+            position: absolute;
+            bottom: 8px;
+            font-size: 0.8rem;
+            color: #9ca3af;
+            font-family: system-ui, sans-serif;
+        }
+
+        .semi-gauge-edge.min {
+            left: 8%;
+        }
+
+        .semi-gauge-edge.max {
+            right: 8%;
+        }
+
+        .semi-gauge-user-dmg {
+            position: absolute;
+            font-family: 'FuenteZZZ', sans-serif;
+            font-size: 0.95rem;
+            color: #D8FA00;
+            white-space: nowrap;
+            transform: translate(-50%, -100%);
+            pointer-events: none;
+        }
+
+        .box-drive-disks {
+            padding: 8px 10px 10px;
+        }
+
+        .box-drive-disks .results-pc-box-title {
+            margin-bottom: 6px;
+        }
+
+        .drive-disks-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 8px 10px;
+            flex: 1;
+            min-height: 0;
+            width: 100%;
+        }
+
+        .disk-card {
+            --disk-size: 60px;
+            --panel-h: 56px;
+            height: 88%;
+            min-height: 0;
+            min-width: 0;
+        }
+
+        .disk-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: calc(var(--panel-h) + var(--disk-size) / 2);
+        }
+
+        /* Capa base: rectángulo ancho y bajo de substats */
+        .disk-sub-panel {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: var(--panel-h);
+            z-index: 2;
+            border: 1px solid rgba(114, 114, 118, 0.55);
+            border-radius: 8px;
+            background: rgb(16, 16, 20);
+            padding: 7px 8px;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        /* Disco detrás del panel — solo mitad superior visible */
+        .disk-visual {
+            position: absolute;
+            left: 2px;
+            bottom: calc(var(--panel-h) - var(--disk-size) / 2);
+            width: var(--disk-size);
+            height: var(--disk-size);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .disk-piece {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            border-radius: 50%;
+        }
+
+        .disk-grade-overlay {
+            position: absolute;
+            top: -2px;
+            right: -10px;
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+            z-index: 2;
+            display: none;
+        }
+
+        /* Chip main stat — encima del panel, sin superponer substats */
+        .disk-info-chip {
+            position: absolute;
+            left: calc(var(--disk-size) + 16px);
+            bottom: calc(var(--panel-h) + 4px);
+            z-index: 3;
+            background: rgb(14, 14, 18);
+            border: 1px solid rgba(133, 133, 140, 0.35);
+            border-radius: 6px;
+            padding: 4px 10px;
+            max-width: calc(100% - var(--disk-size) - 12px);
+        }
+
+        .disk-slot {
+            display: block;
+            font-size: 0.62rem;
+            color: #9ca3af;
+            line-height: 1.2;
+        }
+
+        .disk-main {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.15;
+            white-space: nowrap;
+        }
+
+        .disk-sub-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 5px 8px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .disk-sub-cell {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            min-width: 0;
+        }
+
+        .disk-sub-icon {
+            width: 16px;
+            height: 16px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .disk-sub-val {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #fff;
+            white-space: nowrap;
+            line-height: 1;
+        }
+
+        .substats-pc-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            flex: 1;
+            min-height: 0;
+            overflow-y: auto;
+            padding-right: 2px;
+        }
+
+        .substats-pc-row .stat-bar {
+            height: 18px;
+        }
+
+        .substats-pc-row .stat-label {
+            font-size: 0.8rem;
+            color: #d1d5db;
+        }
+
+        .substats-pc-row .stat-values {
+            font-size: 0.75rem;
+            color: #D8FA00;
+        }
+
+        .results-pc-loading {
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 10, 15, 0.65);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+            border-radius: 20px;
+            font-family: 'FuenteZZZ', sans-serif;
+            color: #D8FA00;
+            font-size: 1.25rem;
+        }
+
+        .results-pc-card-wrap {
+            position: relative;
+            width: 867px;
+            height: 575px;
+            min-width: 867px;
+            min-height: 575px;
+            flex-shrink: 0;
+            transform: translateX(15px);
+        }
+
+        .gear-set-4pc {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 280px;
+        }
+
+        .gear-set-2pc {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 160px;
+        }
+
+        /* Ocultar texto "Language/Idioma" en el botón en mobile, dejar solo el icono */
+        @media (max-width: 767px) {
+            .language-button-text {
+                display: none;
+            }
+        }
+
+        /* —— Mobile (results) —— */
+        @media (max-width: 767px) {
+            body {
+                zoom: 1;
+            }
+
+            .header-container {
+                padding: 12px 16px;
+                height: auto;
+                min-height: 64px;
+            }
+
+            .header-title {
+                font-size: 1.35rem;
+            }
+
+            .header-right {
+                gap: 10px;
+            }
+
+            .header-text {
+                display: none;
+            }
+
+            .language-dropdown {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .language-dropdown>.header-discord-cluster {
+                position: static !important;
+                top: auto !important;
+                right: auto !important;
+                flex-direction: row;
+                align-items: center;
+                order: -1;
+            }
+
+            .discord-promo-bubble {
+                display: none !important;
+            }
+
+            .page-with-header {
+                padding-top: 76px;
+            }
+
+            /* UID screen — contenedor más estrecho */
+            .uid-modal-box {
+                max-width: 320px !important;
+                padding: 28px 20px !important;
+            }
+            .uid-modal-box h1 {
+                font-size: 1.8rem !important;
+                margin-bottom: 20px !important;
+            }
+            .cyber-input {
+                font-size: 1.1rem !important;
+                padding: 14px !important;
+            }
+
+            /* DPS selection — título en mobile */
+            .dps-modal-title {
+                font-size: 1.6rem !important;
+            }
+            /* Avatars más pequeños en mobile */
+            .avatar-card {
+                width: 130px !important;
+                height: 180px !important;
+            }
+
+            .results-mobile-card {
+                background: rgba(26, 26, 36, 0.92);
+                border: 3px solid rgba(75, 85, 99, 0.65);
+                border-radius: 16px;
+                padding: 14px;
+            }
+
+            .results-mobile-card h3,
+            .results-mobile-card .fuente-zzz.section-title {
+                font-size: 1rem;
+                margin-bottom: 10px;
+            }
+
+            .percentage-circle--sm {
+                width: 140px;
+                height: 140px;
+            }
+
+            .percentage-circle--sm svg {
+                width: 140px;
+                height: 140px;
+            }
+
+            .percentage-circle--sm circle {
+                stroke-width: 8;
+            }
+
+            .percentage-circle--sm .progress-circle {
+                stroke-dasharray: 389.56;
+                stroke-dashoffset: calc(389.56 - (389.56 * var(--percentage)) / 100);
+            }
+
+            .percentage-circle--sm .fuente-zzz.text-4xl {
+                font-size: 1.35rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cyber-grid"></div>
+    <div id="root"></div>
+
+    <script type="module">
+        import { getCharacters, calculateBuild } from '/js/app/buildService.js';
+        window.ZZZApp = window.ZZZApp || {};
+        window.ZZZApp.getCharacters = getCharacters;
+        window.ZZZApp.calculateBuild = calculateBuild;
+    </script>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // API Configuration
+        const API_URL = null;
+
+        function formatDamageShort(value) {
+            const n = Math.ceil(Number(value) || 0);
+            if (n >= 1_000_000) {
+                const m = n / 1_000_000;
+                if (m >= 100) return Math.round(m) + 'M';
+                if (m >= 10) return (Math.round(m * 10) / 10).toString().replace(/\.0$/, '') + 'M';
+                const s = m.toFixed(2);
+                return (s.endsWith('0') ? m.toFixed(1) : s).replace(/\.?0+$/, '') + 'M';
+            }
+            if (n >= 1_000) {
+                const k = n / 1_000;
+                if (k >= 100) return Math.round(k) + 'K';
+                if (k >= 10) return (Math.round(k * 10) / 10).toString().replace(/\.0$/, '') + 'K';
+                const s = k.toFixed(2);
+                return (s.endsWith('0') ? k.toFixed(1) : s).replace(/\.?0+$/, '') + 'K';
+            }
+            return String(n);
+        }
+
+        function getGradeImage(grade) {
+            const map = {
+                'S+': '/static/Letras-S_.png',
+                'S': '/static/Letras-S.png',
+                'A': '/static/Letras-A.png',
+                'B': '/static/Letras-B.png',
+                'C': '/static/Letras-C.png',
+            };
+            return map[grade] || '/static/Letras-C.png';
+        }
+
+        function weaponDupeLabel(dupes) {
+            const d = Math.min(4, Math.max(0, dupes ?? 0));
+            return 'W' + (d + 1);
+        }
+
+        function statBarPercent(current, max) {
+            if (!max || max <= 0) return 0;
+            return Math.min(100, (current / max) * 100);
+        }
+
+        const SUBSTAT_DISPLAY_NAMES = {
+            'Atk%': 'Atk%',
+            'Atkp': 'Atk',
+            'Cr': 'C.Rate%',
+            'Cd': 'C.Dmg%',
+            'Hp%': 'Hp%',
+            'Hpp': 'Hp',
+            'Defp': 'Def',
+            'Penp': 'Pen',
+            'MA': 'Anomaly',
+        };
+
+        function getSubstatDisplayName(stat) {
+            if (stat.display_name) return stat.display_name;
+            return SUBSTAT_DISPLAY_NAMES[stat.name] || stat.name;
+        }
+
+        async function fetchBuildResults(uid, nickname, avatarData) {
+            if (!window.ZZZApp?.calculateBuild) {
+                throw new Error('El módulo local de cálculo no está disponible.');
+            }
+            return window.ZZZApp.calculateBuild(avatarData, uid, nickname);
+        }
+
+        function DriveDiskCard({ disk }) {
+            const subs = disk.substats || [];
+            const cells = [];
+            for (let i = 0; i < 4; i++) {
+                cells.push(subs[i] || null);
+            }
+            return (
+                <div className="disk-card">
+                    <div className="disk-card-inner">
+                        <div className="disk-sub-panel">
+                            <div className="disk-sub-grid">
+                                {cells.map((sub, idx) => (
+                                    <div key={idx} className="disk-sub-cell">
+                                        {sub ? (
+                                            <>
+                                                <img className="disk-sub-icon" src={sub.icon} alt={sub.name} />
+                                                <span className="disk-sub-val">{sub.display}</span>
+                                            </>
+                                        ) : null}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="disk-visual">
+                            {disk.disc_image ? (
+                                <img className="disk-piece" src={disk.disc_image} alt="" />
+                            ) : (
+                                <div className="disk-piece" style={{ background: 'rgba(50,50,60,0.9)', borderRadius: '50%' }} />
+                            )}
+                            <img
+                                className="disk-grade-overlay"
+                                src={getGradeImage(disk.grade || 'C')}
+                                alt={disk.grade || 'C'}
+                            />
+                        </div>
+                        <div className="disk-info-chip">
+                            <span className="disk-slot">{disk.slot_label || 'D?'}</span>
+                            <span className="disk-main">{disk.main_stat || '—'}</span>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        function SemiCircleGauge({ percent, userDamage, maxDamage }) {
+            const pct = Math.min(100, Math.max(0, percent));
+            const r = 88;
+            const cx = 160;
+            const cy = 118;
+            const pathD = `M ${cx - r} ${cy} A ${r} ${r} 0 0 1 ${cx + r} ${cy}`;
+            const halfLen = Math.PI * r;
+            const offset = halfLen * (1 - pct / 100);
+            const angle = Math.PI * (1 - pct / 100);
+            const tipX = cx + r * Math.cos(angle);
+            const tipY = cy - r * Math.sin(angle);
+            const labelLeft = ((tipX / 320) * 100);
+            const labelTop = ((tipY / 130) * 100);
+
+            return (
+                <div className="semi-gauge-wrap">
+                    <svg className="semi-gauge-svg" viewBox="0 0 320 130" preserveAspectRatio="xMidYMax meet">
+                        <path className="semi-gauge-bg" d={pathD} />
+                        <path
+                            className="semi-gauge-fill"
+                            d={pathD}
+                            style={{
+                                strokeDasharray: halfLen,
+                                strokeDashoffset: offset,
+                            }}
+                        />
+                    </svg>
+                    <span className="semi-gauge-pct">{pct.toFixed(1)}%</span>
+                </div>
+            );
+        }
+
+        // Header Component
+        function Header({ onLogoClick, language, setLanguage, currentScreen }) {
+            const [showLanguageMenu, setShowLanguageMenu] = useState(false);
+            const [showBubble, setShowBubble] = useState(false);
+
+            useEffect(() => {
+                let timer;
+                if (currentScreen === 'results') {
+                    timer = setTimeout(() => {
+                        setShowBubble(true);
+                    }, 3000);
+                } else {
+                    setShowBubble(false);
+                }
+                return () => clearTimeout(timer);
+            }, [currentScreen]);
+
+            return (
+                <div className="header-container">
+                    <div
+                        className="header-title"
+                        onClick={onLogoClick}
+                        style={{ cursor: 'pointer' }}
+                    >
+                        Lyned Z
+                    </div>
+
+                    <div className="header-right">
+                        <div className="language-dropdown">
+                            <button
+                                className="language-button"
+                                onClick={() => setShowLanguageMenu(!showLanguageMenu)}
+                            >
+                                <span className="language-button-text">{language === 'es' ? 'Idioma' : 'Language'}</span>
+                                <span>
+                                    <img
+                                        src={language === 'es' ? '/static/Peru.png' : '/static/USA.png'}
+                                        alt={language === 'es' ? 'Español' : 'English'}
+                                        style={{ height: '1.2em', verticalAlign: 'middle', marginLeft: '4px' }}
+                                    />
+                                </span>
+                            </button>
+
+                            {showLanguageMenu && (
+                                <div className="language-options">
+                                    <button
+                                        className={`language-option ${language === 'en' ? 'selected' : ''}`}
+                                        onClick={() => {
+                                            setLanguage('en');
+                                            setShowLanguageMenu(false);
+                                        }}
+                                    >
+                                        <img src="/static/USA.png" alt="English" style={{ height: '1.2em', verticalAlign: 'middle' }} />
+                                        <span>English</span>
+                                    </button>
+                                    <button
+                                        className={`language-option ${language === 'es' ? 'selected' : ''}`}
+                                        onClick={() => {
+                                            setLanguage('es');
+                                            setShowLanguageMenu(false);
+                                        }}
+                                    >
+                                        <img src="/static/Peru.png" alt="Español" style={{ height: '1.2em', verticalAlign: 'middle' }} />
+                                        <span>Español</span>
+                                    </button>
+                                </div>
+                            )}
+
+                            <div className="header-discord-cluster absolute flex flex-col items-end" style={{ top: 'calc(100% + 16px)', right: '0', zIndex: 1000 }}>
+                                <a
+                                    href="https://discord.gg/3xkyvUYS6m"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:opacity-80 transition-opacity block"
+                                >
+                                    <img
+                                        src="/static/Discord.png"
+                                        alt="Discord Server"
+                                        style={{ height: '3em' }}
+                                        title={language === 'es' ? 'Únete a nuestro Discord' : 'Join our Discord'}
+                                    />
+                                </a>
+
+                                {showBubble && (
+                                    <div className="discord-promo-bubble relative mt-3 w-72 bg-gray-900 border md:border-2 border-gray-700 rounded-xl p-4 shadow-2xl animate-fade-in z-50">
+                                        <div className="absolute -top-[9px] right-5 w-4 h-4 bg-gray-900 border-t md:border-t-2 border-l md:border-l-2 border-gray-700 transform rotate-45"></div>
+                                        <p className="text-sm text-center text-gray-200 font-medium leading-relaxed relative z-10">
+                                            {language === 'es'
+                                                ? "📅 ZZZ Theorycraft 🚨 Cambios en la Beta  🗡️ Showcase Nuevos Agentes"
+                                                : "📅 ZZZ Early Theorycraft 🚨 Beta Changes  🗡️ Showcase New Agents"}
+                                        </p>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        // Main App Component
+        function App() {
+            const [currentScreen, setCurrentScreen] = useState('uid'); // 'uid', 'select-dps', 'results'
+            const [uid, setUid] = useState('');
+            const [nickname, setNickname] = useState('Viajero');
+            const [dpsCharacters, setDpsCharacters] = useState([]);
+            const [selectedDps, setSelectedDps] = useState(null);
+            const [buildResults, setBuildResults] = useState(null);
+            const [resultsCache, setResultsCache] = useState({});
+            const [loading, setLoading] = useState(false);
+            const [switchingDps, setSwitchingDps] = useState(false);
+            const [language, setLanguage] = useState(() => localStorage.getItem('zzz-lang') || 'en'); // persisted
+
+            useEffect(() => {
+                localStorage.setItem('zzz-lang', language);
+            }, [language]);
+
+            const handleLogoClick = () => {
+                setCurrentScreen('uid');
+                setUid('');
+                setNickname('Viajero');
+                setSelectedDps(null);
+                setBuildResults(null);
+                setDpsCharacters([]);
+                setResultsCache({});
+            };
+
+            const applyCachedOrFetchResults = async (char, nick) => {
+                if (resultsCache[char.id]) {
+                    setBuildResults(resultsCache[char.id]);
+                    setSelectedDps(char);
+                    return;
+                }
+                setSwitchingDps(true);
+                try {
+                    const data = await fetchBuildResults(uid, nick, char.raw_data);
+                    setResultsCache((prev) => ({ ...prev, [char.id]: data }));
+                    setBuildResults(data);
+                    setSelectedDps(char);
+                } catch (error) {
+                    console.error('Error calculating build:', error);
+                    alert('Error al calcular el build.');
+                } finally {
+                    setSwitchingDps(false);
+                }
+            };
+
+            const handleDpsSwitch = async (char) => {
+                if (!char || switchingDps) return;
+                await applyCachedOrFetchResults(char, nickname);
+            };
+
+            return (
+                <div className="relative z-10">
+                    <Header
+                        onLogoClick={handleLogoClick}
+                        language={language}
+                        setLanguage={setLanguage}
+                        currentScreen={currentScreen}
+                    />
+
+                    <div className="page-with-header">
+                        {currentScreen === 'uid' && (
+                            <UidInputScreen
+                                uid={uid}
+                                setUid={setUid}
+                                onConfirm={async () => {
+                                    setLoading(true);
+                                    try {
+                                        if (!window.ZZZApp?.getCharacters) {
+                                            throw new Error('El módulo local de personajes no está disponible.');
+                                        }
+                                        const data = await window.ZZZApp.getCharacters(uid);
+                                        const chars = data.characters || [];
+                                        if (!chars.length) {
+                                            alert('No se encontraron personajes DPS en el showcase.');
+                                            return;
+                                        }
+                                        setNickname(data.nickname || 'Viajero');
+                                        setDpsCharacters(chars);
+                                        setResultsCache({});
+                                        const first = chars[0];
+                                        setSelectedDps(first);
+                                        setSwitchingDps(true);
+                                        try {
+                                            const results = await fetchBuildResults(uid, data.nickname || 'Viajero', first.raw_data);
+                                            setResultsCache({ [first.id]: results });
+                                            setBuildResults(results);
+                                            setCurrentScreen('results');
+                                        } catch (error) {
+                                            console.error('Error calculating build:', error);
+                                            alert('Error al calcular el build.');
+                                        } finally {
+                                            setSwitchingDps(false);
+                                        }
+                                    } catch (error) {
+                                        console.error('Error fetching characters:', error);
+                                        alert('Error al obtener personajes. Verifica el UID.');
+                                    } finally {
+                                        setLoading(false);
+                                    }
+                                }}
+                                loading={loading}
+                            />
+                        )}
+
+                        {currentScreen === 'results' && buildResults && (
+                            <BuildResultsScreen
+                                results={buildResults}
+                                dpsCharacters={dpsCharacters}
+                                activeDpsId={buildResults.character?.id}
+                                onDpsSwitch={handleDpsSwitch}
+                                switchingDps={switchingDps}
+                                onBack={() => {
+                                    setCurrentScreen('uid');
+                                    setBuildResults(null);
+                                    setSelectedDps(null);
+                                    setDpsCharacters([]);
+                                    setResultsCache({});
+                                }}
+                                uid={uid}
+                                nickname={nickname}
+                                language={language}
+                            />
+                        )}
+
+                    </div>
+
+                    {/* Footer - Only visible on results screen */}
+                    {currentScreen === 'results' && (
+                        <div className="w-full mt-12 pt-24 pb-8 px-6 bg-gradient-to-t from-black to-transparent text-center animate-fade-in">
+                            <div className="max-w-4xl mx-auto">
+                                <div className="mb-8">
+                                    <h4 className="text-gray-400 font-bold mb-3 text-sm tracking-widest uppercase">
+                                        {language === 'es' ? 'Información de Copyright' : 'Copyright Information'}
+                                    </h4>
+                                    <p className="text-gray-500 text-xs leading-relaxed">
+                                        {language === 'es'
+                                            ? 'Los activos y marcas que aparecen en este sitio pertenecen a sus legítimos propietarios. El titulo "Zenless Zone Zero" es una marca registrada propiedad de Cognosphere y miHoYo. Esta página es un espacio independiente creado por fans y no cuenta con el respaldo ni la afiliación de los desarrolladores originales. Algunos elementos del sitio son proporcionados por nuestra comunidad de usuarios. Todo el contenido se presenta bajo un contexto de ficción.'
+                                            : 'The assets and trademarks appearing on this site belong to their respective owners. The title "Zenless Zone Zero" is a registered trademark owned by Cognosphere and miHoYo. This site is an independent fan-created space and is not endorsed by or affiliated with the original developers. Some elements of the site are provided by our user community. All content is presented in a fictional context.'
+                                        }
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h4 className="text-gray-400 font-bold mb-3 text-sm tracking-widest uppercase">
+                                        {language === 'es' ? 'Agradecimientos a Enka.Network' : 'Big thanks to Enka.Network'}
+                                    </h4>
+                                    <p className="text-gray-500 text-xs leading-relaxed">
+                                        {language === 'es'
+                                            ? 'Muchísimas gracias a Enka.Network y a su equipo por proporcionarnos la información de los jugadores.'
+                                            : 'Special thanks to Enka.Network and its team for providing us with player information.'
+                                        }
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            );
+        }
+
+        // UID Input Screen
+        function UidInputScreen({ uid, setUid, onConfirm, loading }) {
+            return (
+                <div className="modal-overlay uid-modal-overlay animate-fade-in">
+                    <div className="container-transparent rounded-3xl p-12 max-w-lg w-full mx-4 border-gray-matte animate-slide-in uid-modal-box">
+                        <h1 className="fuente-zzz text-4xl text-center mb-8">
+                            Enter UID
+                        </h1>
+
+                        <div className="mb-8">
+                            <input
+                                type="text"
+                                inputMode="numeric"
+                                pattern="[0-9]*"
+                                className="cyber-input"
+                                placeholder="Enter your UID..."
+                                value={uid}
+                                onChange={(e) => {
+                                    const onlyDigits = e.target.value.replace(/\D/g, '');
+                                    setUid(onlyDigits);
+                                }}
+                                maxLength={10}
+                                disabled={loading}
+                            />
+                        </div>
+
+                        <div className="flex justify-center flex-col items-center gap-2">
+                            {uid.length > 0 && uid.length < 10 && (
+                                <p style={{ color: 'rgba(216, 250, 0, 0.6)', fontSize: '0.85rem', fontFamily: 'system-ui, sans-serif' }}>
+                                    {10 - uid.length} digit{10 - uid.length !== 1 ? 's' : ''} remaining
+                                </p>
+                            )}
+                            <button
+                                className="cyber-button"
+                                onClick={onConfirm}
+                                disabled={uid.length !== 10 || loading}
+                                style={{ opacity: (uid.length !== 10 || loading) ? 0.5 : 1 }}
+                            >
+                                {loading ? 'Loading...' : 'Confirm'}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        // DPS Selection Screen
+        function DpsSelectionScreen({ characters, selectedDps, setSelectedDps, onConfirm, onClose, loading }) {
+            return (
+                <div className="modal-overlay animate-fade-in">
+                    <div className="container-transparent rounded-3xl p-8 max-w-5xl w-full mx-4 border-gray-matte animate-slide-in">
+
+                        <h1 className="fuente-zzz text-4xl text-center mb-8 dps-modal-title">
+                            Choose Your DPS
+                        </h1>
+
+                        <div className="avatar-grid">
+                            {characters.map((char) => (
+                                <div
+                                    key={char.id}
+                                    className={`avatar-card ${selectedDps?.id === char.id ? 'selected' : ''}`}
+                                    onClick={() => setSelectedDps(char)}
+                                >
+                                    <img
+                                        src={char.image || `/api/placeholder/300/400`}
+                                        alt={char.name}
+                                        className="w-full h-full object-cover"
+                                    />
+                                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                                        <p className="orbitron text-lg font-bold text-center">{char.name}</p>
+                                        <p className="text-center text-lime-zzz">C{char.dupes || 0}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="flex justify-center mt-8">
+                            <button
+                                className="cyber-button"
+                                onClick={onConfirm}
+                                disabled={!selectedDps || loading}
+                                style={{ opacity: (!selectedDps || loading) ? 0.5 : 1 }}
+                            >
+                                {loading ? 'Calculating...' : 'Confirm'}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        // Build Results Screen
+        function BuildResultsScreen({ results, onBack, uid, nickname, language, dpsCharacters, activeDpsId, onDpsSwitch, switchingDps }) {
+            // Obtener datos según el tab activo
+            // Sin tabs, usar results directamente
+            const [showCrInfo, setShowCrInfo] = useState(false);
+
+            const porcentajeReal = results.porcentaje_real ?? results.user_percentage ?? 0;
+            const porcentajeUser = results.porcentaje_user ?? 0;
+            const crUsuario = Math.min(1, Math.max(0, results.cr_usuario ?? 0));
+            const perdidaPorCr = Math.max(0, porcentajeUser - porcentajeReal);
+            const rolDps = results.character?.rol ?? '';
+            const esCritRol = rolDps === 'Atacante' || rolDps === 'Ruptura';
+            const mostrarAdvertenciaCr = esCritRol && crUsuario < 1.0;
+            const mensajeCr = language === 'es'
+                ? `Tu Crit Rate es menor a 100% (${(crUsuario * 100).toFixed(1)}%).\nTu puntuacion ha bajado (${perdidaPorCr.toFixed(1)}%).`
+                : `Your Crit Rate is lower than 100% (${(crUsuario * 100).toFixed(1)}%).\nThe score has dropped (${perdidaPorCr.toFixed(1)}%).`;
+
+            const damagePerfect = Math.ceil(results.damage.perfect);
+            const damageUser = Math.ceil(results.damage.user);
+            const disks = results.build?.gear?.disks || [];
+
+            // Extract Youtube ID
+            let youtubeThumbnail = '';
+            let hasVideo = !!results.video_guide;
+            if (hasVideo) {
+                const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+                const match = results.video_guide.match(regExp);
+                if (match && match[2].length === 11) {
+                    youtubeThumbnail = `https://img.youtube.com/vi/${match[2]}/hqdefault.jpg`;
+                }
+            }
+
+            return (
+                <div className="min-h-screen p-4 md:p-8 animate-fade-in">
+                    <div className="max-w-7xl mx-auto">
+                        {/* Mobile layout: 2-col grid + guide full width */}
+                        <div className="md:hidden space-y-3">
+                            <div className="grid grid-cols-2 gap-3">
+                                <div className="results-mobile-card">
+                                    <h3 className="fuente-zzz section-title text-white font-bold">Build Info</h3>
+                                    <div className="mb-3">
+                                        <p className="text-small font-bold text-xs mb-2 text-gray-400">Weapon</p>
+                                        <div className="flex items-center gap-2">
+                                            <div className="w-11 h-11 bg-gray-800 rounded-full flex items-center justify-center overflow-hidden flex-shrink-0">
+                                                {results.build.weapon.image ? (
+                                                    <img src={results.build.weapon.image} alt={results.build.weapon.name} className="w-full h-full object-contain" />
+                                                ) : (
+                                                    <span className="text-xl">⚔️</span>
+                                                )}
+                                            </div>
+                                            <div className="min-w-0">
+                                                <p className="font-bold text-sm truncate">{results.build.weapon.name}</p>
+                                                <p className="text-lime-zzz text-sm">W{(results.build.weapon.dupes || 0)+1}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p className="text-small font-bold text-xs mb-2 text-gray-400">Gear Sets</p>
+                                        <div className="flex flex-col gap-1.5 mb-2">
+                                            <div className="gear-set-4pc bg-lime-zzz text-black px-2 py-1 rounded-full font-bold text-xs inline-block max-w-full truncate">
+                                                {results.build.gear.set_4pc} x4
+                                            </div>
+                                            <div className="gear-set-2pc bg-gray-700 text-white px-2 py-1 rounded-full font-bold text-xs inline-block max-w-full truncate">
+                                                {results.build.gear.set_2pc} x2
+                                            </div>
+                                        </div>
+                                        <div className="flex gap-2">
+                                            {results.build.gear.set_4pc_image && (
+                                                <div className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center overflow-hidden">
+                                                    <img src={results.build.gear.set_4pc_image} alt="" className="w-full h-full object-cover" />
+                                                </div>
+                                            )}
+                                            {results.build.gear.set_2pc_image && (
+                                                <div className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center overflow-hidden">
+                                                    <img src={results.build.gear.set_2pc_image} alt="" className="w-full h-full object-cover" />
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="results-mobile-card">
+                                    <h3 className="fuente-zzz section-title text-white font-bold">Team</h3>
+                                    <div className="space-y-3">
+                                        {results.build.team.slice(0, 2).map((member, idx) => (
+                                            <div key={idx} className="flex items-center gap-2">
+                                                <div className="w-11 h-11 bg-gray-800 rounded-full flex items-center justify-center overflow-hidden flex-shrink-0">
+                                                    <img
+                                                        src={member.image || `/api/placeholder/64/64`}
+                                                        alt={member.name}
+                                                        className="w-full h-full object-cover"
+                                                        style={{ objectPosition: 'center' }}
+                                                    />
+                                                </div>
+                                                <div className="min-w-0">
+                                                    <p className="font-bold text-xs leading-tight truncate">{member.name || `Support ${idx + 1}`}</p>
+                                                    <p className="text-xs text-gray-400">C{member.dupes || 0}</p>
+                                                    <p className="text-xs font-bold text-lime-zzz truncate">
+                                                        {member.weapon || '—'}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-3 items-start">
+                                <div className="results-mobile-card flex flex-col items-center text-center">
+                                    <h2 className="fuente-zzz text-lg text-white mb-0.5 truncate w-full px-1">{results.character.name}</h2>
+                                    <p className="text-sm text-gray-400 mb-2">C{results.character.dupes || 0}</p>
+                                    <div className="w-full flex justify-center py-1">
+                                        <img
+                                            src={results.character.image || `/api/placeholder/400/600`}
+                                            alt={results.character.name}
+                                            className="max-h-[200px] w-full max-w-[160px] object-contain object-top"
+                                        />
+                                    </div>
+                                    <p className="text-xs text-gray-500 mt-2">UID: {uid}</p>
+                                    <p className="fuente-zzz text-lg text-white">{nickname}</p>
+                                </div>
+
+                                <div className="results-mobile-card flex flex-col">
+                                    <div className="flex justify-between items-start mb-3">
+                                        <div>
+                                            <p className="text-small text-gray-400 text-xs">Ranking</p>
+                                            <p className="fuente-zzz text-2xl text-white">#{results.ranking.position || 1}</p>
+                                        </div>
+                                        <div className="w-14 h-14 flex items-center justify-center flex-shrink-0">
+                                            <img
+                                                src={
+                                                    results.ranking.grade === 'S+' ? '/static/Letras-S_.png' :
+                                                        results.ranking.grade === 'S' ? '/static/Letras-S.png' :
+                                                            results.ranking.grade === 'A' ? '/static/Letras-A.png' :
+                                                                results.ranking.grade === 'B' ? '/static/Letras-B.png' :
+                                                                    '/static/Letras-C.png'
+                                                }
+                                                alt={results.ranking.grade || 'C'}
+                                                className="w-full h-full object-contain"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="flex justify-center mb-3">
+                                        <div className="percentage-circle percentage-circle--sm" style={{ "--percentage": porcentajeReal }}>
+                                            <svg width="140" height="140" viewBox="0 0 140 140">
+                                                <circle className="bg-circle" cx="70" cy="70" r="62"></circle>
+                                                <circle className="progress-circle" cx="70" cy="70" r="62"></circle>
+                                            </svg>
+                                            <div className="absolute inset-0 flex items-center justify-center">
+                                                <span className="fuente-zzz text-4xl">{porcentajeReal.toFixed(1)}%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <p className="text-small font-bold text-xs mb-2 text-gray-400">Sub stats:</p>
+                                        {results.substats.map((stat, idx) => (
+                                            <div key={idx} className="mb-2 last:mb-0">
+                                                <div className="flex justify-between text-xs mb-0.5">
+                                                    <span className="text-small truncate pr-1">{getSubstatDisplayName(stat)}</span>
+                                                    <span className="text-small text-lime-zzz flex-shrink-0">{stat.current}/{stat.max}</span>
+                                                </div>
+                                                <div className="stat-bar h-5">
+                                                    <div className="stat-bar-fill" style={{ width: `${Math.min(100, (stat.current / stat.max) * 100)}%` }}></div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="results-mobile-card">
+                                <p className="text-small font-bold text-sm mb-3 text-white">Damage:</p>
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <p className="text-small text-xs text-gray-400 mb-1">Perfect build:</p>
+                                        <p className="fuente-zzz text-xl sm:text-2xl text-lime-zzz leading-tight break-all">
+                                            {Math.ceil(results.damage.perfect).toLocaleString()}
+                                        </p>
+                                        <p className="text-small text-xs text-gray-500 mt-1">(100%)</p>
+                                    </div>
+                                    <div>
+                                        <p className="text-small text-xs text-gray-400 mb-1">My build:</p>
+                                        <div className="flex items-center gap-2">
+                                            <p className="fuente-zzz text-xl sm:text-2xl text-white leading-tight break-all">
+                                                {Math.ceil(results.damage.user).toLocaleString()}
+                                            </p>
+                                            {mostrarAdvertenciaCr && (
+                                                <div className="relative">
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => setShowCrInfo((prev) => !prev)}
+                                                        className="fuente-zzz text-xl sm:text-2xl leading-tight cursor-pointer"
+                                                        aria-label="Advertencia de Crit Rate"
+                                                        title="Crit Rate menor a 100%"
+                                                    >
+                                                        ⚠️
+                                                    </button>
+                                                    {showCrInfo && (
+                                                        <div className="discord-promo-bubble absolute z-50 mt-2 w-72 bg-gray-900 border md:border-2 border-gray-700 rounded-xl p-4 shadow-2xl animate-fade-in">
+                                                            <div className="absolute -top-[9px] left-5 w-4 h-4 bg-gray-900 border-t md:border-t-2 border-l md:border-l-2 border-gray-700 transform rotate-45"></div>
+                                                            <p className="text-sm text-center text-gray-200 font-medium leading-relaxed whitespace-pre-line relative z-10">
+                                                                {mensajeCr}
+                                                            </p>
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            )}
+                                        </div>
+                                        <p className="text-small text-xs text-gray-500 mt-1">({porcentajeUser.toFixed(1)}%)</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {hasVideo && (
+                                <div className="results-mobile-card">
+                                    <p className="text-small font-bold text-sm mb-3 text-white">Guide / Showcase:</p>
+                                    <div
+                                        className="w-full aspect-video bg-gray-900 rounded-xl overflow-hidden flex items-center justify-center relative cursor-pointer active:opacity-90"
+                                        onClick={() => window.open(results.video_guide, '_blank')}
+                                    >
+                                        {youtubeThumbnail ? (
+                                            <img src={youtubeThumbnail} className="w-full h-full object-cover" alt="Video guide" />
+                                        ) : (
+                                            <span className="text-gray-400 text-sm">Play Video</span>
+                                        )}
+                                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                            <div className="w-14 h-14 bg-red-600 rounded-full flex items-center justify-center shadow-lg opacity-95">
+                                                <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[16px] border-l-white border-b-[10px] border-b-transparent ml-1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
+                        </div>
+
+                        {/* Desktop: nuevo diseño PC */}
+                        <div className="hidden md:block results-pc-wrap animate-fade-in">
+                            <div className="results-pc-scale">
+                            {dpsCharacters && dpsCharacters.length > 0 && (
+                                <div className="dps-switcher">
+                                    {dpsCharacters.slice(0, 6).map((char) => (
+                                        <button
+                                            key={char.id}
+                                            type="button"
+                                            className={`dps-switcher-btn ${activeDpsId === char.id ? 'active' : ''}`}
+                                            onClick={() => onDpsSwitch && onDpsSwitch(char)}
+                                            disabled={switchingDps}
+                                            title={char.name}
+                                        >
+                                            <img
+                                                src={char.circle || `/static/pj/${char.id}c.webp`}
+                                                alt={char.name}
+                                            />
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
+
+                            <div className="results-pc-card-wrap">
+                                {switchingDps && (
+                                    <div className="results-pc-loading">Loading...</div>
+                                )}
+                                <div className="results-pc-card">
+                                    {/* Columna izquierda: personaje */}
+                                    <div className="results-pc-char">
+                                        <div className="results-pc-char-top">
+                                            <p className="nickname">{results.character.name}</p>
+                                            <p className="cinema">C{results.character.dupes || 0}</p>
+                                        </div>
+                                        <div className="results-pc-char-art">
+                                            <img
+                                                src={results.character.image || `/api/placeholder/400/600`}
+                                                alt={results.character.name}
+                                            />
+                                        </div>
+                                        <div className="results-pc-char-bottom">
+                                            <p className="char-name">{nickname}</p>
+                                            <p className="char-uid">{uid}</p>
+                                        </div>
+                                    </div>
+
+                                    {/* Panel derecho: 2 filas independientes */}
+                                    <div className="results-pc-right">
+                                        <div className="results-pc-row-top">
+                                            <div className="results-pc-box box-w-engine">
+                                                <p className="results-pc-box-title">W. Engine</p>
+                                                <div className="w-engine-box">
+                                                    {results.build.weapon.image ? (
+                                                        <img
+                                                            className="w-engine-img"
+                                                            src={results.build.weapon.image}
+                                                            alt={results.build.weapon.name}
+                                                        />
+                                                    ) : (
+                                                        <span className="w-engine-img" style={{ fontSize: '2.5rem' }}>⚔️</span>
+                                                    )}
+                                                    <span className="w-engine-dupe-badge">
+                                                        {weaponDupeLabel(results.build.weapon.dupes)}
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div className="results-pc-box box-build-score">
+                                                <p className="results-pc-box-title">Build Score</p>
+                                                <SemiCircleGauge
+                                                    percent={porcentajeReal}
+                                                    userDamage={damageUser}
+                                                    maxDamage={damagePerfect}
+                                                />
+                                            </div>
+
+                                            <div className="results-pc-box box-ranking">
+                                                <p className="rank-label">Ranking</p>
+                                                <p className="rank-num">#{results.ranking.position || 1}</p>
+                                                <img
+                                                    className="grade-img"
+                                                    src={getGradeImage(results.ranking.grade)}
+                                                    alt={results.ranking.grade || 'C'}
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <div className="results-pc-row-bottom">
+                                            <div className="results-pc-box box-drive-disks">
+                                                <p className="results-pc-box-title">Drive Disks</p>
+                                                <div className="drive-disks-grid">
+                                                    {(disks.length ? disks : []).map((disk) => (
+                                                        <DriveDiskCard key={disk.slot_label || disk.slot} disk={disk} />
+                                                    ))}
+                                                </div>
+                                            </div>
+
+                                            <div className="results-pc-box box-substats">
+                                                <p className="results-pc-box-title">Sub stats rolls:</p>
+                                                <div className="substats-pc-list">
+                                                    {results.substats.map((stat, idx) => (
+                                                        <div key={idx} className="substats-pc-row">
+                                                            <div className="flex justify-between mb-0.5">
+                                                                <span className="stat-label">{getSubstatDisplayName(stat)}</span>
+                                                                <span className="stat-values">{stat.current}/{stat.max}</span>
+                                                            </div>
+                                                            <div className="stat-bar">
+                                                                <div
+                                                                    className="stat-bar-fill"
+                                                                    style={{ width: `${statBarPercent(stat.current, stat.max)}%` }}
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            );
+        }
+
+        // Render App
+        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    </script>
+</body>
+
+</html>

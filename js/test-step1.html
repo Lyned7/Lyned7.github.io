@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZZZ Calc — Verificación Paso 1 (Datos)</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #0a0a0f; color: #e5e5e5; padding: 2rem; max-width: 720px; margin: 0 auto; }
+    h1 { color: #d8fa00; font-size: 1.25rem; }
+    .ok { color: #4ade80; }
+    .fail { color: #f87171; }
+    li { margin: 0.35rem 0; }
+    code { background: #1a1a24; padding: 0.1rem 0.35rem; border-radius: 4px; }
+    p.note { color: #9ca3af; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <h1>Paso 1 — Datos estáticos (JS)</h1>
+  <p class="note">Sirve esta página con un servidor local desde la raíz del proyecto:<br>
+    <code>python -m http.server 8080</code> → <code>http://localhost:8080/js/test-step1.html</code></p>
+  <ul id="results"><li>Cargando módulos…</li></ul>
+  <script type="module">
+    import {
+      PERSONAJES_DATA,
+      BUILDS_PREDEFINIDOS,
+      AVATAR_ID_TO_NAME,
+      obtenerBuildOptimo,
+      obtenerSetNombrePorId,
+      esDps,
+      getCharacterIcon,
+      getWeaponImage,
+    } from './data/index.js';
+
+    const checks = [];
+
+    function assert(label, condition) {
+      checks.push({ label, ok: Boolean(condition) });
+    }
+
+    const dpsCount = Object.keys(PERSONAJES_DATA).length;
+    const buildsCount = Object.keys(BUILDS_PREDEFINIDOS).length;
+    const avatarCount = Object.keys(AVATAR_ID_TO_NAME).length;
+
+    assert(`PERSONAJES_DATA tiene ${dpsCount} entradas`, dpsCount >= 30);
+    assert(`BUILDS_PREDEFINIDOS tiene ${buildsCount} entradas`, buildsCount >= 30);
+    assert(`AVATAR_ID_TO_NAME tiene ${avatarCount} entradas`, avatarCount >= 50);
+
+    const s11Build = obtenerBuildOptimo('S11');
+    assert('obtenerBuildOptimo("S11") devuelve arma_dps', s11Build?.arma_dps === 'Heartstring Nocturne');
+
+    const setName = obtenerSetNombrePorId(31141);
+    assert('obtenerSetNombrePorId(31141) resuelve set', typeof setName === 'string' && setName.length > 0);
+
+    assert('esDps(1041) = true (S11)', esDps(1041) === true);
+    assert('esDps(99999) = false', esDps(99999) === false);
+
+    assert('getCharacterIcon(1041) incluye /static/pj/', getCharacterIcon(1041).includes('/static/pj/'));
+    assert('getWeaponImage devuelve ruta válida', getWeaponImage(13001).includes('/static/we/'));
+
+    // Coherencia: todo DPS en PERSONAJES_DATA debe tener build predefinido
+    const missingBuilds = Object.keys(PERSONAJES_DATA).filter((n) => !BUILDS_PREDEFINIDOS[n]);
+    assert(
+      `Todos los DPS tienen build (${missingBuilds.length} faltantes)`,
+      missingBuilds.length === 0,
+    );
+
+    const ul = document.getElementById('results');
+    ul.innerHTML = '';
+    let allOk = true;
+    for (const { label, ok } of checks) {
+      allOk = allOk && ok;
+      const li = document.createElement('li');
+      li.className = ok ? 'ok' : 'fail';
+      li.textContent = (ok ? '✓ ' : '✗ ') + label;
+      ul.appendChild(li);
+    }
+    const summary = document.createElement('p');
+    summary.style.marginTop = '1.5rem';
+    summary.style.fontWeight = '600';
+    summary.className = allOk ? 'ok' : 'fail';
+    summary.textContent = allOk
+      ? 'Paso 1 completado — datos cargados correctamente.'
+      : 'Hay fallos — revisa la consola y los archivos generados.';
+    document.body.appendChild(summary);
+  </script>
+</body>
+</html>
