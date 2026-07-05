@@ -1,7 +1,4 @@
-/**
- * Fetch Enka vía proxy Cloudflare — port de api_data.py (solo browser).
- * 100% JavaScript, sin Python en runtime.
- */
+
 const ENKA_ZZZ_URL = 'https://zzz-proxy.lyned.workers.dev/?uid={uid}';
 const DEFAULT_OK_TTL = 600_000;
 const TTL_RATE_LIMITED = 120_000;
@@ -9,7 +6,6 @@ const TTL_TIMEOUT = 45_000;
 const TTL_ERROR = 60_000;
 const READ_TIMEOUT_MS = 20_000;
 
-/** @type {Map<string, { expires: number, outcome: object }>} */
 const cache = new Map();
 
 function ttlForOutcome(kind) {
