@@ -33,6 +33,22 @@ export const BUILDS_PREDEFINIDOS = {
       "dupes_arma": 0
     }
   },
+  "Norma": {
+    "arma_dps": "Chief Sidekick",
+    "skill_insignia": "Ex",
+    "support1": {
+      "nombre": "Sunna",
+      "dupes": 0,
+      "arma": "Thoughtbop",
+      "dupes_arma": 0
+    },
+    "support2": {
+      "nombre": "YeShunguang",
+      "dupes": 0,
+      "arma": "Cloudcleave Radiance",
+      "dupes_arma": 0
+    }
+  },
   "Pyrois": {
     "arma_dps": "Sol Exuvia",
     "skill_insignia": "Ulti2",
