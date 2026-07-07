@@ -5,6 +5,10 @@ export const AVATAR_IMAGE_PATHS = {
     "icon": "/static/pj/1041.webp",
     "circle": "/static/pj/1041c.webp"
   },
+  "1571": {
+    "icon": "/static/pj/1571.webp",
+    "circle": "/static/pj/1571c.webp"
+  },
   "1551": {
     "icon": "/static/pj/1551.webp",
     "circle": "/static/pj/1551c.webp"
@@ -256,6 +260,7 @@ export const GEAR_SET_IMAGES = {
 
 export const WEAPON_IMAGE_PATHS = {
   "14104": "/static/we/14104.webp",
+  "14157": "/static/we/14157.webp",
   "14132": "/static/we/14132.webp",
   "14143": "/static/we/14143.webp",
   "14155": "/static/we/14155.webp",
