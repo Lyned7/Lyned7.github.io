@@ -2545,6 +2545,83 @@ export const PERSONAJES_DATA = {
       "chain": {}
     },
     "buffs_especificos": {}
+  },
+  "Norma": {
+    "rol": "Atacante",
+    "elemento": "Fuego",
+    "atk_base": 762,
+    "tasa_base": 126,
+    "hp_base": 8373,
+    "skill_insignia": "Ex",
+    "dupes": {
+      "0": {
+        "Cr": 0.194,
+        "Vuln": 0.3,
+        "Cd": 0.5,
+        "Dmg": 0.2,
+        "Atke": 870
+      },
+      "1": {
+        "Cr": 0.194,
+        "Vuln": 0.3,
+        "Cd": 0.5,
+        "Dmg": 0.2,
+        "Atke": 870,
+        "Res": 0.15
+      },
+      "2": {
+        "Cr": 0.194,
+        "Vuln": 0.6,
+        "Cd": 0.5,
+        "Dmg": 0.2,
+        "Atke": 870,
+        "Res": 0.15
+      },
+      "3": {
+        "Cr": 0.194,
+        "Vuln": 0.6,
+        "Cd": 0.5,
+        "Dmg": 0.2,
+        "Atke": 870,
+        "Res": 0.15
+      },
+      "4": {
+        "Cr": 0.194,
+        "Vuln": 0.6,
+        "Cd": 0.5,
+        "Dmg": 0.2,
+        "Atke": 870,
+        "Atke": 500
+      },
+      "5": {
+        "Cr": 0.194,
+        "Vuln": 0.6,
+        "Cd": 0.5,
+        "Dmg": 0.2,
+        "Atke": 870,
+        "Atke": 500
+      },
+      "6": {
+        "Cr": 0.194,
+        "Vuln": 0.6,
+        "Cd": 0.5,
+        "Dmg": 0.2,
+        "Atke": 870,
+        "Res": 0.15
+      }
+    },
+    "skills": {
+      "Ex": {
+        "multi_A": 18.47,
+        "multi_B": 20.15,
+        "multi_C": 21.83,
+        "tipo": "ex"
+      }
+    },
+    "buffs_por_tipo": {
+      "chain": {}
+    },
+    "buffs_especificos": {}
   }
 };
 
@@ -4142,6 +4219,35 @@ export const ARMAS_DATA = {
       },
       "4": {
         "Dmg": 0.32
+      }
+    }
+  },
+  "Chief Sidekick": {
+    "atk_base": 713,
+    "stat_principal": {
+      "stat": "Cr",
+      "valor": 0.24
+    },
+    "buffs": {
+      "0": {
+        "Dmg": 0.25,
+        "Res": 0.15,
+      },
+      "1": {
+        "Dmg": 0.288,
+        "Res": 0.172,
+      },
+      "2": {
+        "Dmg": 0.326,
+        "Res": 0.195,
+      },
+      "3": {
+        "Dmg": 0.362,
+        "Res": 0.217,
+      },
+      "4": {
+        "Dmg": 0.48,
+        "Res": 0.24,
       }
     }
   },
