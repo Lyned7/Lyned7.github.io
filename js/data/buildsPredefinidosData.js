@@ -49,6 +49,22 @@ export const BUILDS_PREDEFINIDOS = {
       "dupes_arma": 0
     }
   },
+  "Remielle": {
+    "arma_dps": "Ode of Resurrected Wings",
+    "skill_insignia": "Abloom",
+    "support1": {
+      "nombre": "Velina",
+      "dupes": 0,
+      "arma": "Joyau Dore",
+      "dupes_arma": 0
+    },
+    "support2": {
+      "nombre": "YeShunguang",
+      "dupes": 0,
+      "arma": "Cloudcleave Radiance",
+      "dupes_arma": 0
+    }
+  },
   "Pyrois": {
     "arma_dps": "Sol Exuvia",
     "skill_insignia": "Ulti2",
