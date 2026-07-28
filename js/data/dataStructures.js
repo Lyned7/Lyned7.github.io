@@ -4492,6 +4492,26 @@ export const ARMAS_SUPPORT_DATA = {
       }
     }
   },
+  "Joyau Dore": {
+    "tipo": "arma_support",
+    "buffs": {
+      "0": {
+        "MA": 60,
+      },
+      "1": {
+        "MA": 69,
+      },
+      "2": {
+        "MA": 78,
+      },
+      "3": {
+        "MA": 87,
+      },
+      "4": {
+        "MA": 96,
+      }
+    }
+  },
   "Thoughtbop": {
     "tipo": "arma_support",
     "buffs": {
@@ -4870,6 +4890,35 @@ export const SUPPORTS_DATA = {
         "Dmg": 0.24,
         "Cd": 0.31,
         "Res": 0.18
+      }
+    },
+    "buffs_tipo_skill": {}
+  },
+  "Velina": {
+    "elemento": "Viento",
+    "rol": "Support",
+    "gear_recomendado": "NoSet",
+    "buffs": {
+      "0": {
+        "Dmg": 0,
+      },
+      "1": {
+        "Dmg": 0,
+      },
+      "2": {
+        "Dmg": 0,
+      },
+      "3": {
+        "Dmg": 0,
+      },
+      "4": {
+        "Dmg": 0,
+      },
+      "5": {
+        "Dmg": 0,
+      },
+      "6": {
+        "Dmg": 0,
       }
     },
     "buffs_tipo_skill": {}
