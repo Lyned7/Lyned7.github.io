@@ -5,6 +5,10 @@ export const AVATAR_IMAGE_PATHS = {
     "icon": "/static/pj/1041.webp",
     "circle": "/static/pj/1041c.webp"
   },
+  "1581": {
+    "icon": "/static/pj/1581.webp",
+    "circle": "/static/pj/1581c.webp"
+  },
   "1571": {
     "icon": "/static/pj/1571.webp",
     "circle": "/static/pj/1571c.webp"
@@ -235,6 +239,7 @@ export const GEAR_SET_IMAGES = {
   "Chaotic Metal": "/static/gear/Chaotic_Metal.webp",
   "Dawn's Bloom": "/static/gear/Dawns_Bloom.webp",
   "Fanged Metal": "/static/gear/Fanged_Metal.webp",
+  "Feathered Fate": "/static/gear/Feathered_Fate.webp",
   "Freedom Blues": "/static/gear/Freedom_Blues.webp",
   "Hormone Punk": "/static/gear/Hormone_Punk.webp",
   "Inferno Metal": "/static/gear/Inferno_Metal.webp",
@@ -260,6 +265,7 @@ export const GEAR_SET_IMAGES = {
 
 export const WEAPON_IMAGE_PATHS = {
   "14104": "/static/we/14104.webp",
+  "14158": "/static/we/14158.webp",
   "14157": "/static/we/14157.webp",
   "14132": "/static/we/14132.webp",
   "14143": "/static/we/14143.webp",
