@@ -2,6 +2,7 @@
 
 export const AVATAR_ID_TO_NAME = {
   "1041": "S11",
+  "1581": "Remielle",
   "1431": "YeShunguang",
   "1551": "Pyrois",
   "1241": "Zhu Yuan",
@@ -117,6 +118,7 @@ export const NAME_TO_AVATAR_ID = {
 
 export const WEAPON_ID_TO_NAME = {
   "14104": "Brimstone",
+  "14158": "Ode of Resurrected Wings",
   "14132": "Heartstring Nocturne",
   "14143": "Cloudcleave Radiance",
   "14155": "Sol Exuvia",
@@ -372,6 +374,20 @@ export const DISC_SET_ID_RANGES = {
     "range": [
       32641,
       32646
+    ]
+  },
+  "Feathered Fate": {
+    "slots": {
+      "1": 34141,
+      "2": 34142,
+      "3": 34143,
+      "4": 34144,
+      "5": 34145,
+      "6": 34146
+    },
+    "range": [
+      34141,
+      34146
     ]
   },
   "Freedom Blues": {
