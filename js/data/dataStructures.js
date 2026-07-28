@@ -1958,6 +1958,118 @@ export const PERSONAJES_DATA = {
       "paso": 1
     }
   },
+  "Remielle": {
+    "rol": "Anomalo",
+    "elemento": "Lumen",
+    "atk_base": 823,
+    "tasa_base": 148,
+    "hp_base": 7788,
+    "er_base": 12.0,
+    "skill_insignia": "Abloom",
+    "dupes": {
+      "0": {
+        "MA": 170,
+        "Dmg": 0.18,
+        "Atke": 1600,
+      },
+      "1": {
+        "MA": 170,
+        "Dmg": 0.18,
+        "Atke": 1600,
+        "Admg": 0.10,
+        "Res": 0.50,
+      },
+      "2": {
+        "MA": 170,
+        "Dmg": 0.18,
+        "Atke": 1600,
+        "Admg": 0.30,
+        "Res": 0.50,
+        "Def": 0.15,
+      },
+      "3": {
+        "MA": 170,
+        "Dmg": 0.18,
+        "Atke": 1600,
+        "Admg": 0.30,
+        "Res": 0.50,
+        "Def": 0.15,
+      },
+      "4": {
+        "MA": 170,
+        "Dmg": 0.18,
+        "Atke": 1600,
+        "Admg": 0.30,
+        "Res": 0.50,
+        "Def": 0.15,
+      },
+      "5": {
+        "MA": 170,
+        "Dmg": 0.18,
+        "Atke": 1600,
+        "Admg": 0.30,
+        "Res": 0.50,
+        "Def": 0.15,
+      },
+      "6": {
+        "MA": 170,
+        "Dmg": 0.18,
+        "Atke": 1600,
+        "Admg": 0.30,
+        "Res": 0.50,
+        "Def": 0.15,
+      }
+    },
+    "skills": {
+      "Abloom": {
+        "multi_A": 1,
+        "multi_B": 1,
+        "multi_C": 1.12,
+        "tipo_dano": "anomalia",
+        "tipo": "ex"
+      }
+    },
+    "buffs_por_tipo": {
+      "chain": {}
+    },
+    "buffs_especificos": {
+      "Abloom": {
+        "0": {
+          "Mv": 0
+        },
+        "1": {
+          "Mv": 0
+        },
+        "2": {
+          "Mv": 0
+        },
+        "3": {
+          "Mv": 0
+        },
+        "4": {
+          "Mv": 0
+        },
+        "5": {
+          "Mv": 0
+        },
+        "6": {
+          "Mv": 0
+        }
+      }
+    },
+    "stat_escalado": {
+      "stat_fuente": "MA",
+      "umbral": 0,
+      "stat_destino": [
+        {
+          "stat": "Admg",
+          "razon": 0.0002,
+          "max_ganancia": null
+        },
+      ],
+      "paso": 1
+    }
+  },
   "Piper": {
     "rol": "Anomalo",
     "elemento": "Fisico",
@@ -3532,6 +3644,40 @@ export const ARMAS_DATA = {
       },
       "4": {
         "Dmg": 1.14
+      }
+    }
+  },
+  "Ode of Resurrected Wings": {
+    "atk_base": 743,
+    "stat_principal": {
+      "stat": "Atk%",
+      "valor": 0.36
+    },
+    "buffs": {
+      "0": {
+        "MA": 96,
+        "Dmg": 0.30,
+        "Admg": 0.20,
+      },
+      "1": {
+        "MA": 105,
+        "Dmg": 0.345,
+        "Admg": 0.23,
+      },
+      "2": {
+        ""MA": 115,
+        "Dmg": 0.39,
+        "Admg": 0.26,
+      },
+      "3": {
+        "MA": 125,
+        "Dmg": 0.435,
+        "Admg": 0.29,
+      },
+      "4": {
+        "MA": 135,
+        "Dmg": 0.48,
+        "Admg": 0.32,
       }
     }
   },
@@ -5192,6 +5338,23 @@ export const GEAR_SETS_DATA = {
       "buffs_tipo_skill": {}
     }
   },
+  "Feathered Fate": {
+    "efecto_2pc": {
+      "buffs": {
+        "MA": 30
+      },
+      "buffs_elemento": {},
+      "buffs_tipo_skill": {}
+    },
+    "efecto_4pc": {
+      "buffs": {
+        "MA": 30,
+        "Admg": 0.15,
+      },
+      "buffs_elemento": {},
+      "buffs_tipo_skill": {}
+    }
+  },    
   "Freedom Blues": {
     "efecto_2pc": {
       "buffs": {
@@ -5754,7 +5917,12 @@ export const ANOMALIA_BASE = {
     "mv_por_golpe": 1.25,
     "intervalo": 1,
     "duracion_base": 10
-  }
+  },
+  "Lumen": {
+    "mv_por_golpe": 1.25,
+    "intervalo": 1,
+    "duracion_base": 10
+  }  
 };
 
 export const GEAR_RECOMENDADO = {
