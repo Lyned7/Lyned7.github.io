@@ -1,5 +1,5 @@
 /**
- * Rutas locales de imágenes (personajes, armas, gear, substats).
+ * Rutas locales de imágenes (personajes, armas, gear, substats). try
  */
 import {
   AVATAR_IMAGE_PATHS,
