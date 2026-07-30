@@ -1,5 +1,5 @@
 /**
- * Formatea respuesta para la UI — lógica de main.py sin FastAPI ni DB.
+ * Formatea respuesta para la UI — lógica de main.py sin FastAPI ni DB. noc
  */
 import { AVATAR_ID_TO_NAME } from '../data/apiMappings.js';
 import {
