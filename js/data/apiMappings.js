@@ -1,5 +1,5 @@
 /**
- * Mapeos de IDs Enka → nombres internos + utilidades.
+ * Mapeos de IDs Enka → nombres internos + utilidades. try
  */
 import {
   AVATAR_ID_TO_NAME,
