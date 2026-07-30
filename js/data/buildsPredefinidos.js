@@ -1,5 +1,5 @@
 /**
- * Builds óptimos predefinidos por personaje. try
+ * Builds óptimos predefinidos por personaje
  */
 import { BUILDS_PREDEFINIDOS } from './buildsPredefinidosData.js';
 
