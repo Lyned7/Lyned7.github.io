@@ -12,7 +12,7 @@ const substats = {
     CR_Base: 0.024,
     CD_Base: 0.048,
     Penp: 9,
-    MA: 9
+    MA_Base: 9
 };
 
 export default substats
