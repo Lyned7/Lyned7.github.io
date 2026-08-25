@@ -18,7 +18,7 @@ const mainstats = {
         Atkx: 0.30,
         Hpx: 0.30,
         Defx: 0.48,
-        MA: 92
+        MA_Base: 92
     },
     "D5": {
         Atkx: 0.30,
