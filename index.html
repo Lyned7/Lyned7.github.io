@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LYNED · DPS Optimizer</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="brand">LYNED</div>
+
+        <div class="sidebar-buttons">
+            <div class="sidebar-button active" data-view="optimizer">Optimizer</div>
+            <div class="sidebar-button" data-view="disks">Mis Discos</div>
+        </div>
+    </aside>
+
+    <!-- ======================================================= -->
+    <!-- VISTA: OPTIMIZER                                         -->
+    <!-- ======================================================= -->
+    <div class="view-section" id="view-optimizer">
+
+        <!-- HEADER -->
+        <div class="page-title">Configuracion del DPS</div>
+
+        <!-- CHARACTER -->
+        <section class="panel character-panel">
+            <div class="panel-header">Personaje</div>
+            <div class="character-image" data-select="dps-character-image">
+                <img src="/static/DPS/Dps_Base.webp" alt="">
+            </div>
+        </section>
+
+        <!-- DUPES / W-ENGINE -->
+        <section class="panel dupe-panel">
+            <div class="panel-header">DPS Cinema & W-Engine</div>
+
+            <div class="field-label person-label">Character:</div>
+            <div class="field character-field" data-select="dps-character-field">
+                <span>DPS...</span>
+                <span class="field-side" data-select="dps-character-level">C0</span>
+            </div>
+
+            <div class="field-label engine-label">W-Engine:</div>
+            <div class="field engine-field" data-select="dps-weapon-field">
+                <span>W-Engine</span>
+                <span class="field-side" data-select="dps-weapon-level">W1</span>
+            </div>
+
+            <div class="engine-image-box" data-select="dps-weapon-image">
+                <img src="/static/WENGINE/We_Base.webp" alt="">
+            </div>
+        </section>
+
+        <!-- DISKS -->
+        <section class="panel disks-panel">
+        <div class="panel-header">Discos y Stats</div>
+
+        <div class="field-label sets-label">Sets:</div>
+
+        <div class="set-card set-card-1" data-select="dps-set-4p">
+            <img src="/static/DISKS/Set_Base.webp" alt="">
+        </div>
+
+        <div class="field-label sets-label-1">4P</div>
+
+        <div class="set-card set-card-2" data-select="dps-set-2p">
+            <img src="/static/DISKS/Set_Base.webp" alt="">
+        </div>
+
+        <div class="field-label sets-label-2">2P</div>
+
+        <div class="field-label main-stats-label">Stats Principales:</div>
+
+        <div class="stat-slot slot-d4" data-select="dps-main-stat-d4">
+            <span class="stat-slot-label">D4</span>
+            <div class="stat-chip-slot"></div>
+        </div>
+        <div class="stat-slot slot-d5" data-select="dps-main-stat-d5">
+            <span class="stat-slot-label">D5</span>
+            <div class="stat-chip-slot"></div>
+        </div>
+        <div class="stat-slot slot-d6" data-select="dps-main-stat-d6">
+            <span class="stat-slot-label">D6</span>
+            <div class="stat-chip-slot"></div>
+        </div>
+        </section>
+
+        <!-- RESULT -->
+        <section class="result-panel">
+            <div class="panel panel-result">
+                <div class="panel-header">Results</div>
+                <div class="info-button" data-select="results-info" title="Ver factores del calculo">i</div>
+                    <div class="field-label top-label">Top Results:</div>
+                    <div class="top-slot slot-top">
+                        <div class="top-0" data-select="top-result" data-top-index="0">1</div>
+                        <div class="top-2" data-select="top-result" data-top-index="1">2</div>
+                        <div class="top-3" data-select="top-result" data-top-index="2">3</div>
+                        <div class="top-1" data-select="top-result" data-top-index="3">4</div>
+                        <div class="top-1" data-select="top-result" data-top-index="4">5</div>
+                    </div>
+                    <div class="field-label top-label-1">Optimized Stats:</div>
+                    <div class="menu-slot slot-base1"><div class="menu-name" data-select="name-stat1">--</div><div class="statd-base1" data-select="optimizer-stat1">--</div></div>
+                    <div class="menu-slot slot-base2"><div class="menu-name" data-select="name-stat2">--</div><div class="statd-base1" data-select="optimizer-stat2">--</div></div>
+                    <div class="menu-slot slot-base3"><div class="menu-name" data-select="name-stat3">--</div><div class="statd-base1" data-select="optimizer-stat3">--</div></div>
+                    <div class="menu-slot slot-base4"><div class="menu-name" data-select="name-stat4">--</div><div class="statd-base1" data-select="optimizer-stat4">--</div></div>
+                    <div class="field-label top-label-2">Damage Results:</div>
+                    <div class="damage-slot slot-skill">Skill:<div class="statd-skill">--</div></div>
+                    <div class="damage-slot slot-dmg">Dmg:<div class="statd-dmg" data-select="optimizer-dmg">--</div></div>
+
+            </div>
+
+            <div class="optimize-button" data-select="optimize-button">OPTIMIZAR</div>
+            <div class="optimizer-status" data-select="optimizer-status"></div>
+        </section>
+
+        <!-- SUPPORT TITLE -->
+        <div class="support-title">Configuracion de Supports</div>
+
+        <!-- SUPPORT 1 -->
+        <section class="panel support-panel support-1">
+            <div class="panel-header">Support 1</div>
+
+            <div class="support-field support-character-field" data-select="support1-character-field">
+                <span>Support 1</span>
+                <span class="field-side" data-select="support1-character-level">C0</span>
+            </div>
+
+            <div class="support-field support-engine-field" data-select="support1-weapon-field">
+                <span>W Engine</span>
+                <span class="field-side" data-select="support1-weapon-level">W1</span>
+            </div>
+
+            <div class="support-character-image" data-select="support1-character-image">
+                <img src="/static/SUPPORT/Supp_Base.webp" alt="">
+            </div>
+
+            <div class="support-engine-image" data-select="support1-weapon-image">
+                <img src="/static/WENGINE/We_Base.webp" alt="">
+            </div>
+
+            <div class="support-set-label">Sets:</div>
+
+            <div class="support-set" data-select="support1-set">
+                <img src="/static/DISKS/Set_Base.webp" alt="">
+            </div>
+
+            <div class="support-stat-label">Stat Buff:</div>
+            <input type="text" inputmode="decimal" class="buff-value" data-select="support1-buff-value" value="0" disabled>
+            <div class="buff-name" data-select="support1-buff-name">Selecciona un Support</div>
+
+            <input type="range" class="buff-slider" data-select="support1-buff-slider" min="0" max="0" step="1" value="0" disabled>
+
+            <div class="buff-number" data-select="support1-buff-max">0</div>
+        </section>
+
+        <!-- SUPPORT 2 -->
+        <section class="panel support-panel support-2">
+            <div class="panel-header">Support 2</div>
+
+            <div class="support-field support-character-field" data-select="support2-character-field">
+                <span>Sunna</span>
+                <span class="field-side" data-select="support2-character-level">C0</span>
+            </div>
+
+            <div class="support-field support-engine-field" data-select="support2-weapon-field">
+                <span>Toughbop</span>
+                <span class="field-side" data-select="support2-weapon-level">W1</span>
+            </div>
+
+            <div class="support-character-image" data-select="support2-character-image">
+                <img src="/static/SUPPORT/Supp_Base.webp" alt="">
+            </div>
+
+            <div class="support-engine-image" data-select="support2-weapon-image">
+                <img src="/static/WENGINE/We_Base.webp" alt="">
+            </div>
+
+            <div class="support-set-label">Sets:</div>
+
+            <div class="support-set" data-select="support2-set">
+                <img src="/static/DISKS/Set_Base.webp" alt="">
+            </div>
+
+            <div class="support-stat-label">Stat Buff:</div>
+            <input type="text" inputmode="decimal" class="buff-value" data-select="support2-buff-value" value="0" disabled>
+            <div class="buff-name" data-select="support2-buff-name">Selecciona un Support</div>
+
+            <input type="range" class="buff-slider" data-select="support2-buff-slider" min="0" max="0" step="1" value="0" disabled>
+
+            <div class="buff-number" data-select="support2-buff-max">0</div>
+        </section>
+
+        <!-- ENEMY -->
+        <section class="panel enemy-panel">
+            <div class="panel-header">Enemy</div>
+
+            <div class="enemy-name" data-select="enemy-name">Enemy</div>
+
+            <div class="enemy-image" data-select="enemy-image">
+                <img src="/static/ENEMY/Enemy_Base.webp" alt="">
+            </div>
+
+            <div class="weakness-title">Debilidad:</div>
+
+            <div class="weakness-grid">
+                <div><img src="/static/ELEMENTS/Physical.webp" alt="" class="weakness-image-1"></div>
+                <div><img src="/static/ELEMENTS/Fire.webp" alt="" class="weakness-image"></div>
+                <div><img src="/static/ELEMENTS/Ice.webp" alt="" class="weakness-image-1"></div>
+                <div><img src="/static/ELEMENTS/Electric.webp" alt="" class="weakness-image"></div>
+                <div><img src="/static/ELEMENTS/Ether.webp" alt="" class="weakness-image"></div>
+                <div><img src="/static/ELEMENTS/Wind.webp" alt="" class="weakness-image"></div>
+            </div>
+
+            <div class="stun-title">Stun:</div>
+            <div class="stun-toggle"></div>
+            <div class="stun-toggle-1">ON</div>
+        </section>
+
+        <!-- DI CARDS: 2 COLUMNS × 3 ROWS -->
+        <div class="di-grid">
+
+            <!-- CARD 1 -->
+            <section class="panel di-card di-1">
+                <div class="panel-header">D1</div>
+                <div class="di-main">
+                    <img src="/static/Inferno.webp" alt="">
+                    <div class="di-main-stat">
+                        <div>Main Stat:</div>
+                        <strong>HP<span>2200</span></strong>
+                    </div>
+                </div>
+
+                <div class="di-row"><span></span><span>Hp%</span><b>+1</b><span></span><span class="di-align">6 %</span><span></span></div>
+                <div class="di-row"><span></span><span>Atk%</span><b>+2</b><span></span><span class="di-align">9 %</span><span></span></div>
+                <div class="di-row"><span></span><span>CRIT Rate</span><b>+1</b><span></span><span class="di-align">4.8 %</span><span></span></div>
+                <div class="di-row"><span></span><span>CRIT Dmg</span><b>+1</b><span></span><span class="di-align">9.6 %</span><span></span></div>
+            </section>
+
+            <!-- CARD 2 -->
+            <section class="panel di-card di-2">
+                <div class="panel-header">D2</div>
+                <div class="di-main">
+                    <img src="/static/Disk_base.webp" alt="">
+                    <div class="di-main-stat">
+                        <div>Main Stat:</div>
+                        <strong>Atk<span>30 %</span></strong>
+                    </div>
+                </div>
+
+                <div class="di-row"><span></span><span>Hp%</span><b></b><span></span><span class="di-align">3 %</span><span></span></div>
+                <div class="di-row"><span></span><span>Atk%</span><b>+2</b><span></span><span class="di-align">9 %</span><span></span></div>
+                <div class="di-row"><span></span><span>CRIT Rate</span><b>+2</b><span></span><span class="di-align">4.8 %</span><span></span></div>
+                <div class="di-row"><span></span><span>C. dmg</span><b>+1</b><span></span><span class="di-align">9.6 %</span><span></span></div>
+            </section>
+
+            <!-- CARD 3 -->
+            <section class="panel di-card di-3">
+                <div class="panel-header">D3</div>
+                <div class="di-main">
+                    <img src="/static/disk1.png" alt="">
+                    <div class="di-main-stat">
+                        <div>Main Stat:</div>
+                        <strong>CD<span>48 %</span></strong>
+                    </div>
+                </div>
+
+                <div class="di-row"><span></span><span>Hp%</span><b>+1</b><span></span><span class="di-align">6 %</span><span></span></div>
+                <div class="di-row"><span></span><span>Atk%</span><b>+2</b><span></span><span class="di-align">9 %</span><span></span></div>
+                <div class="di-row"><span></span><span>CRIT Rate</span><b>+1</b><span></span><span class="di-align">4.8 %</span><span></span></div>
+                <div class="di-row"><span></span><span>CRIT Dmg</span><b>+1</b><span></span><span class="di-align">9.6 %</span><span></span></div>
+            </section>
+
+            <!-- CARD 4 -->
+            <section class="panel di-card di-4">
+                <div class="panel-header">D4</div>
+                <div class="di-main">
+                    <img src="/static/disk1.png" alt="">
+                    <div class="di-main-stat">
+                        <div>Main Stat:</div>
+                        <strong>Def<span>48 %</span></strong>
+                    </div>
+                </div>
+
+                <div class="di-row"><span></span><span>Hp%</span><b>+1</b><span></span><span class="di-align">6 %</span><span></span></div>
+                <div class="di-row"><span></span><span>Atk%</span><b>+2</b><span></span><span class="di-align">9 %</span><span></span></div>
+                <div class="di-row"><span></span><span>CRIT Rate</span><b>+1</b><span></span><span class="di-align">4.8 %</span><span></span></div>
+                <div class="di-row"><span></span><span>CRIT Dmg</span><b>+1</b><span></span><span class="di-align">9.6 %</span><span></span></div>
+            </section>
+
+            <!-- CARD 5 -->
+            <section class="panel di-card di-5">
+                <div class="panel-header">D5</div>
+                <div class="di-main">
+                    <img src="/static/disk1.png" alt="">
+                    <div class="di-main-stat">
+                        <div>Main Stat:</div>
+                        <strong>AM<span>18 %</span></strong>
+                    </div>
+                </div>
+
+                <div class="di-row"><span></span><span>Hp%</span><b>+1</b><span></span><span class="di-align">6 %</span><span></span></div>
+                <div class="di-row"><span></span><span>Atk%</span><b>+2</b><span></span><span class="di-align">9 %</span><span></span></div>
+                <div class="di-row"><span></span><span>CRIT Rate</span><b>+1</b><span></span><span class="di-align">4.8 %</span><span></span></div>
+                <div class="di-row"><span></span><span>CRIT Dmg</span><b>+1</b><span></span><span class="di-align">9.6 %</span><span></span></div>
+            </section>
+
+            <!-- CARD 6 -->
+            <section class="panel di-card di-6">
+                <div class="panel-header">D6</div>
+                <div class="di-main">
+                    <img src="/static/disk1.png" alt="">
+                    <div class="di-main-stat">
+                        <div>Main Stat:</div>
+                        <strong>HP <span>2200</span></strong>
+                    </div>
+                </div>
+
+                <div class="di-row"><span></span><span>Hp%</span><b>+1</b><span></span><span class="di-align">6 %</span><span></span></div>
+                <div class="di-row"><span></span><span>Atk%</span><b>+2</b><span></span><span class="di-align">9 %</span><span></span></div>
+                <div class="di-row"><span></span><span>CRIT Rate</span><b>+1</b><span></span><span class="di-align">4.8 %</span><span></span></div>
+                <div class="di-row"><span></span><span>CRIT Dmg</span><b>+1</b><span></span><span class="di-align">9.6 %</span><span></span></div>
+            </section>
+
+        </div>
+
+    </div>
+    <!-- FIN VISTA OPTIMIZER -->
+
+
+    <!-- ======================================================= -->
+    <!-- VISTA: MIS DISCOS                                        -->
+    <!-- ======================================================= -->
+    <div class="view-section hidden" id="view-disks">
+
+        <!-- HEADER -->
+        <div class="page-title">Inventory</div>
+
+        <!-- Inventory -->
+        <section class="inventory-panel">
+            <div class="panel inventory-result">
+                <div class="panel-header">Disks</div>
+                    <div class="inv_field-label inv-label">UID:</div>
+                    <div class="inv-slot import-top">
+                        <input type="text" inputmode="numeric" class="import-0" data-select="enka-uid" placeholder="1234567890" value="">
+                    </div>
+                    <div class="import-button" data-select="enka-import-button">Import</div>
+                    <div class="enka-import-status" data-select="enka-import-status"></div>
+                    <div class="new-button">+ NEW DISK</div>
+
+                    <!-- <div class="slot_field-label left-inv-label1">Slot:</div>
+                    <div class="d-slot left-d-slot1 import-top">
+                        <div class="filter-slot widht-slot">D1</div>
+                        <div class="filter-slot widht-slot">D2</div>
+                        <div class="filter-slot widht-slot">D3</div>
+                        <div class="filter-slot widht-slot">D4</div>
+                        <div class="filter-slot widht-slot">D5</div>
+                        <div class="filter-slot widht-slot">D6</div>
+                    </div>
+                    <div class="slot_field-label left-inv-label2">Main Stat:</div>
+                    <div class="d-slot left-d-slot2 import-top">
+                        <div class="filter-slot widht-slot1">Atk%</div>
+                        <div class="filter-slot widht-slot1">Hp%</div>
+                        <div class="filter-slot widht-slot1">Def%</div>
+                        <div class="filter-slot widht-slot1">CR</div>
+                        <div class="filter-slot widht-slot1">CD</div>
+                        <div class="filter-slot widht-slot1">Pen%</div>
+                        <div class="filter-slot widht-slot1">AP</div>
+                        <div class="filter-slot widht-slot1">ER%</div>
+                        <div class="filter-slot widht-slot2">Impact</div>
+                        <div class="filter-slot widht-slot1">AP</div>
+                        <div class="filter-slot widht-slot3"><img src="/static/ELEMENTS/Fisico.webp" alt="" class="weakness-image-2"></div>
+                        <div class="filter-slot widht-slot3"><img src="/static/ELEMENTS/Fire.webp" alt="" class="weakness-image-2"></div>
+                        <div class="filter-slot widht-slot3"><img src="/static/ELEMENTS/Hielo.webp" alt="" class="weakness-image-2"></div>
+                        <div class="filter-slot widht-slot3"><img src="/static/ELEMENTS/Electric.webp" alt="" class="weakness-image-2"></div>
+                        <div class="filter-slot widht-slot3"><img src="/static/ELEMENTS/Ether.webp" alt="" class="weakness-image-2"></div>
+                        <div class="filter-slot widht-slot3"><img src="/static/ELEMENTS/Wind.webp" alt="" class="weakness-image-2"></div>
+
+                    </div> -->
+
+
+            </div>
+
+
+        </section>
+
+        <!-- DISCOS GUARDADOS (se renderizan dinamicamente desde localStorage) -->
+        <div class="inv-grid" id="inv-grid">
+            <div class="inv-empty-state" id="inv-empty-state">Aun no has creado ningun disco. Usa "+ NEW DISK" para crear el primero.</div>
+        </div>
+
+    </div>
+    <!-- FIN VISTA MIS DISCOS -->
+
+</div>
+
+<!-- MODAL: "+ NEW DISK" (despliegue visual; aun no interactivo/responsivo) -->
+<div id="newdisk-overlay" class="selection-overlay">
+    <section class="newdik-panel newdik-panel-modal">
+        <div class="panel newdik-menu">
+            <div class="panel-header">Disks</div>
+                <div class="slot_field-label left-inv-label4">Slot:</div>
+                <div class="set-new-slot left-stat-slot main-stat-top">
+                    <div class="filter-slot widht-new-slot" data-select="newdisk-slot" data-slot-value="D1">D1</div>
+                    <div class="filter-slot widht-new-slot" data-select="newdisk-slot" data-slot-value="D2">D2</div>
+                    <div class="filter-slot widht-new-slot" data-select="newdisk-slot" data-slot-value="D3">D3</div>
+                    <div class="filter-slot widht-new-slot" data-select="newdisk-slot" data-slot-value="D4">D4</div>
+                    <div class="filter-slot widht-new-slot" data-select="newdisk-slot" data-slot-value="D5">D5</div>
+                    <div class="filter-slot widht-new-slot" data-select="newdisk-slot" data-slot-value="D6">D6</div>
+                </div>
+                <div class="set_field-label left-inv-label4">Set:</div>
+                <div class="set-new-slot left-set-slot set-top">
+                    <div class="filter-slot widht-newset" data-select="newdisk-set-field">Elegir Set</div>
+                </div>
+                <div class="contenedor-gris contenedor-img-set" data-select="newdisk-set-image"><img src="/static/DISKS/Set_Base.webp" class="newdisk-img"></div>
+                <div class="subtitulo subtitulo-main-stat">Main Stat:</div>
+                <div class="contenedor-gris contenedor-main-stat" data-select="newdisk-main-stat">Elegir</div>
+                <div class="contenedor-gris contenedor-main-valor" data-select="newdisk-main-stat-value">--</div>
+                <div class="contenedor-gris contenedor-sub-stat sub-stat1" data-select="newdisk-substat-1">Sub Stat<span class="roll-level"></span></div>
+                <div class="contenedor-gris contenedor-sub-stat sub-stat2" data-select="newdisk-substat-2">Sub Stat<span class="roll-level"></span></div>
+                <div class="contenedor-gris contenedor-sub-stat sub-stat4" data-select="newdisk-substat-4">Sub Stat<span class="roll-level"></span></div>
+                <div class="contenedor-gris contenedor-sub-stat sub-stat3" data-select="newdisk-substat-3">Sub Stat<span class="roll-level"></span></div>
+
+                <div class="contenedor-gris contenedor-sub-valor sub-valor1 padding-right" data-select="newdisk-subvalue-1">--</div>
+                <div class="contenedor-gris contenedor-sub-valor sub-valor2 padding-right" data-select="newdisk-subvalue-2">--</div>
+                <div class="contenedor-gris contenedor-sub-valor sub-valor3 padding-right" data-select="newdisk-subvalue-3">--</div>
+                <div class="contenedor-gris contenedor-sub-valor sub-valor4 padding-right" data-select="newdisk-subvalue-4">--</div>
+
+                <div class="contenedor-gris contenedor-sub-valor sub-add-1 roll-center" data-select="newdisk-substat-1-add">+1</div>
+                <div class="contenedor-gris contenedor-sub-valor sub-add-2 roll-center" data-select="newdisk-substat-2-add">+1</div>
+                <div class="contenedor-gris contenedor-sub-valor sub-add-3 roll-center" data-select="newdisk-substat-3-add">+1</div>
+                <div class="contenedor-gris contenedor-sub-valor sub-add-4 roll-center" data-select="newdisk-substat-4-add">+1</div>
+
+                <div class="contenedor-gris contenedor-sub-valor sub-minus-1 roll-center" data-select="newdisk-substat-1-minus">-1</div>
+                <div class="contenedor-gris contenedor-sub-valor sub-minus-2 roll-center" data-select="newdisk-substat-2-minus">-1</div>
+                <div class="contenedor-gris contenedor-sub-valor sub-minus-3 roll-center" data-select="newdisk-substat-3-minus">-1</div>
+                <div class="contenedor-gris contenedor-sub-valor sub-minus-4 roll-center" data-select="newdisk-substat-4-minus">-1</div>
+
+                <div class="contenedor-gris contenedor-sub-valor cancel-button">Cancel</div>
+                <div class="contenedor-gris contenedor-sub-valor confirm-button" data-select="newdisk-confirm">Confirm</div>
+        </div>
+    </section>
+</div>
+
+<script>
+    // Navegacion del sidebar: alterna que .view-section se muestra
+    // segun el atributo data-view del boton pulsado.
+    document.addEventListener('DOMContentLoaded', function () {
+        const buttons = document.querySelectorAll('.sidebar-button');
+        const views = document.querySelectorAll('.view-section');
+
+        buttons.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                const target = btn.getAttribute('data-view');
+
+                // Actualiza el boton activo
+                buttons.forEach(function (b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+
+                // Muestra solo la vista correspondiente
+                views.forEach(function (view) {
+                    if (view.id === 'view-' + target) {
+                        view.classList.remove('hidden');
+                    } else {
+                        view.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+<!-- Motor de seleccion (personajes, armas, sets, enemigo) de la pestana Optimizer -->
+<script type="module" src="/static/js/app.js"></script>
+
+</body>
+</html>
