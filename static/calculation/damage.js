@@ -120,6 +120,7 @@ function calcularDanoNormal(stats, aturdido) {
 
     const CD = getStat(stats, "CD", 0);
     const CD_Base = getStat(stats, "CD_Base", 0);
+    const CDf = getStat(stats, "CDf", 0);
 
     const Dmg = getStat(stats, "Dmg", 0);
     const Res = getStat(stats, "Res", 0);
@@ -135,7 +136,7 @@ function calcularDanoNormal(stats, aturdido) {
     // Factores de la fórmula Normal
     const Mv_factor = Mv;
     const Atk_factor = (Math.floor((Atk * (1 + Atkx)) + Atkp) * (1+Atkf)) + Atke;
-    const Crit_factor = (1+((Math.min((CR+CR_Base), 1)) * (CD + CD_Base)));
+    const Crit_factor = (1+((Math.min((CR+CR_Base), 1)) * ((CD + CD_Base)*(1+CDf)));
     const Crit_real = (1+(CD + CD_Base));
     const Dmg_factor = 1 + Dmg;
     const Res_factor = 1 + Res;
