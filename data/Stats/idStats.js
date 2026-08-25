@@ -6,7 +6,7 @@ const stats_id = {
     20103: "CR_Base",      
     21103: "CD_Base",     
     12102: "Atk%",    
-    31203: "MA",   
+    31203: "MA_Base",   
     11102: "Hp%",     
     13102: "Def%",    
 
