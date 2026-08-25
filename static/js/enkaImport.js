@@ -135,7 +135,7 @@ export function parseEnkaShowcase(json) {
  * expone CORS para llamadas directas desde el navegador.
  */
 export async function fetchEnkaShowcase(uid) {
-    const url = `http://localhost:3001/api/zzz/uid/${encodeURIComponent(uid)}`;
+    const url = `https://optimizer.lyned.workers.dev/api/zzz/uid/${encodeURIComponent(uid)}`;
     const response = await fetch(url, { method: "GET" });
 
     if (!response.ok) {
