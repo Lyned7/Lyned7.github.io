@@ -3,7 +3,7 @@ const dps = {
     //Atacantes
     "Sigrid": {
         ID: 1611,
-        Image: "static/DPS/sigrid.webp",
+        Image: "static/DPS/Sigrid.webp",
         Clase: "Atacante",
         Elemento: "Ice",
         force_stun: false,
