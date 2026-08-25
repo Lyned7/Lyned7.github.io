@@ -229,7 +229,7 @@ function calcularDanoAnomaly(stats, aturdido) {
     const Res_factor = 1 + Res;
 
     const Admg_factor = 1 + Admg;
-    const MA_factor = (MA/100);
+    const MA_factor = ((MA + MA_Base)/100);
     const Ref_factor = 1+Ref;
 
     const Target_def = Defense * (1-Shred);
@@ -253,6 +253,16 @@ function calcularDanoAnomaly(stats, aturdido) {
     return {
         danoReal,
         danoPromedio,
+        
+        stat1,
+        stat2,
+        stat3,
+        stat4,
+        stat1_name,
+        stat2_name,
+        stat3_name,
+        stat4_name,
+        
         factores: {
             Mv_factor,
             Atk_factor,
