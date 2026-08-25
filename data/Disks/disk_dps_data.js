@@ -32,7 +32,7 @@ const disk_dps = {
     },
     "Chaotic Metal": {
         ID: 3234,
-        Image: "static/Disks/Chaotic_Metal.webp",
+        Image: "static/DISKS/Chaotic_Metal.webp",
         buffs_2pc: { Dmg_Ether: 0.10},
         buffs_4pc: { CD: 0.53}
     },
