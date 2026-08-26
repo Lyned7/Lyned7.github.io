@@ -224,6 +224,8 @@ function calcularDanoAnomaly(stats, aturdido) {
 
     const Defense = getStat(stats, "Defense", 0);
     const Tasax = getStat(stats, "Tasax", 0);
+    const Tasa = getStat(stats, "Tasa", 0);
+    
 
     // Factores de la fórmula Anomaly
     const Mv_factor = Mv;
