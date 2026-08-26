@@ -404,7 +404,7 @@ const dps = {
         Elemento: "Physical",
         force_stun: false,
         Tipo_dmg: "Anomaly",
-        Stats_base: { Atk: 880, ER: 1.5, Tasa: 142 },
+        Stats_base: { Atk: 880, ER: 1.5, Tasa: 142, Tasae: 0 },
         dupes: {
             0: { MA_Base: 118},
             1: { Shred: 0.20},
