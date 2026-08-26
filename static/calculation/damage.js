@@ -331,7 +331,7 @@ function calcularDanoSheer(stats, aturdido) {
     const Rdmg_factor = 1 + Rdmg;
 
     const Stun_factor = aturdido ? (1.5 + Stun) : 1;
-    const Cont_factor = 1.5 + Cont;
+    const Cont_factor = 1 + Cont;
 
     const danoPromedio = Mv_factor * Sheer_factor * Crit_factor * Dmg_factor * Rdmg_factor * Res_factor * Stun_factor * Cont_factor;
     const danoReal = Mv_factor * Sheer_factor * Crit_real * Dmg_factor * Rdmg_factor * Res_factor * Stun_factor * Cont_factor;
