@@ -83,7 +83,7 @@ const dps = {
         Tipo_dmg: "Normal",
         Stats_base: { Atk: 929, ER: 150, Tasa: 80 },
         dupes: {
-            0: { Dmg: 0.25, Dmg_Aftershock: 0.50, CR_Base: 0.194, CD_Base: 0.50, CDf: 0.35},
+            0: { Dmg: 0.25, Dmg_Aftershock: 0.50, CR_Base: 0.194, CR: 0.10, CD_Base: 0.50, CDf: 0.35},
             1: {},
             2: { CR: 0.12},
             3: {},
