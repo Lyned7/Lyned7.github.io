@@ -114,6 +114,7 @@ function calcularDanoNormal(stats, aturdido) {
     const Atkp = getStat(stats, "Atkp", 0);
     const Atkf = getStat(stats, "Atkf", 0);
     const Atke = getStat(stats, "Atke", 0);
+    const Atke_Idol = Math.max(0, Math.min(getStat(stats, "Atke_Idol", 0), 50));
 
     const CR = getStat(stats, "CR", 0);
     const CR_Base = getStat(stats, "CR_Base", 0);
@@ -135,7 +136,7 @@ function calcularDanoNormal(stats, aturdido) {
 
     // Factores de la fórmula Normal
     const Mv_factor = Mv;
-    const Atk_factor = (Math.floor((Atk * (1 + Atkx)) + Atkp) * (1+Atkf)) + Atke;
+    const Atk_factor = (Math.floor((Atk * (1 + Atkx)) + Atkp) * (1+Atkf)) + Atke + Atke_Idol;
     const Crit_factor = (1+((Math.min((CR+CR_Base), 1)) * ((CD + CD_Base)*(1+CDf))));
     const Crit_real = (1+(CD + CD_Base));
     const Dmg_factor = 1 + Dmg;
@@ -205,6 +206,7 @@ function calcularDanoAnomaly(stats, aturdido) {
     const Atkp = getStat(stats, "Atkp", 0);
     const Atkf = getStat(stats, "Atkf", 0);
     const Atke = getStat(stats, "Atke", 0);
+    const Atke_Idol = Math.max(0, Math.min(getStat(stats, "Atke_Idol", 0), 50));
 
     const MA = getStat(stats, "MA", 0);
     const MA_Base = getStat(stats, "MA_Base", 0);
@@ -224,7 +226,7 @@ function calcularDanoAnomaly(stats, aturdido) {
 
     // Factores de la fórmula Anomaly
     const Mv_factor = Mv;
-    const Atk_factor = (Math.floor((Atk * (1 + Atkx)) + Atkp) * (1+Atkf)) + Atke;
+    const Atk_factor = (Math.floor((Atk * (1 + Atkx)) + Atkp) * (1+Atkf)) + Atke + Atke_Idol;
     const Dmg_factor = 1 + Dmg;
     const Res_factor = 1 + Res;
 
