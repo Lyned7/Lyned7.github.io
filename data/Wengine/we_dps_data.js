@@ -180,11 +180,11 @@ const we_dps = {
         Stats_base: { Atk: 743 },
         Stats_main: { Hpx: 0.30 },
         buffs: {
-            1: { CR: 0.20, Dmg_Ether: 0.16, Rdmg_Ultimate: 0.10},
-            2: { Dmg_Physical: 0.09}, 
-            3: { Dmg_Physical: 0.09},
-            4: { Dmg_Physical: 0.09},
-            5: { Dmg_Physical: 0.09}
+            1: { CR: 0.20, Dmg_Ether: 0.16, Rdmg_Ultimate: 0.20},
+            2: { CR: 0.03, Dmg_Ether: 0.024, Rdmg_Ultimate: 0.03}, 
+            3: { CR: 0.03, Dmg_Ether: 0.024, Rdmg_Ultimate: 0.03},
+            4: { CR: 0.03, Dmg_Ether: 0.024, Rdmg_Ultimate: 0.03},
+            5: { CR: 0.03, Dmg_Ether: 0.024, Rdmg_Ultimate: 0.03}
         }
     },
 };
