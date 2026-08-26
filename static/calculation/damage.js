@@ -323,7 +323,7 @@ function calcularDanoSheer(stats, aturdido) {
     const Atk_factor = (Math.floor((Atk * (1 + Atkx)) + Atkp) * (1+Atkf)) + Atke;
     const Hp_factor = (Math.floor((Hp * (1 + Hpx)) + Hpp) * (1+Hpf)) + Hpe;
     const Sheer_factor = (Atk_factor*0.3 + Hp_factor*0.1) + Sheere;
-    const Crit_factor = (1+((Math.min((CR+CR_Base), 1)) * (CD)));
+    const Crit_factor = (1+((Math.min((CR+CR_Base), 1)) * (CD + CD_Base)));
     const Crit_real = (1+(CD + CD_Base));
     const Dmg_factor = 1 + Dmg;
     const Res_factor = 1 + Res;
@@ -371,6 +371,7 @@ function calcularDanoSheer(stats, aturdido) {
             Stun_factor,
             Cont_factor,
             Sheere,
+            Crit_real
         }
     };
 }
