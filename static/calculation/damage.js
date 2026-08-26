@@ -138,7 +138,7 @@ function calcularDanoNormal(stats, aturdido) {
     const Mv_factor = Mv;
     const Atk_factor = (Math.floor((Atk * (1 + Atkx)) + Atkp) * (1+Atkf)) + Atke + Atke_Idol;
     const Crit_factor = (1+((Math.min((CR+CR_Base), 1)) * ((CD + CD_Base)*(1+CDf))));
-    const Crit_real = (1+(CD + CD_Base));
+    const Crit_real = (1+((CD + CD_Base)*(1+CDf)));
     const Dmg_factor = 1 + Dmg;
     const Res_factor = 1 + Res;
     const Target_def = Defense * (1-Shred);
