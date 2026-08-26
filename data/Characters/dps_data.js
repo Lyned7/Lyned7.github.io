@@ -427,7 +427,7 @@ const dps = {
             }
         },
         stat_escalado: {
-            stat_fuente: "Tasa+(Tasa*Tasax)+Tasae",
+            stat_fuente: "Tasa+(1*Tasax)+Tasae",
             umbral: 140,
             stat_buff: [
                 {
