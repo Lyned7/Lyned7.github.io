@@ -131,7 +131,7 @@ const we_dps = {
     // Anomalo
     "Sharpened Stinger": {
         ID: 14104,
-        Clase: "Atacante",
+        Clase: "Anomalo",
         Image: "static/WENGINE/Sharpened_Stinger.webp",
         Stats_base: { Atk: 713 },
         Stats_main: { MA_Base: 90 },
@@ -145,7 +145,7 @@ const we_dps = {
     },
     "Practiced Perfection": {
         ID: 14104,
-        Clase: "Atacante",
+        Clase: "Anomalo",
         Image: "static/WENGINE/Practiced_Perfection.webp",
         Stats_base: { Atk: 713 },
         Stats_main: { Atkx: 0.30 },
@@ -159,7 +159,7 @@ const we_dps = {
     },
     "Angel in the Shell": {
         ID: 14104,
-        Clase: "Atacante",
+        Clase: "Anomalo",
         Image: "static/WENGINE/Angel_in_the_Shell.webp",
         Stats_base: { Atk: 713 },
         Stats_main: { Tasax: 0.30 },
@@ -175,7 +175,7 @@ const we_dps = {
     // Ruptura
     "Qingming Birdcage": {
         ID: 14104,
-        Clase: "Atacante",
+        Clase: "Ruptura",
         Image: "static/WENGINE/Qingming_Birdcage.webp",
         Stats_base: { Atk: 743 },
         Stats_main: { Hpx: 0.30 },
