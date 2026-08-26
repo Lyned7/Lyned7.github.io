@@ -333,10 +333,30 @@ function calcularDanoSheer(stats, aturdido) {
 
     const danoPromedio = Mv_factor * Sheer_factor * Crit_factor * Dmg_factor * Rdmg_factor * Res_factor * Stun_factor * Cont_factor;
     const danoReal = Mv_factor * Sheer_factor * Crit_real * Dmg_factor * Rdmg_factor * Res_factor * Stun_factor * Cont_factor;
+    
+    const stat1 = ((Hp * (1 + Hpx)) + Hpp);
+    const stat2 = ((Atk * (1 + Atkx)) + Atkp);
+    const stat3 = getStat(stats, "CR_Base", 0);
+    const stat4 = getStat(stats, "CD_Base", 0);
+
+    const stat1_name = "HP";
+    const stat2_name = "Atk";
+    const stat3_name = "CR";
+    const stat4_name = "CD";
 
     return {
         danoReal,
         danoPromedio,
+        
+        stat1,
+        stat2,
+        stat3,
+        stat4,
+        stat1_name,
+        stat2_name,
+        stat3_name,
+        stat4_name,
+        
         factores: {
             Mv_factor,
             Atk_factor,
