@@ -324,7 +324,7 @@ const we_supp = {
     "Joyau_Dore": {
         ID: 14157,
         Image: "static/WENGINE/Joyau_Dore.webp",
-        Clase: "Stunner",
+        Clase: "Anomalo",
         buffs: {
             1: { MA: 60},
             2: { MA: 9},
@@ -336,7 +336,7 @@ const we_supp = {
     "Ode of Resurrected Wings": {
         ID: 14157,
         Image: "static/WENGINE/Ode_of_Resurrected_Wings.webp",
-        Clase: "Stunner",
+        Clase: "Anomalo",
         buffs: {
             1: { Dmg: 0.30},
             2: { Dmg: 0.045},
