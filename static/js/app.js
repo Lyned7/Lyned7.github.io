@@ -108,7 +108,6 @@ const STAT_DISPLAY_NAMES = {
     ERx: "Energy Regen%",
     Impactx: "Impact%",
     MA: "Anomaly Proficiency",
-    MA_Base: "Anomaly Proficiency",
     Admg: "Anomaly DMG%",
     Rdmg: "EX DMG%",
     Stun: "Stun DMG%",
@@ -121,12 +120,14 @@ function getStatDisplayName(statName) {
 }
 
 /** Convierte un modulo de datos { nombre: {Image, ...} } en items para el grid. */
-function toGridItems(dataObj) {
-    return Object.entries(dataObj).map(([key, val]) => ({
-        key,
-        name: key,
-        image: normalizeImage(val.Image),
-    }));
+function toGridItems(dataObj, filter) {
+    return Object.entries(dataObj)
+        .filter(([key, val]) => !filter || filter(key, val))
+        .map(([key, val]) => ({
+            key,
+            name: key,
+            image: normalizeImage(val.Image),
+        }));
 }
 
 /** Genera items 0..n o n1..n2 para menus de nivel (dupes / refinamientos). */
@@ -174,11 +175,9 @@ function clampToStep(value, max, step) {
 /*  Binder generico: click en un elemento -> abre grid -> actualiza     */
 /*  texto + imagen + estado.                                           */
 /* ------------------------------------------------------------------- */
-function bindGridSelector({ selector, dataObj, ratioClass, title, textEl, imgEl, stateKey, onChange }) {
+function bindGridSelector({ selector, dataObj, ratioClass, title, textEl, imgEl, stateKey, filter, onChange }) {
     const triggers = document.querySelectorAll(selector);
     if (!triggers.length) return;
-
-    const items = toGridItems(dataObj);
 
     triggers.forEach((trigger) => {
         trigger.classList.add("selectable");
@@ -187,7 +186,7 @@ function bindGridSelector({ selector, dataObj, ratioClass, title, textEl, imgEl,
             if (e.target.closest("[data-select$='-level']")) return;
 
             openGridMenu({
-                items,
+                items: toGridItems(dataObj, filter),
                 ratioClass,
                 title,
                 onSelect: (key) => {
@@ -1087,6 +1086,11 @@ document.addEventListener("DOMContentLoaded", () => {
         imgEl: "[data-select='dps-character-image'] img",
         stateKey: "dpsCharacter",
         onChange: (key, entry) => {
+            if (state.dpsWeapon && we_dps[state.dpsWeapon]?.Clase !== entry.Clase) {
+                state.dpsWeapon = null;
+                document.querySelector("[data-select='dps-weapon-field'] span:first-child").textContent = "W-Engine";
+                document.querySelector("[data-select='dps-weapon-image'] img").src = normalizeImage("static/WENGINE/We_Base.webp");
+            }
             updateSkillDisplay();
             if (stunToggle) stunToggle.setForceStun(entry.force_stun);
         },
@@ -1109,6 +1113,7 @@ document.addEventListener("DOMContentLoaded", () => {
         textEl: "[data-select='dps-weapon-field'] span:first-child",
         imgEl: "[data-select='dps-weapon-image'] img",
         stateKey: "dpsWeapon",
+        filter: (key, entry) => state.dpsCharacter && entry.Clase === dps[state.dpsCharacter]?.Clase,
     });
 
     bindLevelSelector({
@@ -1173,7 +1178,14 @@ document.addEventListener("DOMContentLoaded", () => {
         textEl: "[data-select='support1-character-field'] span:first-child",
         imgEl: "[data-select='support1-character-image'] img",
         stateKey: "support1Character",
-        onChange: (key, entry) => applySupport1Buff && applySupport1Buff(key, entry),
+        onChange: (key, entry) => {
+            if (state.support1Weapon && we_supp[state.support1Weapon]?.Clase !== entry.Clase) {
+                state.support1Weapon = null;
+                document.querySelector("[data-select='support1-weapon-field'] span:first-child").textContent = "W Engine";
+                document.querySelector("[data-select='support1-weapon-image'] img").src = normalizeImage("static/WENGINE/We_Base.webp");
+            }
+            if (applySupport1Buff) applySupport1Buff(key, entry);
+        },
     });
 
     bindLevelSelector({
@@ -1191,6 +1203,7 @@ document.addEventListener("DOMContentLoaded", () => {
         textEl: "[data-select='support1-weapon-field'] span:first-child",
         imgEl: "[data-select='support1-weapon-image'] img",
         stateKey: "support1Weapon",
+        filter: (key, entry) => state.support1Character && entry.Clase === supp[state.support1Character]?.Clase,
     });
 
     bindLevelSelector({
@@ -1223,7 +1236,14 @@ document.addEventListener("DOMContentLoaded", () => {
         textEl: "[data-select='support2-character-field'] span:first-child",
         imgEl: "[data-select='support2-character-image'] img",
         stateKey: "support2Character",
-        onChange: (key, entry) => applySupport2Buff && applySupport2Buff(key, entry),
+        onChange: (key, entry) => {
+            if (state.support2Weapon && we_supp[state.support2Weapon]?.Clase !== entry.Clase) {
+                state.support2Weapon = null;
+                document.querySelector("[data-select='support2-weapon-field'] span:first-child").textContent = "W Engine";
+                document.querySelector("[data-select='support2-weapon-image'] img").src = normalizeImage("static/WENGINE/We_Base.webp");
+            }
+            if (applySupport2Buff) applySupport2Buff(key, entry);
+        },
     });
 
     bindLevelSelector({
@@ -1241,6 +1261,7 @@ document.addEventListener("DOMContentLoaded", () => {
         textEl: "[data-select='support2-weapon-field'] span:first-child",
         imgEl: "[data-select='support2-weapon-image'] img",
         stateKey: "support2Weapon",
+        filter: (key, entry) => state.support2Character && entry.Clase === supp[state.support2Character]?.Clase,
     });
 
     bindLevelSelector({
