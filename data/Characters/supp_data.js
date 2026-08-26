@@ -45,7 +45,7 @@ const supp = {
         stat_escalado: {
             stat_fuente: "Hp",
             umbral: 0,
-            max_buff_umbral: 24000,
+            max_buff_umbral: 25000,
             stat_buff: [
                 {
                 stat: "Sheere",
