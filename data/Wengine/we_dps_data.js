@@ -104,7 +104,7 @@ const we_dps = {
         Clase: "Atacante",
         Image: "static/WENGINE/Sol_Exuvia.webp",
         Stats_base: { Atk: 713},
-        Stats_main: { Atkx: 0.60 },
+        Stats_main: { Atkx: 0.30 },
         buffs: {
             1: { CR: 0.20, Res_Ether: 0.16},
             2: { CR: 0.20, Res_Ether: 0.015}, 
