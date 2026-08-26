@@ -13,7 +13,7 @@ const disk_dps = {
     "Branch & Blade Song": {
         ID: 3274,
         Image: "static/DISKS/Branch_&_Blade_Song.webp",
-        buffs_2pc: { CD: 0.16},
+        buffs_2pc: { CD_Base: 0.16},
         buffs_4pc: { CD: 0.30, CR: 0.12}
     },
     "Bunny in Wonderland": {
@@ -27,7 +27,7 @@ const disk_dps = {
     "Chaos Jazz": {
         ID: 3184,
         Image: "static/DISKS/Chaos_Jazz.webp",
-        buffs_2pc: { MA: 30},
+        buffs_2pc: { MA_Base: 30},
         buffs_4pc: { Dmg_Fire: 0.15, Dmg_Electric: 0.15, Dmg_Ex: 0.20}
     },
     "Chaotic Metal": {
@@ -55,13 +55,13 @@ const disk_dps = {
     "Feathered Fate": {
         ID: 3414,
         Image: "static/DISKS/Feathered_Fate.webp",
-        buffs_2pc: { MA: 30 },
+        buffs_2pc: { MA_Base: 30 },
         buffs_4pc: { MA: 50, Admg_Lumen: 0.15 }
     },
     "Freedom Blues": {
         ID: 3134,
         Image: "static/DISKS/Freedom_Blues.webp",
-        buffs_2pc: { MA: 30 },
+        buffs_2pc: { MA_Base: 30 },
         buffs_4pc: {}
     },
 
@@ -173,8 +173,8 @@ const disk_dps = {
     "Thorned Rose": {
         ID: 3424,
         Image: "static/DISKS/Thorned_Rose.webp",
-        buffs_2pc: { MA: 30 },
-        buffs_4pc: { MA: 50, Admg: 0.15 }
+        buffs_2pc: { Defx: 0.16 },
+        buffs_4pc: { Dmg: 0.15, CR: 0.16 }
     },
     "Thunder Metal": {
         ID: 3244,
@@ -193,7 +193,7 @@ const disk_dps = {
     "Woodpecker Electro": {
         ID: 3104,
         Image: "static/DISKS/Woodpecker_Electro.webp",
-        buffs_2pc: { CR: 0.08 },
+        buffs_2pc: { CR_Base: 0.08 },
         buffs_4pc: { Atkf: 0.27 }
     },
     "Wuthering Salon": {
