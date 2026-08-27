@@ -62,7 +62,7 @@ function calcularDanoSharp(stats, aturdido) {
     const Cont = getStat(stats, "Cont", 0);
 
     const Penx = getStat(stats, "Penx", 0);
-    const Shred = getStat(stats, "Shred", 0);
+    const Shred = Math.max(0, Math.min(getStat(stats, "Shred", 0), 1));
     const Penp = getStat(stats, "Penp", 0);
 
     const Defense = getStat(stats, "Defense", 0);
@@ -76,7 +76,7 @@ function calcularDanoSharp(stats, aturdido) {
     const Res_factor = 1 + Res;
     const Target_def = Defense * (1-Shred);
     const Efective_def = Target_def * (1-Penx) - Penp;
-    const Defense_factor = (794)/(794+Efective_def);
+    const Defense_factor = Math.max(0,Math.min((794) / (794 + Efective_def), 1));
     // El bonus de Stun solo se aplica si el enemigo esta realmente aturdido
     // (toggle "Stun" del panel Enemy). Sin aturdir, no hay bonus.
     const Stun_factor = aturdido ? (1.5 + Stun) : 1;
@@ -129,7 +129,7 @@ function calcularDanoNormal(stats, aturdido) {
     const Cont = getStat(stats, "Cont", 0);
 
     const Penx = getStat(stats, "Penx", 0);
-    const Shred = getStat(stats, "Shred", 0);
+    const Shred = Math.max(0, Math.min(getStat(stats, "Shred", 0), 1));
     const Penp = getStat(stats, "Penp", 0);
 
     const Defense = getStat(stats, "Defense", 0);
@@ -143,7 +143,7 @@ function calcularDanoNormal(stats, aturdido) {
     const Res_factor = 1 + Res;
     const Target_def = Defense * (1-Shred);
     const Efective_def = Target_def * (1-Penx) - Penp;
-    const Defense_factor = (794)/(794+Efective_def);
+    const Defense_factor = Math.max(0,Math.min((794) / (794 + Efective_def), 1));
     const Stun_factor = aturdido ? (1.5 + Stun) : 1;
     const Cont_factor = 1 + Cont;
 
@@ -219,7 +219,7 @@ function calcularDanoAnomaly(stats, aturdido) {
     const Stun = getStat(stats, "Stun", 0);
 
     const Penx = getStat(stats, "Penx", 0);
-    const Shred = getStat(stats, "Shred", 0);
+    const Shred = Math.max(0, Math.min(getStat(stats, "Shred", 0), 1));
     const Penp = getStat(stats, "Penp", 0);
 
     const Defense = getStat(stats, "Defense", 0);
@@ -239,8 +239,7 @@ function calcularDanoAnomaly(stats, aturdido) {
 
     const Target_def = Defense * (1-Shred);
     const Efective_def = Target_def * (1-Penx) - Penp;
-    const Defense_factor = (794)/(794+Efective_def);
-
+    const Defense_factor = Math.max(0,Math.min((794) / (794 + Efective_def), 1));
     const Stun_factor = aturdido ? (1.5 + Stun) : 1;
 
     const danoPromedio = Mv_factor * Atk_factor * MA_factor * Dmg_factor * Admg_factor * Res_factor * Stun_factor * Defense_factor * 2 * Ref_factor;
