@@ -3,21 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LYNED · DPS Optimizer</title>
+    <title>LYNED - ZZZ Optimizer</title>
     <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" href="/static/Icono.webp" type="image/webp">
 </head>
 <body>
 
 <div class="dashboard">
 
-    <!-- SIDEBAR -->
+    <!-- SIDEBAR https://discord.gg/8fmZpXKZWt -->
     <aside class="sidebar">
         <div class="brand">LYNED</div>
 
         <div class="sidebar-buttons">
             <div class="sidebar-button active" data-view="optimizer">Optimizer</div>
             <div class="sidebar-button" data-view="disks">Mis Discos</div>
+            <div class="sidebar-button" data-view="tutorial">Tutorial</div>
         </div>
+
+        
+        <div class="alice-gif">
+            <img src="/static/Alice.gif" alt="">
+        </div>
+        <div class="discord-image" onclick="window.open('https://discord.gg/8fmZpXKZWt', '_blank');">
+            <img src="/static/Discord.webp" alt="">
+        </div>
+
+
     </aside>
 
     <!-- ======================================================= -->
@@ -396,6 +408,31 @@
 
     </div>
     <!-- FIN VISTA MIS DISCOS -->
+
+    
+    <!-- ======================================================= -->
+    <!-- VISTA: TUTORIAL                                        -->
+    <!-- ======================================================= -->
+    <div class="view-section hidden" id="view-tutorial">
+        <!-- HEADER -->
+        <div class="page-title">Tutorial</div>
+
+        <section class="tutorial-panel">
+            <div class="panel tutorial-result">
+                <div class="panel-header">Steps</div>
+                    <div class="page-title2">1. In your game profile, put in public your Main DPS and up to other 5 Agents you don't use </div>
+                    <div class="page-title3">2. Equip this Agents with your best Disk of the same 4 piece and 2 piece </div>
+                    <div class="page-title4">3. Then copy your UID and import all those Disks and start optimizing your DPS</div>
+            </div>
+
+        </section>
+
+        <div class="image-tutorial">
+            <img src="/static/Tutorial.webp" alt="">
+        </div>
+
+    </div>
+    <!-- FIN VISTA TUTORIAL -->
 
 </div>
 
