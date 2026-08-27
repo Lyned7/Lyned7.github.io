@@ -79,7 +79,8 @@ body {
 
 .panel {
     position: absolute;
-    background:linear-gradient(180deg,#2b2b2b 0%,#262626 100%);
+    background:linear-gradient(180deg,#222222 0%,#272727 100%);
+    border:1px solid #141414;border-radius:10px;
     box-shadow:0 10px 24px rgba(0,0,0,.38);
     border-radius: 10px;
     overflow: hidden;
@@ -91,7 +92,7 @@ body {
     top: 0;
     width: 100%;
     height: 34px;
-    background: var(--panel-header);
+    background: #292929;
     display: flex;
     align-items: center;
     padding: 0 11px;
@@ -111,8 +112,8 @@ body {
     top: 0;
     width: 182px;
     height: 879px;
-    background:linear-gradient(180deg,#2b2b2b 0%,#262626 100%);
-    border:1px solid #383838;border-radius:10px;
+    background:linear-gradient(180deg,#181818 0%,#202020 100%);
+    border:1px solid #141414;border-radius:10px;
     box-shadow:0 10px 24px rgba(0,0,0,.38);
     border-radius: 7px;
 }
@@ -166,6 +167,75 @@ body {
     font-size: 18px;
     font-weight: 800;
     line-height: 22px;
+}
+
+.page-title2 {
+    position: absolute;
+    left: 35px;
+    top: 47px;
+    height: 22px;
+    color: #d0d0d0;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 22px;
+}
+.page-title3 {
+    position: absolute;
+    left: 35px;
+    top: 67px;
+    height: 22px;
+    color: #d0d0d0;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 22px;
+}
+.page-title4 {
+    position: absolute;
+    left: 35px;
+    top: 87px;
+    height: 22px;
+    color: #d0d0d0;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 22px;
+}
+.image-tutorial img {
+    position: absolute;
+    left: 210px;
+    top: 200px;
+    width: 960px;
+    height: 560px;
+    object-fit: fill;
+}
+
+.discord-image img {
+    position: absolute;
+    left: 17px;
+    top: 810px;
+    width: 144px;
+    height: 39px;
+    object-fit: fill;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 80;
+}
+
+.alice-gif img {
+    position: absolute;
+    left: -5px;
+    top: 630px;
+    width: 200px;
+    height: 200px;
+    object-fit: fill;
+}
+
+.panel-tutorial {
+    position: absolute;
+    left: 210px;
+    top: 35px;
+    width: 800px;
+    height: 200px;
+
 }
 
 /* =========================
@@ -1042,12 +1112,7 @@ body {
     height: 275px;
 }
 
-.di-1 { left: 0;   top: 0; }
-.di-2 { left: 265px; top: 0; width: 255px; }
-.di-3 { left: 0;   top: 284px; }
-.di-4 { left: 265px; top: 284px; width: 255px; }
-.di-5 { left: 0;   top: 569px; }
-.di-6 { left: 265px; top: 569px; width: 255px; }
+
 
 .di-main {
     position: absolute;
@@ -1743,17 +1808,14 @@ body {
     height: 900px;
 }*/
 
-.di-card {
-    width: 255px;
-    height: 275px;
-}
+
 
 .di-1 { left: 0;   top: 0; }
-.di-2 { left: 265px; top: 0; width: 255px; }
-.di-3 { left: 0;   top: 284px; }
-.di-4 { left: 265px; top: 284px; width: 255px; }
-.di-5 { left: 0;   top: 569px; }
-.di-6 { left: 265px; top: 569px; width: 255px; }
+.di-6 { left: 265px; top: 0; width: 255px; } /* Antiguo 2 */
+.di-2 { left: 0;   top: 284px; }  /* Antiguo 3 */
+.di-5 { left: 265px; top: 284px; width: 255px; } /* Antiguo 4 */
+.di-3 { left: 0;   top: 569px; } /* Antiguo 5 */
+.di-4 { left: 265px; top: 569px; width: 255px; } /* Antiguo 6 */
 
 
 
@@ -2657,3 +2719,21 @@ body {
     font-weight: 700;
     line-height: 1.4;
 }
+
+/* Tutorial */
+.tutorial-panel {
+    position: absolute;
+    left: 210px;
+    top: 35px;
+    width: 800px;
+    height: 140px;
+}
+
+.tutorial-result {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 800px;
+    height: 140px;
+}
+
