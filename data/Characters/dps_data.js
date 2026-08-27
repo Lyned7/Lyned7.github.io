@@ -312,7 +312,7 @@ const dps = {
             umbral: 160,
             stat_buff: [
                 {
-                stat: "Shred",
+                stat: "Atke",
                 razon: 20,
                 paso: 10,
                 maxbuff: 420
