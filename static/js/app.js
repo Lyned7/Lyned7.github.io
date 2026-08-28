@@ -1029,30 +1029,7 @@ function bindOptimizer() {
         selectTopResult(0);
     });
 
-    if (infoBtn) {
-        infoBtn.addEventListener("click", () => {
-            const entry = state.topResults[state.topResultIndex];
-
-            if (!entry || !entry.detalle) {
-                openInfoMenu({
-                    title: "Combat Stats",
-                    rows: [{ label: "No results", value: "OPTIMIZAR first" }],
-                });
-                return;
-            }
-
-            const factores = entry.detalle.factores || {};
-            const rows = Object.entries(factores).map(([label, value]) => ({
-                label,
-                value: formatFactorValue(value),
-            }));
-
-            openInfoMenu({
-                title: `Combat Stats (${entry.detalle.tipo || "?"})`,
-                rows,
-            });
-        });
-    }
+    
 }
 
 document.addEventListener("DOMContentLoaded", () => {
