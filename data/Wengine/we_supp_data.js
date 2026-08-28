@@ -345,6 +345,94 @@ const we_supp = {
             5: { Dmg: 0.045},
         }
     },
+
+    // Defensor
+    "Half-Sugar Bunny": {
+        ID: 14157,
+        Image: "static/WENGINE/Half_Sugar_Bunny.webp",
+        Clase: "Defensor",
+        buffs: {
+            1: { Atkf: 0.10, Hpf: 0.10, CD: 0.30},
+            2: { Atkf: 0.015, Hpf: 0.015, CD: 0.045},
+            3: { Atkf: 0.015, Hpf: 0.015, CD: 0.045},
+            4: { Atkf: 0.015, Hpf: 0.015, CD: 0.045},
+            5: { Atkf: 0.015, Hpf: 0.015, CD: 0.045},
+        }
+    },
+    "Tusks of Fury": {
+        ID: 14157,
+        Image: "static/WENGINE/Tusks_of_Fury.webp",
+        Clase: "Defensor",
+        buffs: {
+            1: { Dmg: 0.18},
+            2: { Dmg: 0.045},
+            3: { Dmg: 0.045},
+            4: { Dmg: 0.045},
+            5: { Dmg: 0.045},
+        }
+    },
+    "Tremor Trigram Vessel": {
+        ID: 14157,
+        Image: "static/WENGINE/Tremor_Trigram_Vessel.webp",
+        Clase: "Defensor",
+        buffs: {
+            1: {},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+        }
+    },
+
+    // Atacante
+    "Severed Innocence": {
+        ID: 14157,
+        Image: "static/WENGINE/Severed_Innocence.webp",
+        Clase: "Atacante",
+        buffs: {
+            1: {},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+        }
+    },
+    "Cordis Germina": {
+        ID: 14157,
+        Image: "static/WENGINE/Cordis_Germina.webp",
+        Clase: "Atacante",
+        buffs: {
+            1: {},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+        }
+    },
+    "Serpentine Seeker": {
+        ID: 14157,
+        Image: "static/WENGINE/Serpentine_Seeker.webp",
+        Clase: "Atacante",
+        buffs: {
+            1: {},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+        }
+    },
+    "Bellicose Blaze": {
+        ID: 14157,
+        Image: "static/WENGINE/Bellicose_Blaze.webp",
+        Clase: "Atacante",
+        buffs: {
+            1: {},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+        }
+    },
 };
 
 export default we_supp
