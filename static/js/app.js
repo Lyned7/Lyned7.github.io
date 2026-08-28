@@ -550,7 +550,7 @@ function bindEnkaImport() {
             renderAllDisks();
 
             const omitidos = skipped.setDesconocido + skipped.mainStatDesconocido + skipped.otros;
-            let mensaje = `${disks.length} de ${totalEncontrados} Disk Imported.`;
+            let mensaje = `${disks.length} of ${totalEncontrados} Disk Imported.`;
             if (omitidos > 0) {
                 mensaje += ` ${omitidos} omited`;
                 if (skipped.setDesconocido > 0) mensaje += ` (set desconocido: ${skipped.setDesconocido})`;
