@@ -1,6 +1,36 @@
 // DPS
 const dps = {
     //Atacantes
+    "S11": {
+        ID: 1041,
+        Image: "static/DPS/Harin.webp",
+        Clase: "Atacante",
+        Elemento: "Fire",
+        force_stun: true,
+        Tipo_dmg: "Normal",
+        Stats_base: { Atk: 888, ER: 150, Tasa: 80 },
+        dupes: {
+            0: { Dmg_Basic: 0.70, Dmg: 0.325, CR_Base: 0.194, CD_Base: 0.50, CD: 0.48},
+            1: {},
+            2: { Dmg_Basic: 0.36},
+            3: {},
+            4: {},
+            5: {},
+            6: { Res_Basic: 0.25}
+        },
+        skills: {
+            "Ultimate: Bellowing Flame": {
+                0: {Mv: 42.062},
+                1: {Mv: 42.062}, 
+                2: {Mv: 42.062}, 
+                3: {Mv: 45.886}, 
+                4: {Mv: 45.886}, 
+                5: {Mv: 49.710}, 
+                6: {Mv: 49.710},
+                tipo: "Ultimate",
+            }
+        },
+    },
     "Sigrid": {
         ID: 1611,
         Image: "static/DPS/Sigrid.webp",
@@ -44,36 +74,7 @@ const dps = {
             ]
         },
     },
-    "S11": {
-        ID: 1041,
-        Image: "static/DPS/Harin.webp",
-        Clase: "Atacante",
-        Elemento: "Fire",
-        force_stun: true,
-        Tipo_dmg: "Normal",
-        Stats_base: { Atk: 888, ER: 150, Tasa: 80 },
-        dupes: {
-            0: { Dmg_Basic: 0.70, Dmg: 0.325, CR_Base: 0.194, CD_Base: 0.50, CD: 0.48},
-            1: {},
-            2: { Dmg_Basic: 0.36},
-            3: {},
-            4: {},
-            5: {},
-            6: { Res_Basic: 0.25}
-        },
-        skills: {
-            "Ultimate: Bellowing Flame": {
-                0: {Mv: 42.062},
-                1: {Mv: 42.062}, 
-                2: {Mv: 42.062}, 
-                3: {Mv: 45.886}, 
-                4: {Mv: 45.886}, 
-                5: {Mv: 49.710}, 
-                6: {Mv: 49.710},
-                tipo: "Ultimate",
-            }
-        },
-    },
+    
     "Sanby": {
         ID: 1041,
         Image: "static/DPS/Sanby.webp",
@@ -350,10 +351,220 @@ const dps = {
             }
         },
     },
+    "Hugo": {
+        ID: 1431,
+        Image: "static/DPS/Hugo.webp",
+        Clase: "Atacante",
+        Elemento: "Ice",
+        force_stun: true,
+        Tipo_dmg: "Normal",
+        Stats_base: { Atk: 919, ER: 1.5, Tasa: 80 },
+        dupes: {
+            0: { CR_Base: 0.194, CD_Base: 0.50, CR: 0.12, CD: 0.25, Atke: 900, Dmg: 0.40, CD_Freeze: 0.10},
+            1: { CR: 0.12, CD: 0.30},
+            2: { Shred: 0.15},
+            3: {},
+            4: { Res: 0.12},
+            5: {},
+            6: { Dmg: 0.60}
+        },
+        skills: {
+            "Ultimate: Blaspheme": {
+                0: {Mv: 64.550},
+                1: {Mv: 64.550}, 
+                2: {Mv: 64.550}, 
+                3: {Mv: 67.328}, 
+                4: {Mv: 67.328}, 
+                5: {Mv: 70.106}, 
+                6: {Mv: 70.106},
+                tipo: "Ultimate",
+            }
+        },
+    },
+    "Harumasa": {
+        ID: 1431,
+        Image: "static/DPS/Harumasa.webp",
+        Clase: "Atacante",
+        Elemento: "Electric",
+        force_stun: false,
+        Tipo_dmg: "Normal",
+        Stats_base: { Atk: 915, ER: 1.5, Tasa: 80 },
+        dupes: {
+            0: { CR_Base: 0.194, CD_Base: 0.50, CR: 0.25, CD: 0.72, Dmg: 0.40, Atkf: 0.12, Res_Dash: 0.12},
+            1: { CR: 0.12, CD: 0.30},
+            2: { Dmg_Dash: 0.15},
+            3: {},
+            4: {},
+            5: {},
+            6: { Res: 0.15}
+        },
+        skills: {
+            "Ultimate: Zanshin": {
+                0: {Mv: 43.816},
+                1: {Mv: 43.816}, 
+                2: {Mv: 43.816}, 
+                3: {Mv: 47.800}, 
+                4: {Mv: 47.800}, 
+                5: {Mv: 51.784}, 
+                6: {Mv: 51.784},
+                tipo: "Ultimate",
+            }
+        },
+    },
+    "Ellen": {
+        ID: 1431,
+        Image: "static/DPS/Ellen.webp",
+        Clase: "Atacante",
+        Elemento: "Ice",
+        force_stun: false,
+        Tipo_dmg: "Normal",
+        Stats_base: { Atk: 938, ER: 1.5, Tasa: 80 },
+        dupes: {
+            0: { CR_Base: 0.194, CD_Base: 0.50, CD: 1.48, Dmg: 0.30, Res: 0.10, CD_Freeze: 0.10},
+            1: { CR: 0.12},
+            2: { CD_Ex: 0.60},
+            3: {},
+            4: {},
+            5: {},
+            6: { Penx: 0.20}
+        },
+        skills: {
+            "Ultimate: Endless Winter": {
+                0: {Mv: 37.817},
+                1: {Mv: 37.817}, 
+                2: {Mv: 37.817}, 
+                3: {Mv: 41.255}, 
+                4: {Mv: 41.255}, 
+                5: {Mv: 44.693}, 
+                6: {Mv: 44.693},
+                tipo: "Ultimate",
+            }
+        },
+    },
+    "Nekomata": {
+        ID: 1431,
+        Image: "static/DPS/Nekomata.webp",
+        Clase: "Atacante",
+        Elemento: "Physical",
+        force_stun: true,
+        Tipo_dmg: "Normal",
+        Stats_base: { Atk: 910, ER: 1.5, Tasa: 80 },
+        dupes: {
+            0: { CR_Base: 0.194, CD_Base: 0.50, Dmg: 0.60, Dmg_Ex: 0.35, CD: 0.60},
+            1: { Res: 0.16},
+            2: {},
+            3: {},
+            4: { CR: 0.14},
+            5: {},
+            6: { CD: 0.54}
+        },
+        skills: {
+            "Ultimate: Claw Smash": {
+                0: {Mv: 31.430},
+                1: {Mv: 31.430}, 
+                2: {Mv: 31.430}, 
+                3: {Mv: 34.288}, 
+                4: {Mv: 34.288}, 
+                5: {Mv: 37.146}, 
+                6: {Mv: 37.146},
+                tipo: "Ultimate",
+            }
+        },
+    },
+    "Corn": {
+        ID: 1431,
+        Image: "static/DPS/Corn.webp",
+        Clase: "Atacante",
+        Elemento: "Physical",
+        force_stun: true,
+        Tipo_dmg: "Normal",
+        Stats_base: { Atk: 807, ER: 1.5, Tasa: 80 },
+        dupes: {
+            0: { CR_Base: 0.05, CD_Base: 0.788, Dmg_Ex: 0.375, Dmg: 0.35},
+            1: { Dmg: 0.12},
+            2: { Res: 0.10},
+            3: {},
+            4: {},
+            5: {},
+            6: {}
+        },
+        skills: {
+            "Ultimate: Very, Very Sorry!": {
+                0: {Mv: 40.583},
+                1: {Mv: 40.583}, 
+                2: {Mv: 40.583}, 
+                3: {Mv: 44.273}, 
+                4: {Mv: 44.273}, 
+                5: {Mv: 47.963}, 
+                6: {Mv: 47.963},
+                tipo: "Ultimate",
+            }
+        },
+    },
+    "Billy": {
+        ID: 1431,
+        Image: "static/DPS/Billy.webp",
+        Clase: "Atacante",
+        Elemento: "Physical",
+        force_stun: true,
+        Tipo_dmg: "Normal",
+        Stats_base: { Atk: 787, ER: 1.5, Tasa: 80 },
+        dupes: {
+            0: { CR_Base: 0.194, CD_Base: 0.50, Dmg_Basic: 0.50, Dmg_Ultimate: 1.0},
+            1: {},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+            6: { Dmg: 0.30}
+        },
+        skills: {
+            "Ultimate: Starlight, Shine Bright": {
+                0: {Mv: 31.960},
+                1: {Mv: 31.960}, 
+                2: {Mv: 31.960}, 
+                3: {Mv: 34.866}, 
+                4: {Mv: 34.866}, 
+                5: {Mv: 37.772}, 
+                6: {Mv: 37.772},
+                tipo: "Ultimate",
+            }
+        },
+    },
 
 
     
     //Anomalos
+    "Miyabi": {
+        ID: 1261,
+        Image: "static/DPS/Miyabi.webp",
+        Clase: "Anomalo",
+        Elemento: "Ice",
+        force_stun: false,
+        Tipo_dmg: "Normal",
+        Stats_base: { Atk: 880, ER: 1.5, Tasa: 151 },
+        dupes: {
+            0: { CR_Base: 0.05, CD_Base: 0.50, Dmg: 0.30, Dmg_Basic: 0.60, Res_Basic: 0.30, CD_Freeze: 0.10},
+            1: { Shred: 0.36},
+            2: { CR: 0.15},
+            3: {},
+            4: {},
+            5: {},
+            6: { Dmg_Basic: 0.30}
+        },
+        skills: {
+            "Ultimate: Lingering Snow": {
+                0: {Mv: 47.761},
+                1: {Mv: 47.761}, 
+                2: {Mv: 47.761}, 
+                3: {Mv: 52.103}, 
+                4: {Mv: 52.103}, 
+                5: {Mv: 56.445}, 
+                6: {Mv: 56.445},
+                tipo: "Ultimate",
+            }
+        },
+    },
     "Jane": {
         ID: 1261,
         Image: "static/DPS/Jane.webp",
@@ -469,6 +680,283 @@ const dps = {
             }
         },
     },
+    "Velina": {
+        ID: 1261,
+        Image: "static/DPS/Velina.webp",
+        Clase: "Anomalo",
+        Elemento: "Wind",
+        force_stun: false,
+        Tipo_dmg: "Anomaly",
+        Stats_base: { Atk: 872, ER: 1200, Tasa: 142, Tasae: 0 },
+        dupes: {
+            0: { MA_Base: 165, Admg: 0.10},
+            1: { Res: 0.20},
+            2: { Dmg: 0.15},
+            3: {},
+            4: { Atkf: 0.15},
+            5: {},
+            6: { Dmg: 0.40}
+        },
+        skills: {
+            "Windswept": {
+                0: {Mv: 12.5},
+                1: {Mv: 12.5}, 
+                2: {Mv: 12.5}, 
+                3: {Mv: 12.5}, 
+                4: {Mv: 12.5}, 
+                5: {Mv: 12.5}, 
+                6: {Mv: 12.5},
+                tipo: "Element",
+            }
+        },
+        stat_escalado: {
+            stat_fuente: "ER + ER*ERx",
+            umbral: 1200,
+            stat_buff: [
+                {
+                stat: "Dmg",
+                razon: 0.0021,
+                paso: 10,
+                maxbuff: 0.35
+                },
+            ]
+        },
+    },
+    "Burnice": {
+        ID: 1261,
+        Image: "static/DPS/Burnice.webp",
+        Clase: "Anomalo",
+        Elemento: "Fire",
+        force_stun: false,
+        Tipo_dmg: "Anomaly",
+        Stats_base: { Atk: 863, ER: 1560, Tasa: 118},
+        dupes: {
+            0: { MA_Base: 120, Dmg_Ex: 0.30},
+            1: {},
+            2: { Penx: 0.20},
+            3: {},
+            4: {},
+            5: {},
+            6: { Res: 0.25}
+        },
+        skills: {
+            "Burn": {
+                0: {Mv: 0.5},
+                1: {Mv: 0.5}, 
+                2: {Mv: 0.5}, 
+                3: {Mv: 0.5}, 
+                4: {Mv: 0.5}, 
+                5: {Mv: 0.5}, 
+                6: {Mv: 0.5},
+                tipo: "Ex",
+            }
+        },
+        stat_escalado: {
+            stat_fuente: "ER + ER*ERx",
+            umbral: 1800,
+            stat_buff: [
+                {
+                stat: "Dmg",
+                razon: 0.002,
+                paso: 10,
+                maxbuff: 0.2
+                },
+            ]
+        },
+    },
+    "Yanagi": {
+        ID: 1261,
+        Image: "static/DPS/Yanagi.webp",
+        Clase: "Anomalo",
+        Elemento: "Electric",
+        force_stun: false,
+        Tipo_dmg: "Anomaly",
+        Stats_base: { Atk: 872, ER: 1560, Tasa: 148},
+        dupes: {
+            0: { MA_Base: 114, Dmg: 0.30, Penx: 0.10},
+            1: { MA: 80},
+            2: {},
+            3: {},
+            4: { Penx: 0.16},
+            5: {},
+            6: { Dmg_Ex: 0.20}
+        },
+        skills: {
+            "Shock": {
+                0: {Mv: 1.25},
+                1: {Mv: 1.25}, 
+                2: {Mv: 1.25}, 
+                3: {Mv: 1.25}, 
+                4: {Mv: 1.25}, 
+                5: {Mv: 1.25}, 
+                6: {Mv: 1.25},
+                tipo: "Ex",
+            }
+        },
+    },
+    "Grace": {
+        ID: 1261,
+        Image: "static/DPS/Grace.webp",
+        Clase: "Anomalo",
+        Elemento: "Electric",
+        force_stun: false,
+        Tipo_dmg: "Anomaly",
+        Stats_base: { Atk: 825, ER: 1560, Tasa: 151},
+        dupes: {
+            0: { MA_Base: 116, Dmg: 0.66},
+            1: {},
+            2: { Res: 0.085},
+            3: {},
+            4: {},
+            5: {},
+            6: {}
+        },
+        skills: {
+            "Shock": {
+                0: {Mv: 1.25},
+                1: {Mv: 1.25}, 
+                2: {Mv: 1.25}, 
+                3: {Mv: 1.25}, 
+                4: {Mv: 1.25}, 
+                5: {Mv: 1.25}, 
+                6: {Mv: 1.25},
+                tipo: "Ex",
+            }
+        },
+    },
+    "Promeia": {
+        ID: 1261,
+        Image: "static/DPS/Promeia.webp",
+        Clase: "Anomalo",
+        Elemento: "Ice",
+        force_stun: false,
+        Tipo_dmg: "Anomaly",
+        Stats_base: { Atk: 872, ER: 1560, Tasa: 148},
+        dupes: {
+            0: { MA_Base: 114},
+            1: { },
+            2: { MA: 40},
+            3: {},
+            4: {},
+            5: {},
+            6: { Res: 0.15}
+        },
+        skills: {
+            "Shatter": {
+                0: {Mv: 5.0},
+                1: {Mv: 5.0}, 
+                2: {Mv: 5.0}, 
+                3: {Mv: 5.0}, 
+                4: {Mv: 5.0}, 
+                5: {Mv: 5.0}, 
+                6: {Mv: 5.0},
+                tipo: "Ex",
+            }
+        },
+        stat_escalado: {
+            stat_fuente: "Tasa*(1+Tasax)+Tasae",
+            umbral: 150,
+            stat_buff: [
+                {
+                stat: "MA",
+                razon: 1.5,
+                paso: 1,
+                maxbuff: null
+                },
+            ]
+        },
+    },
+    "Vivian(Supp)": {
+        ID: 1261,
+        Image: "static/DPS/Vivian.webp",
+        Clase: "Anomalo",
+        Elemento: "Ether",
+        force_stun: false,
+        Tipo_dmg: "SortedAP",
+        Stats_base: { Atk: 880, ER: 1.5, Tasa: 144 },
+        dupes: {
+            0: { MA_Base: 118},
+            1: {},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+            6: {}
+        },
+        skills: {
+            "Highest AP build": {
+                0: {Mv: 1},
+                1: {Mv: 1}, 
+                2: {Mv: 1}, 
+                3: {Mv: 1}, 
+                4: {Mv: 1}, 
+                5: {Mv: 1}, 
+                6: {Mv: 1},
+                tipo: "Ultimate",
+            }
+        },
+    },
+    "Remielle(Supp)": {
+        ID: 1261,
+        Image: "static/DPS/Remielle.webp",
+        Clase: "Anomalo",
+        Elemento: "Ether",
+        force_stun: false,
+        Tipo_dmg: "SortedAPAtk",
+        Stats_base: { Atk: 823, ER: 1.5, Tasa: 144 },
+        dupes: {
+            0: { MA_Base: 170},
+            1: {},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+            6: {}
+        },
+        skills: {
+            "Highest AP-4000Atk": {
+                0: {Mv: 1},
+                1: {Mv: 1}, 
+                2: {Mv: 1}, 
+                3: {Mv: 1}, 
+                4: {Mv: 1}, 
+                5: {Mv: 1}, 
+                6: {Mv: 1},
+                tipo: "Ultimate",
+            }
+        },
+    },
+
+    "Piper": {
+        ID: 1261,
+        Image: "static/DPS/Piper.webp",
+        Clase: "Anomalo",
+        Elemento: "Physical",
+        force_stun: false,
+        Tipo_dmg: "Anomaly",
+        Stats_base: { Atk: 758, ER: 1.5, Tasa: 116, Tasae: 0 },
+        dupes: {
+            0: { MA_Base: 118, Dmg: 0.18},
+            1: { Dmg: 0.09},
+            2: { Dmg: 0.40},
+            3: {},
+            4: {},
+            5: {},
+            6: {}
+        },
+        skills: {
+            "Assault": {
+                0: {Mv: 7.13},
+                1: {Mv: 7.13}, 
+                2: {Mv: 7.13}, 
+                3: {Mv: 7.13}, 
+                4: {Mv: 7.13}, 
+                5: {Mv: 7.13}, 
+                6: {Mv: 7.13},
+                tipo: "Element",
+            }
+        },
+    },
 
     //Ruptura
     "Yixuan": {
@@ -501,6 +989,98 @@ const dps = {
             }
         },
     },
+    "Silly": {
+        ID: 1371,
+        Image: "static/DPS/Silly.webp",
+        Clase: "Ruptura",
+        Elemento: "Physical",
+        force_stun: true,
+        Tipo_dmg: "Sheer",
+        Stats_base: { Atk: 859, Hp: 8497, ER: 1.5, Tasa: 80 },
+        dupes: {
+            0: { CR_Base: 0.194, CD_Base: 0.50, CD: 0.90, Dmg: 0.40},
+            1: { Res: 0.18},
+            2: { Dmg: 0.50, CD_Ex: 0.50},
+            3: {},
+            4: { CD: 0.16},
+            5: {},
+            6: { Rdmg: 0.18}
+        },
+        skills: {
+            "Ultimate: Starlight Knight Flying Kick": {
+                0: {Mv: 31.849},
+                1: {Mv: 31.849}, 
+                2: {Mv: 31.849}, 
+                3: {Mv: 34.745}, 
+                4: {Mv: 34.745}, 
+                5: {Mv: 37.641}, 
+                6: {Mv: 37.641},
+                tipo: "Ultimate",
+            }
+        },
+    },
+    "Yidhari": {
+        ID: 1371,
+        Image: "static/DPS/Yidhari.webp",
+        Clase: "Ruptura",
+        Elemento: "Ice",
+        force_stun: true,
+        Tipo_dmg: "Sheer",
+        Stats_base: { Atk: 859, Hp: 8497, ER: 1.5, Tasa: 80 },
+        dupes: {
+            0: { CR_Base: 0.194, CD_Base: 0.50, Hpf_Veil: 0.05, Dmg: 1.0, CD: 0.30},
+            1: { Res_Basic: 0.20, Res_Ex: 0.20},
+            2: { CD: 0.40},
+            3: {},
+            4: { Hpf: 0.05},
+            5: {},
+            6: { Rdmg: 0.25}
+        },
+        skills: {
+            "Ultimate: Final Act - Crossing the River of Regret": {
+                0: {Mv: 30.445},
+                1: {Mv: 30.445}, 
+                2: {Mv: 30.445}, 
+                3: {Mv: 33.213}, 
+                4: {Mv: 33.213}, 
+                5: {Mv: 35.981}, 
+                6: {Mv: 35.981},
+                tipo: "Ultimate",
+            }
+        },
+    },
+    "Banyue": {
+        ID: 1371,
+        Image: "static/DPS/Banyue.webp",
+        Clase: "Ruptura",
+        Elemento: "Fire",
+        force_stun: true,
+        Tipo_dmg: "Sheer",
+        Stats_base: { Atk: 859, Hp: 8497, ER: 1.5, Tasa: 80 },
+        dupes: {
+            0: { CR_Base: 0.194, CD_Base: 0.50, Sheere: 300, Dmg: 0.51, CD: 0.36},
+            1: { Res: 0.10, Rdmg: 0.10},
+            2: { CD: 0.15, Dmg: 0.15},
+            3: {},
+            4: { Dmg_Basic: 0.30},
+            5: {},
+            6: { Dmg: 0.24}
+        },
+        skills: {
+            "Ultimate: The World Trembles": {
+                0: {Mv: 31.978},
+                1: {Mv: 31.978}, 
+                2: {Mv: 31.978}, 
+                3: {Mv: 34.886}, 
+                4: {Mv: 34.886}, 
+                5: {Mv: 37.794}, 
+                6: {Mv: 37.794},
+                tipo: "Ultimate",
+            }
+        },
+    },
+    
 }
+
 
 export default dps
