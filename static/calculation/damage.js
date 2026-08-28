@@ -59,6 +59,7 @@ function calcularDanoSharp(stats, aturdido) {
     const Res = getStat(stats, "Res", 0);
     const Stun = getStat(stats, "Stun", 0);
     const Vuln = getStat(stats, "Vuln", 0);
+    const Taken = getStat(stats, "Taken", 0);
 
     
     const Sdmg = getStat(stats, "Sdmg", 0);
@@ -85,9 +86,11 @@ function calcularDanoSharp(stats, aturdido) {
     const Stun_factor = aturdido ? (1.5 + Stun + Vuln) : 1;
     const Sdmg_factor = 1 + Sdmg;
     const Cont_factor = 1 + Cont;
+    const Taken_factor = 1 + Taken;
 
-    const danoPromedio = Mv_factor * Def_factor * Lac_factor * Dmg_factor * Res_factor * Stun_factor * Defense_factor * Sdmg_factor * Cont_factor;
-    const danoReal = Mv_factor * Def_factor * Lac_real * Dmg_factor * Res_factor * Stun_factor * Defense_factor * Sdmg_factor * Cont_factor;
+
+    const danoPromedio = Mv_factor * Def_factor * Lac_factor * Dmg_factor * Res_factor * Stun_factor * Defense_factor * Sdmg_factor * Cont_factor * Taken_factor;
+    const danoReal = Mv_factor * Def_factor * Lac_real * Dmg_factor * Res_factor * Stun_factor * Defense_factor * Sdmg_factor * Cont_factor * Taken_factor;
 
     const stat1 = ((Def * (1 + Defx)) + Defp);
 
@@ -131,6 +134,7 @@ function calcularDanoNormal(stats, aturdido) {
     const Res = getStat(stats, "Res", 0);
     const Stun = getStat(stats, "Stun", 0);
     const Vuln = getStat(stats, "Vuln", 0);
+    const Taken = getStat(stats, "Taken", 0);
     
     const Cont = getStat(stats, "Cont", 0);
 
@@ -152,9 +156,11 @@ function calcularDanoNormal(stats, aturdido) {
     const Defense_factor = Math.max(0,Math.min((794) / (794 + Efective_def), 1));
     const Stun_factor = aturdido ? (1.5 + Stun + Vuln) : 1;
     const Cont_factor = 1 + Cont;
+    const Taken_factor = 1 + Taken;
 
-    const danoPromedio = Mv_factor * Atk_factor * Crit_factor * Dmg_factor * Res_factor * Stun_factor * Defense_factor * Cont_factor;
-    const danoReal = Mv_factor * Atk_factor * Crit_real * Dmg_factor * Res_factor * Stun_factor * Defense_factor * Cont_factor;
+
+    const danoPromedio = Mv_factor * Atk_factor * Crit_factor * Dmg_factor * Res_factor * Stun_factor * Defense_factor * Cont_factor * Taken_factor;
+    const danoReal = Mv_factor * Atk_factor * Crit_real * Dmg_factor * Res_factor * Stun_factor * Defense_factor * Cont_factor * Taken_factor;
 
     const stat1 = ((Atk * (1 + Atkx)) + Atkp);
     const stat2 = getStat(stats, "Penp", 0);
@@ -215,6 +221,7 @@ function calcularDanoAnomaly(stats, aturdido) {
     const Res = getStat(stats, "Res", 0);
     const Stun = getStat(stats, "Stun", 0);
     const Vuln = getStat(stats, "Vuln", 0);
+    const Taken = getStat(stats, "Taken", 0);
 
     const Penx = getStat(stats, "Penx", 0);
     const Shred = Math.max(0, Math.min(getStat(stats, "Shred", 0), 1));
@@ -239,9 +246,11 @@ function calcularDanoAnomaly(stats, aturdido) {
     const Efective_def = Target_def * (1-Penx) - Penp;
     const Defense_factor = Math.max(0,Math.min((794) / (794 + Efective_def), 1));
     const Stun_factor = aturdido ? (1.5 + Stun + Vuln) : 1;
+    const Taken_factor = 1 + Taken;
 
-    const danoPromedio = Mv_factor * Atk_factor * MA_factor * Dmg_factor * Admg_factor * Res_factor * Stun_factor * Defense_factor * 2 * Ref_factor;
-    const danoReal = Mv_factor * Atk_factor * MA_factor * Dmg_factor * Admg_factor * Res_factor * Stun_factor * Defense_factor * 2 * Ref_factor;
+
+    const danoPromedio = Mv_factor * Atk_factor * MA_factor * Dmg_factor * Admg_factor * Res_factor * Stun_factor * Defense_factor * 2 * Ref_factor * Taken_factor;
+    const danoReal = Mv_factor * Atk_factor * MA_factor * Dmg_factor * Admg_factor * Res_factor * Stun_factor * Defense_factor * 2 * Ref_factor * Taken_factor;
 
     const stat1 = ((Atk * (1 + Atkx)) + Atkp);
     const stat2 = getStat(stats, "Penp", 0);
@@ -315,6 +324,7 @@ function calcularDanoSheer(stats, aturdido) {
     const Dmg = getStat(stats, "Dmg", 0);
     const Res = getStat(stats, "Res", 0);
     const Stun = getStat(stats, "Stun", 0);
+    const Taken = getStat(stats, "Taken", 0);
     const Vuln = getStat(stats, "Vuln", 0);
     const Cont = getStat(stats, "Cont", 0);
 
@@ -327,14 +337,15 @@ function calcularDanoSheer(stats, aturdido) {
     const Crit_real = (1+((CD + CD_Base)+ CD_Freeze));
     const Dmg_factor = 1 + Dmg;
     const Res_factor = 1 + Res;
+    const Taken_factor = 1 + Taken;
 
     const Rdmg_factor = 1 + Rdmg;
 
     const Stun_factor = aturdido ? (1.5 + Stun + Vuln) : 1;
     const Cont_factor = 1 + Cont;
 
-    const danoPromedio = Mv_factor * Sheer_factor * Crit_factor * Dmg_factor * Rdmg_factor * Res_factor * Stun_factor * Cont_factor;
-    const danoReal = Mv_factor * Sheer_factor * Crit_real * Dmg_factor * Rdmg_factor * Res_factor * Stun_factor * Cont_factor;
+    const danoPromedio = Mv_factor * Sheer_factor * Crit_factor * Dmg_factor * Rdmg_factor * Res_factor * Stun_factor * Cont_factor * Taken_factor;
+    const danoReal = Mv_factor * Sheer_factor * Crit_real * Dmg_factor * Rdmg_factor * Res_factor * Stun_factor * Cont_factor * Taken_factor;
     
     const stat1 = ((Hp * (1 + Hpx)) + Hpp);
     const stat2 = ((Atk * (1 + Atkx)) + Atkp);
