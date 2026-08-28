@@ -1488,9 +1488,10 @@ body {
     color: var(--white);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1000px), (hover: none) and (pointer: coarse) {
     .selection-overlay {
         padding: 12px;
+        place-items: center;
     }
 
     .selection-modal {
