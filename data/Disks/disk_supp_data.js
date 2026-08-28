@@ -32,7 +32,7 @@ const disk_supp = {
         buffs: {}
     },
     "Feathered Fate": {
-        Image: "static/DISKS/Feathered_Fates.webp",
+        Image: "static/DISKS/Feathered_Fate.webp",
         buffs: {}
     },
     "Wuthering Salon": {
