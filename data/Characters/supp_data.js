@@ -506,6 +506,103 @@ const supp = {
             ],
         },
     },
+
+    // Atacante
+    "Cissia": {
+        ID: 1621,
+        Image: "static/SUPPORT/Cissia.webp",
+        Clase: "Atacante",
+        buffs: {
+            0: {CD: 0.45, Shred_Electric: 0.06},
+            1: {Res_Electric: 0.05},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+            6: {}
+        },
+        stat_escalado: {
+            stat_fuente: "Energy",
+            umbral: 1.4,
+            max_buff_umbral: 3.744,
+            stat_buff: [
+                {
+                stat: "Shred_Electric",
+                razon: 0.01,
+                paso: 0.12,
+                maxbuff: 0.19
+                },
+            ],
+        },
+    },
+    "Seed": {
+        ID: 1621,
+        Image: "static/SUPPORT/Seed.webp",
+        Clase: "Atacante",
+        buffs: {
+            0: {Atke: 1000, CD: 0.30, Dmg: 0.25},
+            1: {},
+            2: {Shred: 0.20},
+            3: {},
+            4: {},
+            5: {},
+            6: {}
+        },
+    },
+    "Orphie": {
+        ID: 1621,
+        Image: "static/SUPPORT/Orphie.webp",
+        Clase: "Atacante",
+        buffs: {
+            0: {Atke: 280},
+            1: {Res_Electric: 0.05},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+            6: {}
+        },
+        stat_escalado: {
+            stat_fuente: "Energy",
+            umbral: 1.6,
+            max_buff_umbral: 3.744,
+            stat_buff: [
+                {
+                stat: "Atke",
+                razon: 20,
+                paso: 0.1,
+                maxbuff: 420
+                },
+            ],
+        },
+    },
+    "Sanby": {
+        ID: 1621,
+        Image: "static/SUPPORT/Sanby.webp",
+        Clase: "Atacante",
+        buffs: {
+            0: {Dmg_Aftershock: 0.50},
+            1: {},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+            6: {}
+        },
+        stat_escalado: {
+            stat_fuente: "C.Dmg",
+            umbral: 0,
+            max_buff_umbral: 1000,
+            stat_buff: [
+                {
+                stat: "CD",
+                razon: 0.0035,
+                paso: 1,
+                maxbuff: null
+                },
+            ],
+        },
+    },
     
     
 };
