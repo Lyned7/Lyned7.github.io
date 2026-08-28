@@ -529,11 +529,11 @@ function bindEnkaImport() {
     importBtn.addEventListener("click", async () => {
         const uid = uidInput.value.trim();
         if (!uid) {
-            setStatus("Ingresa tu UID primero.");
+            setStatus("Insert your UID first");
             return;
         }
 
-        setStatus("Consultando Enka Network...");
+        setStatus("Loading Enka Network...");
         importBtn.classList.add("newdisk-locked");
 
         try {
@@ -541,7 +541,7 @@ function bindEnkaImport() {
             const { disks, skipped, totalEncontrados } = parseEnkaShowcase(json);
 
             if (!totalEncontrados) {
-                setStatus("No se encontraron discos equipados en ese showcase.");
+                setStatus("No Disks on your Profile");
                 return;
             }
 
@@ -550,16 +550,16 @@ function bindEnkaImport() {
             renderAllDisks();
 
             const omitidos = skipped.setDesconocido + skipped.mainStatDesconocido + skipped.otros;
-            let mensaje = `Se importaron ${disks.length} de ${totalEncontrados} discos.`;
+            let mensaje = `${disks.length} de ${totalEncontrados} Disk Imported.`;
             if (omitidos > 0) {
-                mensaje += ` ${omitidos} omitidos`;
+                mensaje += ` ${omitidos} omited`;
                 if (skipped.setDesconocido > 0) mensaje += ` (set desconocido: ${skipped.setDesconocido})`;
                 mensaje += ".";
             }
             setStatus(mensaje);
         } catch (err) {
-            console.error("Error al importar desde Enka Network:", err);
-            setStatus(`No se pudo importar: ${err.message}`);
+            console.error("Enka Network is not working:", err);
+            setStatus(`ERROR: ${err.message}`);
         } finally {
             importBtn.classList.remove("newdisk-locked");
         }
@@ -675,7 +675,7 @@ function bindNewDiskCreation({ onSave } = {}) {
         openGridMenu({
             items: toGridItems(disk_dps),
             ratioClass: "ratio-disk",
-            title: "Selecciona un Set",
+            title: "Select a Set",
             onSelect: (key) => {
                 draft.set = key;
                 renderSet();
