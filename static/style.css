@@ -1256,9 +1256,12 @@ body {
     position: fixed;
     inset: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
+    min-height: 100dvh;
+    box-sizing: border-box;
     background: rgba(15, 15, 15, 0.85);
     z-index: 9999;
+    overflow: auto;
 
     align-items: center;
     justify-content: center;
@@ -1483,6 +1486,61 @@ body {
 .modal-list-item:hover {
     background: #2b2a2a;
     color: var(--white);
+}
+
+@media (max-width: 600px) {
+    .selection-overlay {
+        padding: 12px;
+    }
+
+    .selection-modal {
+        width: 100%;
+        max-width: 100%;
+        max-height: calc(100dvh - 24px);
+        padding: 12px;
+    }
+
+    .modal-grid {
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+        gap: 10px;
+        width: 100%;
+    }
+
+    .modal-item,
+    .modal-item:has(.ratio-dps),
+    .modal-item:has(.ratio-support),
+    .modal-item:has(.ratio-weapon),
+    .modal-item:has(.ratio-enemy),
+    .modal-item:has(.ratio-disk) {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .ratio-dps,
+    .ratio-support,
+    .ratio-weapon,
+    .ratio-enemy,
+    .ratio-disk {
+        width: 100%;
+        height: auto;
+    }
+
+    .ratio-dps {
+        aspect-ratio: 3 / 4;
+    }
+
+    .ratio-support,
+    .ratio-weapon {
+        aspect-ratio: 1;
+    }
+
+    .ratio-enemy {
+        aspect-ratio: 448 / 668;
+    }
+
+    .ratio-disk {
+        aspect-ratio: 256 / 217;
+    }
 }
 
 @media (max-width: 1900px) {
@@ -2736,4 +2794,3 @@ body {
     width: 800px;
     height: 140px;
 }
-
