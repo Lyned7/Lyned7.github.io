@@ -205,45 +205,6 @@ const supp = {
     },
 
     // Stunner
-    "Roxy": {
-        ID: 1621,
-        Image: "static/SUPPORT/Roxy.webp",
-        Clase: "Stunner",
-        buffs: {
-            0: { Stun: 0.30, Cont: 0.20},
-            1: { Res: 0.15 },
-            2: { Stun: 0.25 }, // Se van sumando los buffs de cada nivel de dupe
-            3: {},
-            4: {},
-            5: {},
-            6: {}
-        },
-        stat_escalado: {
-            stat_fuente: "CR",
-            umbral: 0.50,
-            max_buff_umbral: 1.0,
-            stat_buff: [
-                {
-                stat: "Lac",
-                razon: 0.005,
-                paso: 0.01,
-                maxbuff: null
-                },
-                {
-                stat: "CD_Atacante",
-                razon: 0.01,
-                paso: 0.01,
-                maxbuff: 0.50
-                },
-                {
-                stat: "CD_Ruptura",
-                razon: 0.01,
-                paso: 0.01,
-                maxbuff: 0.50
-                },
-            ],
-        },
-    },
     "Lighter": {
         ID: 1621,
         Image: "static/SUPPORT/Lighter.webp",
@@ -471,6 +432,76 @@ const supp = {
                 razon: 0.0002,
                 paso: 1,
                 maxbuff: null
+                },
+            ],
+        },
+    },
+
+    // Defensor
+    "Zhao": {
+        ID: 1621,
+        Image: "static/SUPPORT/Zhao.webp",
+        Clase: "Defensor",
+        buffs: {
+            0: {Hpf_Veil: 0.05, Atke: 1000, Dmg: 0.10},
+            1: {Res: 0.15},
+            2: {Atkf: 0.15},
+            3: {},
+            4: {},
+            5: {},
+            6: {}
+        },
+         stat_escalado: {
+            stat_fuente: "Hp",
+            umbral: 15000,
+            max_buff_umbral: 27000,
+            stat_buff: [
+                {
+                stat: "Dmg",
+                razon: 0.01,
+                paso: 400,
+                maxbuff: 0.30
+                },
+            ],
+        },
+    },
+    "Caesar": {
+        ID: 1621,
+        Image: "static/SUPPORT/Caesar.webp",
+        Clase: "Defensor",
+        buffs: {
+            0: {Atke: 1000, Dmg: 0.25},
+            1: {Res: 0.15},
+            2: {Atke: 500},
+            3: {},
+            4: {},
+            5: {},
+            6: {}
+        },
+    },
+    "Pan Yinhu": {
+        ID: 1621,
+        Image: "static/SUPPORT/Pan_Yinhu.webp",
+        Clase: "Defensor",
+        buffs: {
+            0: {Dmg: 0.20},
+            1: {Dmg: 0.10},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+            6: {Sheere: 180}
+        },
+        stat_escalado: {
+            stat_fuente: "Atk",
+            umbral: 0,
+            max_buff_umbral: 3000,
+            stat_buff: [
+                {
+                stat: "Sheere",
+                razon: 0.18,
+                paso: 1,
+                maxbuff: 540
                 },
             ],
         },
