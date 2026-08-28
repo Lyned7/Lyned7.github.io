@@ -125,6 +125,7 @@ function calcularDanoNormal(stats, aturdido) {
     const CD = getStat(stats, "CD", 0);
     const CD_Base = getStat(stats, "CD_Base", 0);
     const CDf = getStat(stats, "CDf", 0);
+    const CD_Freeze = Math.max(0, Math.min(getStat(stats, "CD_Freeze", 0), 0.10));
 
     const Dmg = getStat(stats, "Dmg", 0);
     const Res = getStat(stats, "Res", 0);
@@ -142,8 +143,8 @@ function calcularDanoNormal(stats, aturdido) {
     // Factores de la fórmula Normal
     const Mv_factor = Mv;
     const Atk_factor = (Math.floor((Atk * (1 + Atkx)) + Atkp) * (1+Atkf)) + Atke + Atke_Idol;
-    const Crit_factor = (1+((Math.min((CR+CR_Base), 1)) * ((CD + CD_Base)*(1+CDf))));
-    const Crit_real = (1+((CD + CD_Base)*(1+CDf)));
+    const Crit_factor = (1+((Math.min((CR+CR_Base), 1)) * ((CD + CD_Base)*(1+CDf)+ CD_Freeze)));
+    const Crit_real = (1+((CD + CD_Base)*(1+CDf)+ CD_Freeze));
     const Dmg_factor = 1 + Dmg;
     const Res_factor = 1 + Res;
     const Target_def = Defense * (1-Shred);
@@ -179,10 +180,6 @@ function calcularDanoNormal(stats, aturdido) {
         stat4_name,
 
         factores: {
-            stat1,
-            stat2,
-            stat3,
-            stat4,
             Mv_factor,
             Atk_factor,
             Crit_factor,
@@ -193,11 +190,6 @@ function calcularDanoNormal(stats, aturdido) {
             Res_factor,
             Stun_factor,
             Cont_factor,
-            CD,
-            CR,
-            Dmg,
-            Atkx,
-            Atkf,
             danoPromedio,
             danoReal,
         }
@@ -309,12 +301,14 @@ function calcularDanoSheer(stats, aturdido) {
     const Hpe = getStat(stats, "Hpe", 0);
 
     const Sheere = getStat(stats, "Sheere", 0);
+    const Hpf_Veil = Math.max(0, Math.min(getStat(stats, "Hpf_Veil", 0), 0.05));
 
     const CR = getStat(stats, "CR", 0);
     const CD = getStat(stats, "CD", 0);
 
     const CR_Base = getStat(stats, "CR_Base", 0);
     const CD_Base = getStat(stats, "CD_Base", 0);
+    const CD_Freeze = Math.max(0, Math.min(getStat(stats, "CD_Freeze", 0), 0.10));
 
     const Rdmg = getStat(stats, "Rdmg", 0);
 
@@ -327,10 +321,10 @@ function calcularDanoSheer(stats, aturdido) {
     // Factores de la fórmula Sheer
     const Mv_factor = Mv;
     const Atk_factor = (Math.floor((Atk * (1 + Atkx)) + Atkp) * (1+Atkf)) + Atke;
-    const Hp_factor = (Math.floor((Hp * (1 + Hpx)) + Hpp) * (1+Hpf)) + Hpe;
+    const Hp_factor = (Math.floor((Hp * (1 + Hpx)) + Hpp) * (1+(Hpf+Hpf_Veil))) + Hpe;
     const Sheer_factor = (Atk_factor*0.3 + Hp_factor*0.1) + Sheere;
-    const Crit_factor = (1+((Math.min((CR+CR_Base), 1)) * (CD + CD_Base)));
-    const Crit_real = (1+(CD + CD_Base));
+    const Crit_factor = (1+((Math.min((CR+CR_Base), 1)) * ((CD + CD_Base)+ CD_Freeze)));
+    const Crit_real = (1+((CD + CD_Base)+ CD_Freeze));
     const Dmg_factor = 1 + Dmg;
     const Res_factor = 1 + Res;
 
@@ -344,8 +338,8 @@ function calcularDanoSheer(stats, aturdido) {
     
     const stat1 = ((Hp * (1 + Hpx)) + Hpp);
     const stat2 = ((Atk * (1 + Atkx)) + Atkp);
-    const stat3 = getStat(stats, "CR_Base", 0);
-    const stat4 = getStat(stats, "CD_Base", 0);
+    const stat3 = getStat(stats, "CR_Base", 0)*100;
+    const stat4 = getStat(stats, "CD_Base", 0)*100;
 
     const stat1_name = "HP";
     const stat2_name = "Atk";
@@ -378,6 +372,112 @@ function calcularDanoSheer(stats, aturdido) {
             Cont_factor,
             Sheere,
             Crit_real
+        }
+    };
+}
+
+function calcularDanoSortedAP(stats, aturdido) {
+
+    const Atk = getStat(stats, "Atk", 0);
+    const Atkx = getStat(stats, "Atkx", 0);
+    const Atkp = getStat(stats, "Atkp", 0);
+
+    const Tasa = getStat(stats, "Tasa", 0);
+    const Tasax = getStat(stats, "Tasax", 0);
+
+    const Mv = getStat(stats, "Mv", 0);
+
+    const MA = getStat(stats, "MA", 0);
+    const MA_Base = getStat(stats, "MA_Base", 0);
+
+    // Factores de la fórmula Anomaly
+    const Mv_factor = Mv;
+
+    const MA_factor = ((MA + MA_Base));
+
+    const danoPromedio = Mv_factor* MA_factor ;
+    const danoReal = Mv_factor * MA_factor;
+
+    const stat1 = ((Atk * (1 + Atkx)) + Atkp);
+    const stat2 = getStat(stats, "Penp", 0);
+    const stat3 = (getStat(stats, "MA_Base", 0));
+    const stat4 = Math.floor(Tasa * (1 + Tasax));
+
+    const stat1_name = "ATK";
+    const stat2_name = "PEN";
+    const stat3_name = "MA";
+    const stat4_name = "AM";
+
+    return {
+        danoReal,
+        danoPromedio,
+
+        stat1,
+        stat2,
+        stat3,
+        stat4,
+        stat1_name,
+        stat2_name,
+        stat3_name,
+        stat4_name,
+
+        factores: {
+            Mv_factor,
+            MA_factor,
+            Tasax,
+        }
+    };
+}
+
+function calcularDanoSortedAPAtk(stats, aturdido) {
+
+    const Atk = getStat(stats, "Atk", 0);
+    const Atkx = getStat(stats, "Atkx", 0);
+    const Atkp = getStat(stats, "Atkp", 0);
+
+    const Tasa = getStat(stats, "Tasa", 0);
+    const Tasax = getStat(stats, "Tasax", 0);
+
+    const Mv = getStat(stats, "Mv", 0);
+
+    const MA = getStat(stats, "MA", 0);
+    const MA_Base = getStat(stats, "MA_Base", 0);
+
+    // Factores de la fórmula Anomaly
+    const Mv_factor = Mv;
+    const Atk_factor = Math.min(Math.floor((Atk * (1 + Atkx)) + Atkp),4000);
+    const MA_factor = 1 + ((MA + MA_Base)/10000);
+
+    const danoPromedio = Mv_factor * Atk_factor * MA_factor;
+    const danoReal = MA + MA_Base;
+
+    const stat1 = ((Atk * (1 + Atkx)) + Atkp);
+    const stat2 = getStat(stats, "Penp", 0);
+    const stat3 = (getStat(stats, "MA_Base", 0));
+    const stat4 = Math.floor(Tasa * (1 + Tasax));
+
+    const stat1_name = "ATK";
+    const stat2_name = "PEN";
+    const stat3_name = "MA";
+    const stat4_name = "AM";
+
+    return {
+        danoReal,
+        danoPromedio,
+
+        stat1,
+        stat2,
+        stat3,
+        stat4,
+        stat1_name,
+        stat2_name,
+        stat3_name,
+        stat4_name,
+
+        factores: {
+            Mv_factor,
+            MA_factor,
+            Tasax,
         }
     };
 }
@@ -436,6 +536,12 @@ export function calcularDanoFinal(seleccion) {
             break;
         case "Anomaly":
             resultado = calcularDanoAnomaly(statsTotales, aturdido);
+            break;
+        case "SortedAP":
+            resultado = calcularDanoSortedAP(statsTotales, aturdido);
+            break;
+        case "SortedAPAtk":
+            resultado = calcularDanoSortedAPAtk(statsTotales, aturdido);
             break;
         default:
             resultado = calcularDanoNormal(statsTotales, aturdido);
