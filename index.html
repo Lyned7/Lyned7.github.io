@@ -17,7 +17,7 @@
 
         <div class="sidebar-buttons">
             <div class="sidebar-button active" data-view="optimizer">Optimizer</div>
-            <div class="sidebar-button" data-view="disks">Mis Discos</div>
+            <div class="sidebar-button" data-view="disks">Disks</div>
             <div class="sidebar-button" data-view="tutorial">Tutorial</div>
         </div>
 
@@ -38,11 +38,11 @@
     <div class="view-section" id="view-optimizer">
 
         <!-- HEADER -->
-        <div class="page-title">Configuracion del DPS</div>
+        <div class="page-title">DPS Build</div>
 
         <!-- CHARACTER -->
         <section class="panel character-panel">
-            <div class="panel-header">Personaje</div>
+            <div class="panel-header">Character</div>
             <div class="character-image" data-select="dps-character-image">
                 <img src="/static/DPS/Dps_Base.webp" alt="">
             </div>
@@ -71,7 +71,7 @@
 
         <!-- DISKS -->
         <section class="panel disks-panel">
-        <div class="panel-header">Discos y Stats</div>
+        <div class="panel-header">Disk & Stats</div>
 
         <div class="field-label sets-label">Sets:</div>
 
@@ -87,7 +87,7 @@
 
         <div class="field-label sets-label-2">2P</div>
 
-        <div class="field-label main-stats-label">Stats Principales:</div>
+        <div class="field-label main-stats-label">Main Stats:</div>
 
         <div class="stat-slot slot-d4" data-select="dps-main-stat-d4">
             <span class="stat-slot-label">D4</span>
@@ -127,12 +127,12 @@
 
             </div>
 
-            <div class="optimize-button" data-select="optimize-button">OPTIMIZAR</div>
+            <div class="optimize-button" data-select="optimize-button">OPTIMIZE</div>
             <div class="optimizer-status" data-select="optimizer-status"></div>
         </section>
 
         <!-- SUPPORT TITLE -->
-        <div class="support-title">Configuracion de Supports</div>
+        <div class="support-title">Supports & Enemy Build</div>
 
         <!-- SUPPORT 1 -->
         <section class="panel support-panel support-1">
@@ -164,7 +164,7 @@
 
             <div class="support-stat-label">Stat Buff:</div>
             <input type="text" inputmode="decimal" class="buff-value" data-select="support1-buff-value" value="0" disabled>
-            <div class="buff-name" data-select="support1-buff-name">Selecciona un Support</div>
+            <div class="buff-name" data-select="support1-buff-name">Select a Support</div>
 
             <input type="range" class="buff-slider" data-select="support1-buff-slider" min="0" max="0" step="1" value="0" disabled>
 
@@ -176,12 +176,12 @@
             <div class="panel-header">Support 2</div>
 
             <div class="support-field support-character-field" data-select="support2-character-field">
-                <span>Sunna</span>
+                <span>Support 2</span>
                 <span class="field-side" data-select="support2-character-level">C0</span>
             </div>
 
             <div class="support-field support-engine-field" data-select="support2-weapon-field">
-                <span>Toughbop</span>
+                <span>W-Engine</span>
                 <span class="field-side" data-select="support2-weapon-level">W1</span>
             </div>
 
@@ -201,7 +201,7 @@
 
             <div class="support-stat-label">Stat Buff:</div>
             <input type="text" inputmode="decimal" class="buff-value" data-select="support2-buff-value" value="0" disabled>
-            <div class="buff-name" data-select="support2-buff-name">Selecciona un Support</div>
+            <div class="buff-name" data-select="support2-buff-name">Select a Support</div>
 
             <input type="range" class="buff-slider" data-select="support2-buff-slider" min="0" max="0" step="1" value="0" disabled>
 
@@ -218,7 +218,7 @@
                 <img src="/static/ENEMY/Enemy_Base.webp" alt="">
             </div>
 
-            <div class="weakness-title">Debilidad:</div>
+            <div class="weakness-title">Weakness:</div>
 
             <div class="weakness-grid">
                 <div><img src="/static/ELEMENTS/Physical.webp" alt="" class="weakness-image-1"></div>
@@ -403,7 +403,7 @@
 
         <!-- DISCOS GUARDADOS (se renderizan dinamicamente desde localStorage) -->
         <div class="inv-grid" id="inv-grid">
-            <div class="inv-empty-state" id="inv-empty-state">Aun no has creado ningun disco. Usa "+ NEW DISK" para crear el primero.</div>
+            <div class="inv-empty-state" id="inv-empty-state">No disks. Use "+ NEW DISK" to create one.</div>
         </div>
 
     </div>
@@ -452,11 +452,11 @@
                 </div>
                 <div class="set_field-label left-inv-label4">Set:</div>
                 <div class="set-new-slot left-set-slot set-top">
-                    <div class="filter-slot widht-newset" data-select="newdisk-set-field">Elegir Set</div>
+                    <div class="filter-slot widht-newset" data-select="newdisk-set-field">Select Set</div>
                 </div>
                 <div class="contenedor-gris contenedor-img-set" data-select="newdisk-set-image"><img src="/static/DISKS/Set_Base.webp" class="newdisk-img"></div>
                 <div class="subtitulo subtitulo-main-stat">Main Stat:</div>
-                <div class="contenedor-gris contenedor-main-stat" data-select="newdisk-main-stat">Elegir</div>
+                <div class="contenedor-gris contenedor-main-stat" data-select="newdisk-main-stat">Choose</div>
                 <div class="contenedor-gris contenedor-main-valor" data-select="newdisk-main-stat-value">--</div>
                 <div class="contenedor-gris contenedor-sub-stat sub-stat1" data-select="newdisk-substat-1">Sub Stat<span class="roll-level"></span></div>
                 <div class="contenedor-gris contenedor-sub-stat sub-stat2" data-select="newdisk-substat-2">Sub Stat<span class="roll-level"></span></div>
