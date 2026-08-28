@@ -1035,8 +1035,8 @@ function bindOptimizer() {
 
             if (!entry || !entry.detalle) {
                 openInfoMenu({
-                    title: "Factores del calculo",
-                    rows: [{ label: "Sin resultados", value: "Dale a OPTIMIZAR primero" }],
+                    title: "Combat Stats",
+                    rows: [{ label: "No results", value: "OPTIMIZAR first" }],
                 });
                 return;
             }
@@ -1048,7 +1048,7 @@ function bindOptimizer() {
             }));
 
             openInfoMenu({
-                title: `Factores (${entry.detalle.tipo || "?"})`,
+                title: `Combat Stats (${entry.detalle.tipo || "?"})`,
                 rows,
             });
         });
@@ -1082,7 +1082,7 @@ document.addEventListener("DOMContentLoaded", () => {
         selector: "[data-select='dps-character-field'], [data-select='dps-character-image']",
         dataObj: dps,
         ratioClass: "ratio-dps",
-        title: "Selecciona un DPS",
+        title: "Select DPS",
         textEl: "[data-select='dps-character-field'] span:first-child",
         imgEl: "[data-select='dps-character-image'] img",
         stateKey: "dpsCharacter",
@@ -1100,7 +1100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     bindLevelSelector({
         selector: "[data-select='dps-character-level']",
         min: 0, max: 6, prefix: "C",
-        title: "Nivel de Dupe",
+        title: "Cinema",
         stateKey: "dpsCharacterLevel",
         onChange: () => updateSkillDisplay(),
     });
@@ -1110,7 +1110,7 @@ document.addEventListener("DOMContentLoaded", () => {
         selector: "[data-select='dps-weapon-field'], [data-select='dps-weapon-image']",
         dataObj: we_dps,
         ratioClass: "ratio-weapon",
-        title: "Selecciona un W-Engine",
+        title: "Select a W-Engine",
         textEl: "[data-select='dps-weapon-field'] span:first-child",
         imgEl: "[data-select='dps-weapon-image'] img",
         stateKey: "dpsWeapon",
@@ -1120,7 +1120,7 @@ document.addEventListener("DOMContentLoaded", () => {
     bindLevelSelector({
         selector: "[data-select='dps-weapon-level']",
         min: 1, max: 5, prefix: "W",
-        title: "Refinamiento",
+        title: "W-Engine",
         stateKey: "dpsWeaponLevel",
     });
 
@@ -1129,7 +1129,7 @@ document.addEventListener("DOMContentLoaded", () => {
         selector: "[data-select='dps-set-4p']",
         dataObj: disk_dps,
         ratioClass: "ratio-disk",
-        title: "Selecciona Set (4P)",
+        title: "Select (4P) Set ",
         imgEl: "[data-select='dps-set-4p'] img",
         stateKey: "dpsSet4p",
     });
@@ -1138,7 +1138,7 @@ document.addEventListener("DOMContentLoaded", () => {
         selector: "[data-select='dps-set-2p']",
         dataObj: disk_dps,
         ratioClass: "ratio-disk",
-        title: "Selecciona Set (2P)",
+        title: "Selec (2P) Set ",
         imgEl: "[data-select='dps-set-2p'] img",
         stateKey: "dpsSet2p",
     });
@@ -1147,21 +1147,21 @@ document.addEventListener("DOMContentLoaded", () => {
     bindStatSlotSelector({
         selector: "[data-select='dps-main-stat-d4']",
         slotKey: "D4",
-        title: "Stat principal (D4)",
+        title: "Main Stat (D4)",
         stateKey: "dpsMainStatD4",
     });
 
     bindStatSlotSelector({
         selector: "[data-select='dps-main-stat-d5']",
         slotKey: "D5",
-        title: "Stat principal (D5)",
+        title: "Main Stat (D5)",
         stateKey: "dpsMainStatD5",
     });
 
     bindStatSlotSelector({
         selector: "[data-select='dps-main-stat-d6']",
         slotKey: "D6",
-        title: "Stat principal (D6)",
+        title: "Main Stat (D6)",
         stateKey: "dpsMainStatD6",
     });
 
@@ -1175,7 +1175,7 @@ document.addEventListener("DOMContentLoaded", () => {
         selector: "[data-select='support1-character-field'], [data-select='support1-character-image']",
         dataObj: supp,
         ratioClass: "ratio-support",
-        title: "Selecciona Support",
+        title: "Select a Support",
         textEl: "[data-select='support1-character-field'] span:first-child",
         imgEl: "[data-select='support1-character-image'] img",
         stateKey: "support1Character",
@@ -1192,7 +1192,7 @@ document.addEventListener("DOMContentLoaded", () => {
     bindLevelSelector({
         selector: "[data-select='support1-character-level']",
         min: 0, max: 6, prefix: "C",
-        title: "Nivel de Dupe",
+        title: "Cinema",
         stateKey: "support1CharacterLevel",
     });
 
@@ -1200,7 +1200,7 @@ document.addEventListener("DOMContentLoaded", () => {
         selector: "[data-select='support1-weapon-field'], [data-select='support1-weapon-image']",
         dataObj: we_supp,
         ratioClass: "ratio-weapon",
-        title: "Selecciona un W-Engine",
+        title: "Select a W-Engine",
         textEl: "[data-select='support1-weapon-field'] span:first-child",
         imgEl: "[data-select='support1-weapon-image'] img",
         stateKey: "support1Weapon",
@@ -1210,7 +1210,7 @@ document.addEventListener("DOMContentLoaded", () => {
     bindLevelSelector({
         selector: "[data-select='support1-weapon-level']",
         min: 1, max: 5, prefix: "W",
-        title: "Refinamiento",
+        title: "W-Engine",
         stateKey: "support1WeaponLevel",
     });
 
@@ -1218,7 +1218,7 @@ document.addEventListener("DOMContentLoaded", () => {
         selector: "[data-select='support1-set']",
         dataObj: disk_supp,
         ratioClass: "ratio-disk",
-        title: "Selecciona Set",
+        title: "Select a Set",
         imgEl: "[data-select='support1-set'] img",
         stateKey: "support1Set",
     });
@@ -1233,7 +1233,7 @@ document.addEventListener("DOMContentLoaded", () => {
         selector: "[data-select='support2-character-field'], [data-select='support2-character-image']",
         dataObj: supp,
         ratioClass: "ratio-support",
-        title: "Selecciona Support",
+        title: "Select a Support",
         textEl: "[data-select='support2-character-field'] span:first-child",
         imgEl: "[data-select='support2-character-image'] img",
         stateKey: "support2Character",
@@ -1250,7 +1250,7 @@ document.addEventListener("DOMContentLoaded", () => {
     bindLevelSelector({
         selector: "[data-select='support2-character-level']",
         min: 0, max: 6, prefix: "C",
-        title: "Nivel de Dupe",
+        title: "Cinema",
         stateKey: "support2CharacterLevel",
     });
 
@@ -1258,7 +1258,7 @@ document.addEventListener("DOMContentLoaded", () => {
         selector: "[data-select='support2-weapon-field'], [data-select='support2-weapon-image']",
         dataObj: we_supp,
         ratioClass: "ratio-weapon",
-        title: "Selecciona un W-Engine",
+        title: "Select a W-Engine",
         textEl: "[data-select='support2-weapon-field'] span:first-child",
         imgEl: "[data-select='support2-weapon-image'] img",
         stateKey: "support2Weapon",
@@ -1268,7 +1268,7 @@ document.addEventListener("DOMContentLoaded", () => {
     bindLevelSelector({
         selector: "[data-select='support2-weapon-level']",
         min: 1, max: 5, prefix: "W",
-        title: "Refinamiento",
+        title: "W-Engine",
         stateKey: "support2WeaponLevel",
     });
 
@@ -1276,7 +1276,7 @@ document.addEventListener("DOMContentLoaded", () => {
         selector: "[data-select='support2-set']",
         dataObj: disk_supp,
         ratioClass: "ratio-disk",
-        title: "Selecciona Set",
+        title: "Select a Set",
         imgEl: "[data-select='support2-set'] img",
         stateKey: "support2Set",
     });
@@ -1286,7 +1286,7 @@ document.addEventListener("DOMContentLoaded", () => {
         selector: "[data-select='enemy-name'], [data-select='enemy-image']",
         dataObj: enemy,
         ratioClass: "ratio-enemy",
-        title: "Selecciona un Enemigo",
+        title: "Select an Enemy",
         textEl: "[data-select='enemy-name']",
         imgEl: "[data-select='enemy-image'] img",
         stateKey: "enemy",
