@@ -127,8 +127,109 @@ const we_dps = {
             5: { CR: 0.036, Dmg_Basic: 0.095}
         }
     },
+    "Deep Sea Visitor": {
+        ID: 14104,
+        Clase: "Atacante",
+        Image: "static/WENGINE/Deep_Sea_Visitor.webp",
+        Stats_base: { Atk: 713},
+        Stats_main: { CR_Base: 0.24},
+        buffs: {
+            1: { CR: 0.20, Dmg_Ice: 0.25},
+            2: { CR: 0.05, Dmg_Ice: 0.065}, 
+            3: { CR: 0.05, Dmg_Ice: 0.065},
+            4: { CR: 0.05, Dmg_Ice: 0.065},
+            5: { CR: 0.05, Dmg_Ice: 0.065}
+        }
+    },
+    "Zanshin Herb Case": {
+        ID: 14104,
+        Clase: "Atacante",
+        Image: "static/WENGINE/Zanshin_Herb_Case.webp",
+        Stats_base: { Atk: 713},
+        Stats_main: { CD_Base: 0.48},
+        buffs: {
+            1: { CR: 0.20, Dmg_Electric_Dash: 0.40},
+            2: { CR: 0.03, Dmg_Electric_Dash: 0.06}, 
+            3: { CR: 0.03, Dmg_Electric_Dash: 0.06},
+            4: { CR: 0.03, Dmg_Electric_Dash: 0.06},
+            5: { CR: 0.03, Dmg_Electric_Dash: 0.06} 
+        }
+    },
+    "Myriad Eclipse": {
+        ID: 14104,
+        Clase: "Atacante",
+        Image: "static/WENGINE/Myriad_Eclipse.webp",
+        Stats_base: { Atk: 713},
+        Stats_main: { CR_Base: 0.24},
+        buffs: {
+            1: { CD: 0.45, Shred_Ice: 0.25},
+            2: { CD: 0.0675, Shred_Ice: 0.0375}, 
+            3: { CD: 0.0675, Shred_Ice: 0.0375},
+            4: { CD: 0.0675, Shred_Ice: 0.0375},
+            5: { CD: 0.0675, Shred_Ice: 0.0375} 
+        }
+    },
+    "Steel Cushion": {
+        ID: 14104,
+        Clase: "Atacante",
+        Image: "static/WENGINE/Steel_Cushion.webp",
+        Stats_base: { Atk: 684},
+        Stats_main: { CR_Base: 0.24},
+        buffs: {
+            1: { Dmg_Physical: 0.20, Dmg: 0.25},
+            2: { Dmg_Physical: 0.05, Dmg: 0.065}, 
+            3: { Dmg_Physical: 0.05, Dmg: 0.065},
+            4: { Dmg_Physical: 0.05, Dmg: 0.06},
+            5: { Dmg_Physical: 0.05, Dmg: 0.06} 
+        }
+    },
+
+
+    // Atacante A-Rank
+    "Starlight Engine Replica": {
+        ID: 14104,
+        Clase: "Atacante",
+        Image: "static/WENGINE/Starlight_Engine_Replica.webp",
+        Stats_base: { Atk: 624},
+        Stats_main: { Atkx: 0.25},
+        buffs: {
+            1: { Dmg: 0.36},
+            2: { Dmg: 0.05}, 
+            3: { Dmg: 0.055},
+            4: { Dmg: 0.055},
+            5: { Dmg: 0.055}
+        }
+    },
+    "Housekeeper": {
+        ID: 14104,
+        Clase: "Atacante",
+        Image: "static/WENGINE/Housekeeper.webp",
+        Stats_base: { Atk: 624},
+        Stats_main: { Atkx: 0.25},
+        buffs: {
+            1: { Dmg_Ex: 0.45},
+            2: { Dmg_Ex: 0.075}, 
+            3: { Dmg_Ex: 0.075},
+            4: { Dmg_Ex: 0.06},
+            5: { Dmg_Ex: 0.06}
+        }
+    },
 
     // Anomalo
+    "Hailstorm Shrine": {
+        ID: 14104,
+        Clase: "Anomalo",
+        Image: "static/WENGINE/Hailstorm_Shrine.webp",
+        Stats_base: { Atk: 743 },
+        Stats_main: { CR_Base: 0.24 },
+        buffs: {
+            1: { CD: 0.50, Dmg_Ice: 0.40},
+            2: { CD: 0.07, Dmg_Ice: 0.06}, 
+            3: { CD: 0.08, Dmg_Ice: 0.06},
+            4: { CD: 0.07, Dmg_Ice: 0.06},
+            5: { CD: 0.08, Dmg_Ice: 0.06}
+        }
+    },
     "Sharpened Stinger": {
         ID: 14104,
         Clase: "Anomalo",
@@ -171,6 +272,121 @@ const we_dps = {
             5: { MA: 14, Dmg: 0.03, Admg: 0.015}
         }
     },
+    "Ode of Resurrected Wings": {
+        ID: 14104,
+        Clase: "Anomalo",
+        Image: "static/WENGINE/Ode_of_Resurrected_Wings.webp",
+        Stats_base: { Atk: 743 },
+        Stats_main: { Atkx: 0.36 },
+        buffs: {
+            1: { MA: 96, Admg: 0.20, Dmg: 0.30},
+            2: { MA: 9, Admg: 0.03, Dmg: 0.045}, 
+            3: { MA: 10, Admg: 0.03, Dmg: 0.045},
+            4: { MA: 10, Admg: 0.03, Dmg: 0.045},
+            5: { MA: 10, Admg: 0.03, Dmg: 0.045}
+        }
+    },
+    "Flamemaker Shaker": {
+        ID: 14104,
+        Clase: "Anomalo",
+        Image: "static/WENGINE/Flamemaker_Shaker.webp",
+        Stats_base: { Atk: 713 },
+        Stats_main: { Atkx: 0.30 },
+        buffs: {
+            1: { Dmg: 0.35, MA: 50},
+            2: { Dmg: 0.09, MA: 12}, 
+            3: { Dmg: 0.08, MA: 13},
+            4: { Dmg: 0.09, MA: 12},
+            5: { Dmg: 0.08, MA: 13}
+        }
+    },
+    "Fusion Compiler": {
+        ID: 14104,
+        Clase: "Anomalo",
+        Image: "static/WENGINE/Fusion_Compiler.webp",
+        Stats_base: { Atk: 684 },
+        Stats_main: { Penx: 0.24 },
+        buffs: {
+            1: { Atkf: 0.12, MA: 75},
+            2: { Atkf: 0.03, MA: 18}, 
+            3: { Atkf: 0.03, MA: 18},
+            4: { Atkf: 0.03, MA: 18},
+            5: { Atkf: 0.03, MA: 21}
+        }
+    },
+    "Frostfall Sickle": {
+        ID: 14104,
+        Clase: "Anomalo",
+        Image: "static/WENGINE/Frostfall_Sickle.webp",
+        Stats_base: { Atk: 713 },
+        Stats_main: { Tasax: 0.30 },
+        buffs: {
+            1: { Dmg_Ice: 0.40, Dmg_Abloom: 0.35},
+            2: { Dmg_Ice: 0.06, Dmg_Abloom: 0.035}, 
+            3: { Dmg_Ice: 0.06, Dmg_Abloom: 0.035},
+            4: { Dmg_Ice: 0.06, Dmg_Abloom: 0.035},
+            5: { Dmg_Ice: 0.06, Dmg_Abloom: 0.045}
+        }
+    },
+    "Joyau Dore": {
+        ID: 14104,
+        Clase: "Anomalo",
+        Image: "static/WENGINE/Joyau_Dore.webp",
+        Stats_base: { Atk: 713 },
+        Stats_main: { ERx: 0.60 },
+        buffs: {
+            1: { MA: 130, Dmg_Wind: 0.14},
+            2: { MA: 19, Dmg_Wind: 0.02}, 
+            3: { MA: 19, Dmg_Wind: 0.02},
+            4: { MA: 19, Dmg_Wind: 0.02},
+            5: { MA: 19, Dmg_Wind: 0.02}
+        }
+    },
+    "Flight of Fancy": {
+        ID: 14104,
+        Clase: "Anomalo",
+        Image: "static/WENGINE/Flight_of_Fancy.webp",
+        Stats_base: { Atk: 713 },
+        Stats_main: { MA_Base: 90 },
+        buffs: {
+            1: { MA: 120},
+            2: { MA: 18}, 
+            3: { MA: 18},
+            4: { MA: 18},
+            5: { MA: 18}
+        }
+    },
+    "Timeweaver": {
+        ID: 14104,
+        Clase: "Anomalo",
+        Image: "static/WENGINE/Timeweaver.webp",
+        Stats_base: { Atk: 713 },
+        Stats_main: { Atkx: 0.30 },
+        buffs: {
+            1: { MA: 75},
+            2: { MA: 10}, 
+            3: { MA: 10},
+            4: { MA: 10},
+            5: { MA: 10}
+        }
+    },
+
+    // Anomalo A-rank
+    "Roaring Ride": {
+        ID: 14104,
+        Clase: "Anomalo",
+        Image: "static/WENGINE/Roaring_Ride.webp",
+        Stats_base: { Atk: 624 },
+        Stats_main: { Atkx: 0.25 },
+        buffs: {
+            1: { Atkf: 0.08, MA: 40},
+            2: { Atkf: 0.012, MA: 6}, 
+            3: { Atkf: 0.012, MA: 6},
+            4: { Atkf: 0.012, MA: 6},
+            5: { Atkf: 0.012, MA: 6}
+        }
+    },
+
 
     // Ruptura
     "Qingming Birdcage": {
@@ -180,11 +396,53 @@ const we_dps = {
         Stats_base: { Atk: 743 },
         Stats_main: { Hpx: 0.30 },
         buffs: {
-            1: { CR: 0.20, Dmg_Ether: 0.16, Rdmg_Ultimate: 0.20},
-            2: { CR: 0.03, Dmg_Ether: 0.024, Rdmg_Ultimate: 0.03}, 
-            3: { CR: 0.03, Dmg_Ether: 0.024, Rdmg_Ultimate: 0.03},
-            4: { CR: 0.03, Dmg_Ether: 0.024, Rdmg_Ultimate: 0.03},
-            5: { CR: 0.03, Dmg_Ether: 0.024, Rdmg_Ultimate: 0.03}
+            1: { CR: 0.20, Dmg_Ether: 0.16, Rdmg_Ultimate: 0.10},
+            2: { Dmg_Physical: 0.09}, 
+            3: { Dmg_Physical: 0.09},
+            4: { Dmg_Physical: 0.09},
+            5: { Dmg_Physical: 0.09}
+        }
+    },
+    "Wrathful Vajra": {
+        ID: 14104,
+        Clase: "Ruptura",
+        Image: "static/WENGINE/Wrathful_Vajra.webp",
+        Stats_base: { Atk: 713 },
+        Stats_main: { Hpx: 0.30 },
+        buffs: {
+            1: { CR: 0.20, Rdmg_Fire: 0.18},
+            2: { CR: 0.03, Rdmg_Fire: 0.027}, 
+            3: { CR: 0.03, Rdmg_Fire: 0.027},
+            4: { CR: 0.03, Rdmg_Fire: 0.027},
+            5: { CR: 0.03, Rdmg_Fire: 0.027}
+        }
+    },
+    "Starlight Rider Faceplate": {
+        ID: 14104,
+        Clase: "Ruptura",
+        Image: "static/WENGINE/Starlight_Rider_Faceplate.webp",
+        Stats_base: { Atk: 713 },
+        Stats_main: { Hpx: 0.30 },
+        buffs: {
+            1: { CR: 0.20, Rdmg_Physical: 0.20},
+            2: { CR: 0.03, Rdmg_Physical: 0.03}, 
+            3: { CR: 0.03, Rdmg_Physical: 0.03},
+            4: { CR: 0.03, Rdmg_Physical: 0.03},
+            5: { CR: 0.03, Rdmg_Physical: 0.03}
+        }
+    },
+    "Krakens Cradle": {
+        ID: 14104,
+        Clase: "Ruptura",
+        Image: "static/WENGINE/Krakens_Cradle.webp",
+        Stats_base: { Atk: 713 },
+        Stats_main: { Hpx: 0.30 },
+        buffs: {
+            1: { CR: 0.20, Rdmg_Ice: 0.18},
+            2: { CR: 0.03, Rdmg_Fire: 0.03}, 
+            3: { CR: 0.03, Rdmg_Fire: 0.03},
+            4: { CR: 0.03, Rdmg_Fire: 0.03},
+            5: { CR: 0.03, Rdmg_Fire: 0.03}
         }
     },
 };
