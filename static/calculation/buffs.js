@@ -7,6 +7,7 @@ import we_supp from "../../data/Wengine/we_supp_data.js";
 import disk_dps from "../../data/Disks/disk_dps_data.js";
 import disk_supp from "../../data/Disks/disk_supp_data.js";
 import enemy from "../../data/Enemy/enemy_data.js";
+import da from "../../data/Enemy/da.js";
 
 // Función universal para sumar stats de un origen al total
 function sumarStats(statsAcumuladas, origenDeStats) {
@@ -165,6 +166,12 @@ export function calcularStatsTotales(seleccion) {
         sumarStats(statsTotales, enemy_buffs.def_enemy);
     }
 
+     // 3.7 DA / Buff extra del enemigo (if present)
+    const da_buffs = da[seleccion.da_selected];
+    if (da_buffs) {
+        sumarStats(statsTotales, da_buffs.buffs_da);
+    }
+    
     // ==========================================
     // FUNCIÓN INTERNA PARA PROCESAR CUALQUIER SUPPORT
     // ==========================================
