@@ -10,13 +10,22 @@ const dps = {
         Tipo_dmg: "Normal",
         Stats_base: { Atk: 888, ER: 150, Tasa: 80 },
         dupes: {
-            0: { Dmg_Basic: 0.70, Dmg: 0.325, CR_Base: 0.194, CD_Base: 0.50, CD: 0.48},
+            0: { Dmg_Basic: 0.70, Dmg: 0.10, CR_Base: 0.194, CD_Base: 0.50, CD: 0.48},
             1: {},
             2: { Dmg_Basic: 0.36},
             3: {},
             4: {},
             5: {},
             6: { Res_Basic: 0.25}
+        },
+        dupes_stunned: {
+            0: {Dmg: 0.225 },
+            1: {},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+            6: {}
         },
         skills: {
             "Ultimate: Bellowing Flame": {
