@@ -63,13 +63,13 @@ function agruparPorSlot(savedDisks) {
  */
 export function optimizarDiscos(state, savedDisks) {
     if (!state.dpsCharacter) {
-        return { ok: false, reason: "falta-dps", message: "Elige un DPS antes de optimizar." };
+        return { ok: false, reason: "falta-dps", message: "Choose a DPS first" };
     }
     if (!state.dpsSet4p || !state.dpsSet2p) {
-        return { ok: false, reason: "faltan-sets", message: "Define el Set 4P y el Set 2P antes de optimizar." };
+        return { ok: false, reason: "faltan-sets", message: "Select a 4P/2P Set first" };
     }
     if (!state.dpsMainStatD4 || !state.dpsMainStatD5 || !state.dpsMainStatD6) {
-        return { ok: false, reason: "faltan-mainstats", message: "Define el Main Stat de D4, D5 y D6 antes de optimizar." };
+        return { ok: false, reason: "faltan-mainstats", message: "Select D4,D5,D6 Main Stat first" };
     }
 
     const bySlot = agruparPorSlot(savedDisks || []);
@@ -92,7 +92,7 @@ export function optimizarDiscos(state, savedDisks) {
         return {
             ok: false,
             reason: "sin-candidatos",
-            message: `No tienes discos que cumplan los filtros para el slot ${slotSinCandidatos}.`,
+            message: `No disk match the slot ${slotSinCandidatos}.`,
         };
     }
 
@@ -144,7 +144,7 @@ export function optimizarDiscos(state, savedDisks) {
         return {
             ok: false,
             reason: "sin-combinaciones",
-            message: "Ninguna combinacion cumple exactamente 4 piezas del Set 4P y 2 del Set 2P.",
+            message: "No build match the 4P/2P Set.",
         };
     }
 
