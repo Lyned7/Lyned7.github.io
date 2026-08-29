@@ -1009,10 +1009,46 @@ body {
     display: block;
 }
 
+.da-name {
+    position: absolute;
+    left: 236px;
+    top: 45px;
+    width: 118px;
+    height: 30px;
+    border: 1px solid #353535;
+    border-radius: 3px;
+    background: #1b1b1b;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    color: #a9a9a9;
+    font-size: 13px;
+}
+
+.da-image {
+    position: absolute;
+    left: 236px;
+    top: 85px;
+    width: 118px;
+    height: 120px;
+    border-radius: 8px;
+    justify-content: center;
+    overflow: hidden;
+    background:#1b1b1b;
+    border-color:#1a1919;
+    box-shadow:inset 10px 3px 7px rgba(19, 19, 19, 0.35);
+}
+
+.da-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
 .weakness-title {
     position: absolute;
-    left: 246px;
-    top: 92px;
+    left: 236px;
+    top: 220px;
     color: #a9a9a9;
     font-size: 14px;
     font-weight: 700;
@@ -1020,8 +1056,8 @@ body {
 
 .weakness-grid {
     position: absolute;
-    left: 246px;
-    top: 116px;
+    left: 236px;
+    top: 242px;
     width: 98px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1029,8 +1065,8 @@ body {
 }
 
 .weakness-grid div {
-    width: 46px;
-    height: 46px;
+    width: 100px;
+    height: 100px;
     border-radius: 4px;
     background: #1b1b1b;
     display: flex;
@@ -1059,7 +1095,7 @@ body {
 .stun-title {
     position: absolute;
     left: 246px;
-    top: 279px;
+    top: 245px;
     color: #a9a9a9;
     font-size: 14px;
     font-weight: 700;
@@ -1068,9 +1104,9 @@ body {
 .stun-toggle {
     position: absolute;
     left: 246px;
-    top: 303px;
-    width: 63px;
-    height: 28px;
+    top: 265px;
+    width: 66px;
+    height: 29px;
     border-radius: 13px;
     background: #191919;
     display: flex;
@@ -1081,8 +1117,8 @@ body {
 
 .stun-toggle-1 {
     position: absolute;
-    left: 250px;
-    top: 306px;
+    left: 249px;
+    top: 269px;
     width: 36px;
     height: 22px;
     border-radius: 12px;
@@ -1444,6 +1480,24 @@ body {
     object-fit: cover;
 }
 
+/* =========================================================
+   5. DA
+   Ratio 1:1 (las imágenes son cuadradas)
+   299 x 299
+   ========================================================= */
+
+.modal-item:has(.ratio-da) {
+    width: 120px;
+}
+
+.ratio-da {
+    width: 120px;
+    height: 120px;
+
+    object-fit: contain;
+    background: #111111;
+}
+
 
 /* =========================================================
    5. DISK
@@ -1512,6 +1566,7 @@ body {
     .modal-item:has(.ratio-support),
     .modal-item:has(.ratio-weapon),
     .modal-item:has(.ratio-enemy),
+    .modal-item:has(.ratio-da),
     .modal-item:has(.ratio-disk) {
         width: 100%;
         min-width: 0;
@@ -1521,6 +1576,7 @@ body {
     .ratio-support,
     .ratio-weapon,
     .ratio-enemy,
+    .ratio-da,
     .ratio-disk {
         width: 100%;
         height: auto;
@@ -1537,6 +1593,10 @@ body {
 
     .ratio-enemy {
         aspect-ratio: 448 / 668;
+    }
+
+    .ratio-da {
+        aspect-ratio: 120 / 120;
     }
 
     .ratio-disk {
