@@ -443,7 +443,7 @@ function createDiskCardElement(disk) {
     const deleteBtn = document.createElement("div");
     deleteBtn.className = "disk-delete-btn selectable";
     deleteBtn.textContent = "×";
-    deleteBtn.title = "Eliminar disco";
+    deleteBtn.title = "Delete disk";
     deleteBtn.addEventListener("click", () => deleteDisk(disk.id));
     card.appendChild(deleteBtn);
 
