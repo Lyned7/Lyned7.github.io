@@ -1315,14 +1315,13 @@ body {
    ========================================================= */
 
 .selection-modal {
-    background: linear-gradient(
-        180deg,
-        #2b2b2b 0%,
-        #262626 100%
-    );
+    background: rgba(35, 35, 35, 0);
 
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.8);
-    border: 1px solid #383838;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.10);
     border-radius: 10px;
 
     padding: 20px;
