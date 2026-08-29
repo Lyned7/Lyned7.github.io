@@ -6,7 +6,7 @@ const dps = {
         Image: "static/DPS/Harin.webp",
         Clase: "Atacante",
         Elemento: "Fire",
-        force_stun: true,
+        force_stun: false,
         Tipo_dmg: "Normal",
         Stats_base: { Atk: 888, ER: 150, Tasa: 80 },
         dupes: {
@@ -225,8 +225,17 @@ const dps = {
         Tipo_dmg: "Normal",
         Stats_base: { Atk: 924, ER: 1.5, Tasa: 80 },
         dupes: {
-            0: {CR_Base: 0.194, CD_Base: 0.50, Dmg: 0.40, CD: 0.80 },
+            0: {CR_Base: 0.194, CD_Base: 0.50, Dmg: 0.40, CD: 0.40 },
             1: {CR: 0.08},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+            6: {}
+        },
+        dupes_stunned: {
+            0: {CD_Ultimate: 0.40},
+            1: {},
             2: {},
             3: {},
             4: {},
@@ -339,11 +348,20 @@ const dps = {
         Tipo_dmg: "Normal",
         Stats_base: { Atk: 919, ER: 1.5, Tasa: 80 },
         dupes: {
-            0: { CR_Base: 0.05, CD_Base: 0.788, Dmg_Basic: 0.80, CR: 0.30},
+            0: { CR_Base: 0.05, CD_Base: 0.788, Dmg_Basic: 0.40, CR: 0.30},
             1: { Dmg_Basic: 0.50},
             2: {},
             3: {},
             4: {Res_Basic: 0.25},
+            5: {},
+            6: {}
+        },
+        dupes_stunned: {
+            0: { Dmg_Basic: 0.40},
+            1: {},
+            2: {},
+            3: {},
+            4: {},
             5: {},
             6: {}
         },
@@ -485,13 +503,22 @@ const dps = {
         Image: "static/DPS/Corn.webp",
         Clase: "Atacante",
         Elemento: "Physical",
-        force_stun: true,
+        force_stun: false,
         Tipo_dmg: "Normal",
         Stats_base: { Atk: 807, ER: 1.5, Tasa: 80 },
         dupes: {
-            0: { CR_Base: 0.05, CD_Base: 0.788, Dmg_Ex: 0.375, Dmg: 0.35},
+            0: { CR_Base: 0.05, CD_Base: 0.788, Dmg_Ex: 0.375 },
             1: { Dmg: 0.12},
             2: { Res: 0.10},
+            3: {},
+            4: {},
+            5: {},
+            6: {}
+        },
+        dupes_stunned: {
+            0: { Dmg: 0.35},
+            1: {},
+            2: {},
             3: {},
             4: {},
             5: {},
@@ -664,7 +691,7 @@ const dps = {
         Image: "static/DPS/Aria.webp",
         Clase: "Anomalo",
         Elemento: "Ether",
-        force_stun: false,
+        force_stun: true,
         Tipo_dmg: "Anomaly",
         Stats_base: { Atk: 863, ER: 1.5, Tasa: 151 },
         dupes: {
@@ -973,17 +1000,26 @@ const dps = {
         Image: "static/DPS/Yixuan.webp",
         Clase: "Ruptura",
         Elemento: "Ether",
-        force_stun: true,
+        force_stun: false,
         Tipo_dmg: "Sheer",
         Stats_base: { Atk: 872, Hp: 8373, ER: 1.5, Tasa: 80 },
         dupes: {
-            0: { CD_Base: 0.50, CD: 0.40, Dmg: 0.60, Dmg_Ex: 0.30, CR_Base: 0.194},
+            0: { CD_Base: 0.50, CD: 0.40, Dmg: 0.60, CR_Base: 0.194},
             1: { CR: 0.10},
             2: { Res_Ultimate: 0.15, Res_Ex: 0.15},
             3: {},
             4: { Dmg_Ex: 0.60},
             5: {},
             6: { Rdmg: 0.20}
+        },
+        dupes_stunned: {
+            0: { Dmg_Ex: 0.30},
+            1: {},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+            6: {}
         },
         skills: {
             "Ultimate: Endless Talisman Suppression": {
