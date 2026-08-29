@@ -214,6 +214,90 @@ const we_dps = {
             5: { Dmg_Ex: 0.06}
         }
     },
+    "Drill Rig": {
+        ID: 14104,
+        Clase: "Atacante",
+        Image: "static/WENGINE/Drill_Rig.webp",
+        Stats_base: { Atk: 624},
+        Stats_main: { ERx: 0.50},
+        buffs: {
+            1: { Dmg_Basic: 0.50},
+            2: { Dmg_Basic: 0.075}, 
+            3: { Dmg_Basic: 0.075},
+            4: { Dmg_Basic: 0.075},
+            5: { Dmg_Basic: 0.075}
+        }
+    },
+    "Cannon Rotor": {
+        ID: 14104,
+        Clase: "Atacante",
+        Image: "static/WENGINE/Cannon_Rotor.webp",
+        Stats_base: { Atk: 594},
+        Stats_main: { CR_Base: 0.20},
+        buffs: {
+            1: { Atkf: 0.075},
+            2: { Atkf: 0.011}, 
+            3: { Atkf: 0.011},
+            4: { Atkf: 0.011},
+            5: { Atkf: 0.012}
+        }
+    },
+    "Marcato Desire": {
+        ID: 14104,
+        Clase: "Atacante",
+        Image: "static/WENGINE/Marcato_Desire.webp",
+        Stats_base: { Atk: 594},
+        Stats_main: { CR_Base: 0.20},
+        buffs: {
+            1: { Atkf: 0.12},
+            2: { Atkf: 0.018}, 
+            3: { Atkf: 0.018},
+            4: { Atkf: 0.018},
+            5: { Atkf: 0.018}
+        }
+    },
+    "Gilded Blossom": {
+        ID: 14104,
+        Clase: "Atacante",
+        Image: "static/WENGINE/Gilded_Blossom.webp",
+        Stats_base: { Atk: 594},
+        Stats_main: { Atkx: 0.25},
+        buffs: {
+            1: { Atkf: 0.06, Dmg_Ex: 0.15},
+            2: { Atkf: 0.09, Dmg_Ex: 0.022}, 
+            3: { Atkf: 0.09, Dmg_Ex: 0.022},
+            4: { Atkf: 0.09, Dmg_Ex: 0.022},
+            5: { Atkf: 0.09, Dmg_Ex: 0.022}
+        }
+    },
+    "Starlight Engine": {
+        ID: 14104,
+        Clase: "Atacante",
+        Image: "static/WENGINE/Starlight_Engine.webp",
+        Stats_base: { Atk: 594},
+        Stats_main: { Atkx: 0.25},
+        buffs: {
+            1: { Atkf: 0.12},
+            2: { Atkf: 0.018}, 
+            3: { Atkf: 0.018},
+            4: { Atkf: 0.018},
+            5: { Atkf: 0.018}
+        }
+    },
+    "Street Superstar": {
+        ID: 14104,
+        Clase: "Atacante",
+        Image: "static/WENGINE/Street_Superstar.webp",
+        Stats_base: { Atk: 594},
+        Stats_main: { Atkx: 0.25},
+        buffs: {
+            1: { Dmg_Ultimate: 0.45},
+            2: { Dmg_Ultimate: 0.066}, 
+            3: { Dmg_Ultimate: 0.069},
+            4: { Dmg_Ultimate: 0.066},
+            5: { Dmg_Ultimate: 0.069}
+        }
+    },
 
     // Anomalo
     "Hailstorm Shrine": {
@@ -386,6 +470,62 @@ const we_dps = {
             5: { Atkf: 0.012, MA: 6}
         }
     },
+    "Boisterous Echoes": {
+        ID: 14104,
+        Clase: "Anomalo",
+        Image: "static/WENGINE/Boisterous_Echoes.webp",
+        Stats_base: { Atk: 594 },
+        Stats_main: { MA_Base: 75 },
+        buffs: {
+            1: { Dmg: 0.115},
+            2: { Dmg: 0.017}, 
+            3: { Dmg: 0.018},
+            4: { Dmg: 0.017},
+            5: { Dmg: 0.017}
+        }
+    },
+    "Electro-Lip Gloss": {
+        ID: 14104,
+        Clase: "Anomalo",
+        Image: "static/WENGINE/ElectroLip_Gloss.webp",
+        Stats_base: { Atk: 594 },
+        Stats_main: { MA_Base: 75 },
+        buffs: {
+            1: { Atkf: 0.10, Dmg: 0.15},
+            2: { Atkf: 0.015, Dmg: 0.025}, 
+            3: { Atkf: 0.015, Dmg: 0.025},
+            4: { Atkf: 0.015, Dmg: 0.025},
+            5: { Atkf: 0.015, Dmg: 0.025}
+        }
+    },
+    "Weeping Gemini": {
+        ID: 14104,
+        Clase: "Anomalo",
+        Image: "static/WENGINE/Weeping_Gemini.webp",
+        Stats_base: { Atk: 594 },
+        Stats_main: { Atkx: 0.25 },
+        buffs: {
+            1: { MA: 120},
+            2: { MA: 16}, 
+            3: { MA: 16},
+            4: { MA: 16},
+            5: { MA: 24}
+        }
+    },
+    "Rainforest Gourmet": {
+        ID: 14104,
+        Clase: "Anomalo",
+        Image: "static/WENGINE/Rainforest_Gourmet.webp",
+        Stats_base: { Atk: 594 },
+        Stats_main: { MA_Base: 75 },
+        buffs: {
+            1: { Atkf: 0.25},
+            2: { Atkf: 0.03}, 
+            3: { Atkf: 0.04},
+            4: { Atkf: 0.04},
+            5: { Atkf: 0.04}
+        }
+    },
 
 
     // Ruptura
@@ -445,6 +585,66 @@ const we_dps = {
             5: { CR: 0.03, Rdmg_Fire: 0.03}
         }
     },
+
+    // Ruptura A-Rank
+    "Grill O-Wisp": {
+        ID: 14104,
+        Clase: "Ruptura",
+        Image: "static/WENGINE/Grill_OWisp.webp",
+        Stats_base: { Atk: 624 },
+        Stats_main: { Hpx: 0.25 },
+        buffs: {
+            1: { CR: 0.15, Dmg_Fire: 0.15},
+            2: { CR: 0.0225, Dmg_Fire: 0.0225}, 
+            3: { CR: 0.0225, Dmg_Fire: 0.0225},
+            4: { CR: 0.0225, Dmg_Fire: 0.0225},
+            5: { CR: 0.0225, Dmg_Fire: 0.0225}
+        }
+    },
+    "Cauldron of Clarity": {
+        ID: 14104,
+        Clase: "Ruptura",
+        Image: "static/WENGINE/Cauldron_of_Clarity.webp",
+        Stats_base: { Atk: 594 },
+        Stats_main: { Hpx: 0.25 },
+        buffs: {
+            1: { CR: 0.065, Dmg: 0.12},
+            2: { CR: 0.01, Dmg: 0.018}, 
+            3: { CR: 0.01, Dmg: 0.018},
+            4: { CR: 0.009, Dmg: 0.018},
+            5: { CR: 0.01, Dmg: 0.018}
+        }
+    },
+    "Radiowave Journey": {
+        ID: 14104,
+        Clase: "Ruptura",
+        Image: "static/WENGINE/Radiowave_Journey.webp",
+        Stats_base: { Atk: 594 },
+        Stats_main: { Hpx: 0.25 },
+        buffs: {
+            1: { Sheere: 240},
+            2: { Sheere: 36}, 
+            3: { Sheere: 36},
+            4: { Sheere: 36},
+            5: { Sheere: 36}
+        }
+    },
+    "Puzzle Sphere": {
+        ID: 14104,
+        Clase: "Ruptura",
+        Image: "static/WENGINE/Puzzle_Sphere.webp",
+        Stats_base: { Atk: 594 },
+        Stats_main: { Atkx: 0.25 },
+        buffs: {
+            1: { CD: 0.16, Dmg_Ex: 0.20},
+            2: { CD: 0.024, Dmg_Ex: 0.03}, 
+            3: { CD: 0.024, Dmg_Ex: 0.03},
+            4: { CD: 0.024, Dmg_Ex: 0.03},
+            5: { CD: 0.024, Dmg_Ex: 0.03}
+        }
+    },
+
+
 };
 
 export default we_dps
