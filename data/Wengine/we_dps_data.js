@@ -1,6 +1,20 @@
 const we_dps = {
 
     // Atacante
+    "Empty": {
+        ID: 14104,
+        Clase: "Atacante",
+        Image: "static/WENGINE/We_Base.webp",
+        Stats_base: { Atk: 0 },
+        Stats_main: { Atkx: 0 },
+        buffs: {
+            1: {},
+            2: {}, 
+            3: {},
+            4: {},
+            5: {}
+        }
+    },
     "Brimstone": {
         ID: 14104,
         Clase: "Atacante",
