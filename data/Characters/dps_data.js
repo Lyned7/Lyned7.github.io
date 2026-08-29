@@ -537,6 +537,36 @@ const dps = {
             }
         },
     },
+    "Anton": {
+        ID: 1431,
+        Image: "static/DPS/Anton.webp",
+        Clase: "Atacante",
+        Elemento: "Electric",
+        force_stun: true,
+        Tipo_dmg: "Normal",
+        Stats_base: { Atk: 787, ER: 1.5, Tasa: 80 },
+        dupes: {
+            0: { CR_Base: 0.194, CD_Base: 0.50, Dmg_Ultimate: 0.24, Dmg_Basic: 0.40},
+            1: {},
+            2: {},
+            3: {},
+            4: { CR: 0.10},
+            5: {},
+            6: { Dmg_Basic: 0.24}
+        },
+        skills: {
+            "Ultimate: Go Go Go Go Go!": {
+                0: {Mv: 36.336},
+                1: {Mv: 36.336}, 
+                2: {Mv: 36.336}, 
+                3: {Mv: 39.64}, 
+                4: {Mv: 39.64}, 
+                5: {Mv: 42.944}, 
+                6: {Mv: 42.944},
+                tipo: "Ultimate",
+            }
+        },
+    },
     "Billy": {
         ID: 1431,
         Image: "static/DPS/Billy.webp",
@@ -1120,6 +1150,36 @@ const dps = {
                 4: {Mv: 34.886}, 
                 5: {Mv: 37.794}, 
                 6: {Mv: 37.794},
+                tipo: "Ultimate",
+            }
+        },
+    },
+    "Manato": {
+        ID: 1371,
+        Image: "static/DPS/Manato.webp",
+        Clase: "Ruptura",
+        Elemento: "Fire",
+        force_stun: false,
+        Tipo_dmg: "Sheer",
+        Stats_base: { Atk: 755, Hp: 7724, ER: 1.5, Tasa: 80 },
+        dupes: {
+            0: { CR_Base: 0.05, CD_Base: 0.50, CD_Basic: 0.50, CR: 0.10, Dmg: 0.20},
+            1: { Dmg_Basic: 0.20},
+            2: { Res: 0.08},
+            3: {},
+            4: { Hpf: 0.08},
+            5: {},
+            6: { Dmg: 0.15}
+        },
+        skills: {
+            "Ultimate: Musou Aratama": {
+                0: {Mv: 31.254},
+                1: {Mv: 31.254}, 
+                2: {Mv: 31.254}, 
+                3: {Mv: 34.096}, 
+                4: {Mv: 34.096}, 
+                5: {Mv: 36.938}, 
+                6: {Mv: 36.938},
                 tipo: "Ultimate",
             }
         },
