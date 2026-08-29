@@ -1,19 +1,24 @@
 // ENEMIES
 
 const enemy = {
-    "Butcher [Buff 2] 3 Anomaly Agents": {
-        def_enemy: { Defense: 794 },
-        buffs_enemy: { Res_Ice: 0.2, Res_Ether: 0.2, CD: 0.75, Admg: -0.15, Atkf: 0.15, Res: 0.10, Shred: 0.10},
+    "Sweeper": {
+        def_enemy: { Defense: 476 },
+        buffs_enemy: { Res_Ice: 0.20, Res_Physical: -0.20, Res: 0.10, Atkf_Atacante: 0.20, Penx_Atacante: 0.25, CD_Ice: 0.60, CD_Ether: 0.60, MA: 40, Admg: 0.30},
+        Image: "static/ENEMY/Sweeper.webp"
+    },
+    "Butcher": {
+        def_enemy: { Defense: 952 },
+        buffs_enemy: { Res_Ether: 0.20, Res_Ice: 0.20, CD: 0.75, Admg: 0.45},
         Image: "static/ENEMY/Dead_End_Butcher.webp"
     },
-    "Girtablullu [Buff 2] 3 Anomaly Agents": {
-        def_enemy: { Defense: 794 },
-        buffs_enemy: { Res_Wind: 0.2, Taken_Anomalo: 0.225, Stun: 0.30, Admg: 0.30, Atkf: 0.15, Res: 0.10, Shred: 0.10},
+    "Girtablullu": {
+        def_enemy: { Defense: 952 },
+        buffs_enemy: { Res_Wind: 0.2, Taken_Anomalo: 0.225, Stun: 0.30},
         Image: "static/ENEMY/Girtablullu.webp"
     },
-    "Sarah [Buff 3]": {
-        def_enemy: { Defense: 794 },
-        buffs_enemy: { Res_Physical: 0.2, Taken_Anomalo: -0.30, CD: 0.90, Atkf_Atacante: 0.10, Dmg_Basic: 0.30, Shred_Basic: 0.15},
+    "Sarah": {
+        def_enemy: { Defense: 476 },
+        buffs_enemy: { Res_Physical: 0.2, Res_Ether: -0.20, Res_Ice: -0.20, Taken_Anomalo: -0.30, CD: 0.60},
         Image: "static/ENEMY/Sarah.webp"
     },
     "Tyrfing": {
