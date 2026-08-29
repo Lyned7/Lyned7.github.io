@@ -423,7 +423,7 @@ const supp = {
             6: {}
         },
          stat_escalado: {
-            stat_fuente: "MA",
+            stat_fuente: "AP",
             umbral: 0,
             max_buff_umbral: 1000,
             stat_buff: [
