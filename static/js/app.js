@@ -23,6 +23,7 @@ import we_supp from "../../data/Wengine/we_supp_data.js";
 import disk_dps from "../../data/Disks/disk_dps_data.js";
 import disk_supp from "../../data/Disks/disk_supp_data.js";
 import enemy from "../../data/Enemy/enemy_data.js";
+import da from "../../data/Enemy/da.js";
 import mainstats from "../../data/Stats/stats.js";
 import substats from "../../data/Stats/sub.js";
 
@@ -64,6 +65,7 @@ export const state = {
     support2BuffValue: 0,
 
     enemy: null,
+    da: null,
 
     topResults: [],       // hasta 5 combinaciones { disks, danoPromedio }, de mayor a menor dano
     topResultIndex: -1,   // cual de las 5 esta mostrada actualmente (-1 = ninguna)
@@ -552,7 +554,7 @@ function bindEnkaImport() {
             const omitidos = skipped.setDesconocido + skipped.mainStatDesconocido + skipped.otros;
             let mensaje = `${disks.length} of ${totalEncontrados} Disk Imported.`;
             if (omitidos > 0) {
-                mensaje += ` ${omitidos} omited`;
+                mensaje += ` ${omitidos} omitted`;
                 if (skipped.setDesconocido > 0) mensaje += ` (set desconocido: ${skipped.setDesconocido})`;
                 mensaje += ".";
             }
@@ -1267,6 +1269,16 @@ document.addEventListener("DOMContentLoaded", () => {
         textEl: "[data-select='enemy-name']",
         imgEl: "[data-select='enemy-image'] img",
         stateKey: "enemy",
+    });
+
+      bindGridSelector({
+        selector: "[data-select='da-name'], [data-select='da-image']",
+        dataObj: da,
+        ratioClass: "ratio-da",
+        title: "Select a DA buff",
+        textEl: "[data-select='da-name']",
+        imgEl: "[data-select='da-image'] img",
+        stateKey: "da",
     });
 
 });
