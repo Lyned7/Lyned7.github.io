@@ -109,7 +109,13 @@ export function calcularStatsTotales(seleccion) {
         sumarStats(statsTotales, dps_buffs.Stats_base);
 
         for (let i = 0; i <= seleccion.dpsDupe; i++) {
-            if (dps_buffs.dupes && dps_buffs.dupes[i]) sumarStats(statsTotales, dps_buffs.dupes[i]);
+            if (dps_buffs.dupes && dps_buffs.dupes[i]) {
+                sumarStats(statsTotales, dps_buffs.dupes[i]);
+            }
+
+            if (Boolean(seleccion.enemigoAturdido) && dps_buffs.dupes_stunned && dps_buffs.dupes_stunned[i]) {
+                sumarStats(statsTotales, dps_buffs.dupes_stunned[i]);
+            }
         }
 
         for (const skill of Object.values(dps_buffs.skills || {})) {
@@ -163,6 +169,11 @@ export function calcularStatsTotales(seleccion) {
     const enemy_buffs = enemy[seleccion.enemy_selected];
     if (enemy_buffs) {
         sumarStats(statsTotales, enemy_buffs.buffs_enemy);
+        
+        if (Boolean(seleccion.enemigoAturdido) && enemy_buffs.buffs_stunned) {
+            sumarStats(statsTotales, enemy_buffs.buffs_stunned);
+        }
+        
         sumarStats(statsTotales, enemy_buffs.def_enemy);
     }
 
