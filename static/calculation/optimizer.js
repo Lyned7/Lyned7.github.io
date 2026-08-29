@@ -35,6 +35,7 @@ function buildSeleccion(state, comboDisks) {
         suppSet2: state.support2Set,
 
         enemy_selected: state.enemy,
+        da_selected: state.da,
         enemigoAturdido: state.enemyStunOn,
         skill_nombre: state.dpsSkillName,
 
