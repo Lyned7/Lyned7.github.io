@@ -640,7 +640,7 @@ const dps = {
         Tipo_dmg: "Anomaly",
         Stats_base: { Atk: 880, ER: 1.5, Tasa: 148 },
         dupes: {
-            0: { MA: 114},
+            0: { MA_Base: 114},
             1: { Dmg: 0.30},
             2: { Shred: 0.15},
             3: {},
