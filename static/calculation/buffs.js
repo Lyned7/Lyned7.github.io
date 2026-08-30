@@ -99,6 +99,26 @@ export function evaluarStatFuente(stats, expresion) {
 }
 
 // Función principal que recibe tu selección y devuelve el total
+function crearAliasesDeStatsTotales(statsTotales) {
+    const statsConAlias = { ...statsTotales };
+
+    // Alias útiles para los stat_escalado del DPS que hoy usan varias fuentes
+    // muchas veces al mismo tiempo, sin perder compatibilidad con fórmulas.
+    if (statsTotales.MA !== undefined || statsTotales.MA_Base !== undefined) {
+        statsConAlias.MA_Total = (statsTotales.MA || 0) + (statsTotales.MA_Base || 0);
+    }
+
+    if (statsTotales.Tasa !== undefined || statsTotales.Tasax !== undefined || statsTotales.Tasae !== undefined) {
+        statsConAlias.Tasa_Total = (statsTotales.Tasa || 0) * (1 + (statsTotales.Tasax || 0)) + (statsTotales.Tasae || 0);
+    }
+
+    if (statsTotales.ER !== undefined || statsTotales.ERx !== undefined) {
+        statsConAlias.ER_Total = (statsTotales.ER || 0) * (1 + (statsTotales.ERx || 0));
+    }
+
+    return statsConAlias;
+}
+
 export function calcularStatsTotales(seleccion) {
     const statsTotales = {};
 
@@ -233,8 +253,9 @@ export function calcularStatsTotales(seleccion) {
     // stats ya consolidados por elemento/clase/tipo de skill (ej. que
     // "Dmg" ya incluya lo sumado desde "Dmg_Ice"), y para poder admitir
     // formulas (ej. "MA * CR * CD") ademas de un simple nombre de stat.
-
-    return statsTotales;
+    // Además, se exponen aliases de stats compuestos como MA_Total, Tasa_Total
+    // y ER_Total para poder escribir stat_fuente: "MA_Total" en los DPS.
+    return crearAliasesDeStatsTotales(statsTotales);
 }
 
 // Función universal para sumar stats de un origen al total (version "Initial")
