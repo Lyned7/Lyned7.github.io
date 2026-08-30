@@ -3,7 +3,7 @@
 const enemy = {
     "Sweeper": {
         def_enemy: { Defense: 476 },
-        buffs_enemy: { Res_Ice: 0.20, Res_Physical: -0.20, Res: 0.10, Atkf_Atacante: 0.20, Penx: 0.25, CD_Ice: 0.60, CD_Ether: 0.60, MA: 40, Admg: 0.30},
+        buffs_enemy: { Res_Ice: 0.20, Res_Physical: -0.20, Res: 0.10, Atkf_Atacante: 0.20, Penx_Atacante: 0.25, CD_Ice: 0.60, CD_Ether: 0.60, MA: 40, Admg: 0.30},
         buffs_stunned: {},
         Image: "static/ENEMY/Sweeper.webp"
     },
