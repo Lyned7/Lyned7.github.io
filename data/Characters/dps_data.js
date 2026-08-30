@@ -174,7 +174,7 @@ const dps = {
             }
         },
         stat_escalado: {
-            stat_fuente: "ER*(1+ERx)",
+            stat_fuente: "ER_Total",
             umbral: 140,
             stat_buff: [
                 {
@@ -327,7 +327,7 @@ const dps = {
             }
         },
         stat_escalado: {
-            stat_fuente: "ER*(1+ERx)",
+            stat_fuente: "ER_Total",
             umbral: 160,
             stat_buff: [
                 {
@@ -703,7 +703,7 @@ const dps = {
             }
         },
         stat_escalado: {
-            stat_fuente: "Tasa*(1+Tasax)+Tasae",
+            stat_fuente: "Tasa_Total",
             umbral: 140,
             stat_buff: [
                 {
@@ -775,7 +775,7 @@ const dps = {
             }
         },
         stat_escalado: {
-            stat_fuente: "ER + ER*ERx",
+            stat_fuente: "ER_Total",
             umbral: 1200,
             stat_buff: [
                 {
@@ -817,7 +817,7 @@ const dps = {
             }
         },
         stat_escalado: {
-            stat_fuente: "ER + ER*ERx",
+            stat_fuente: "ER_Total",
             umbral: 1800,
             stat_buff: [
                 {
@@ -919,7 +919,7 @@ const dps = {
             }
         },
         stat_escalado: {
-            stat_fuente: "Tasa*(1+Tasax)+Tasae",
+            stat_fuente: "Tasa_Total",
             umbral: 150,
             stat_buff: [
                 {
