@@ -254,13 +254,15 @@ function calcularDanoAnomaly(stats, aturdido) {
 
     const stat1 = ((Atk * (1 + Atkx)) + Atkp);
     const stat2 = getStat(stats, "Penp", 0);
-    const stat3 = getStat(stats, "MA_Base", 0);
-    const stat4 = getStat(stats, "Tasa", 0);
+    const stat3 = getStat(stats, "Tasa", 0);
+    const stat4 = getStat(stats, "MA_Base", 0);
+    
 
     const stat1_name = "ATK";
     const stat2_name = "PEN";
-    const stat3_name = "MA";
-    const stat4_name = "AM";
+    const stat3_name = "AM";
+    const stat4_name = "AP";
+    
     
 
     return {
@@ -290,6 +292,7 @@ function calcularDanoAnomaly(stats, aturdido) {
             Ref_factor,
             Tasax,
             Tasa,
+            Atke,
         }
     };
 }
