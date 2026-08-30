@@ -103,7 +103,7 @@ function crearAliasesDeStatsTotales(statsTotales) {
     const statsConAlias = { ...statsTotales };
 
     // Alias útiles para los stat_escalado del DPS que hoy usan varias fuentes
-    // muchas veces al mismo tiempo, sin perder compatibilidad con fórmulas.
+    // muchas veces al mismo tiempo, sin perder compatibilidad con fórmulas. Redeploy
     if (statsTotales.MA !== undefined || statsTotales.MA_Base !== undefined) {
         statsConAlias.MA_Total = (statsTotales.MA || 0) + (statsTotales.MA_Base || 0);
     }
