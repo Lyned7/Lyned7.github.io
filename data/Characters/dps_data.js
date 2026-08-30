@@ -661,7 +661,7 @@ const dps = {
             }
         },
         stat_escalado: {
-            stat_fuente: "MA",
+            stat_fuente: "MA + MA_Base",
             umbral: 120,
             max_buff_umbral: 800,
             stat_buff: [
