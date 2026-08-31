@@ -110,7 +110,7 @@ const STAT_DISPLAY_NAMES = {
     ERx: "Energy Regen%",
     Impactx: "Impact%",
     MA: "Anomaly Proficiency",
-    MA_Base: "Anomaly Proficiency",
+    MA_Base: "Anomaly Prof",
     Admg: "Anomaly DMG%",
     Rdmg: "EX DMG%",
     Stun: "Stun DMG%",
