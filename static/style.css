@@ -1153,9 +1153,9 @@ body {
     position: absolute;
     left: 246px;
     top: 265px;
-    width: 66px;
+    width: 67px;
     height: 29px;
-    border-radius: 13px;
+    border-radius: 15px;
     background: #191919;
     display: flex;
     align-items: center;
@@ -1168,7 +1168,7 @@ body {
     left: 249px;
     top: 269px;
     width: 36px;
-    height: 22px;
+    height: 21px;
     border-radius: 12px;
     background: #707070;
     color: #141414;
