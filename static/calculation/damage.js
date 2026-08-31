@@ -92,13 +92,37 @@ function calcularDanoSharp(stats, aturdido) {
     const danoPromedio = Mv_factor * Def_factor * Lac_factor * Dmg_factor * Res_factor * Stun_factor * Defense_factor * Sdmg_factor * Cont_factor * Taken_factor;
     const danoReal = Mv_factor * Def_factor * Lac_real * Dmg_factor * Res_factor * Stun_factor * Defense_factor * Sdmg_factor * Cont_factor * Taken_factor;
 
-    const stat1 = ((Def * (1 + Defx)) + Defp);
+    const stat1 = Math.floor((Def * (1 + Defx)) + Defp);
+    const stat2 = getStat(stats, "Penp", 0);
+    const stat3 = (getStat(stats, "CR_Base", 0))*100;
+    const stat4 = (getStat(stats, "CD_Base", 0))*100;
+
+    const stat_combat1 = Math.floor(Math.floor((Def * (1 + Defx)) + Defp) * (1+Deff)) + Defe;
+    const stat_combat2 = getStat(stats, "Penp", 0);
+    const stat_combat3 = ((getStat(stats, "CR_Base", 0))+(getStat(stats, "CR", 0)))*100;
+    const stat_combat4 = (getStat(stats, "CD_Base", 0))*100;
+
+    const stat1_name = "DEF";
+    const stat2_name = "PEN";
+    const stat3_name = "CR";
+    const stat4_name = "CD";
 
     return {
         danoReal,
         danoPromedio,
 
         stat1,
+        stat2,
+        stat3,
+        stat4,
+        stat_combat1,
+        stat_combat2,
+        stat_combat3,
+        stat_combat4,
+        stat1_name,
+        stat2_name,
+        stat3_name,
+        stat4_name,
         
         factores: {
             Mv_factor,
@@ -162,10 +186,15 @@ function calcularDanoNormal(stats, aturdido) {
     const danoPromedio = Mv_factor * Atk_factor * Crit_factor * Dmg_factor * Res_factor * Stun_factor * Defense_factor * Cont_factor * Taken_factor;
     const danoReal = Mv_factor * Atk_factor * Crit_real * Dmg_factor * Res_factor * Stun_factor * Defense_factor * Cont_factor * Taken_factor;
 
-    const stat1 = ((Atk * (1 + Atkx)) + Atkp);
+    const stat1 = Math.floor((Atk * (1 + Atkx)) + Atkp);
     const stat2 = getStat(stats, "Penp", 0);
     const stat3 = (getStat(stats, "CR_Base", 0))*100;
     const stat4 = (getStat(stats, "CD_Base", 0))*100;
+
+    const stat_combat1 = Math.floor(Math.floor((Atk * (1 + Atkx)) + Atkp) * (1+Atkf)) + Atke + Atke_Idol;
+    const stat_combat2 = getStat(stats, "Penp", 0);
+    const stat_combat3 = ((getStat(stats, "CR_Base", 0))+(getStat(stats, "CR", 0)))*100;
+    const stat_combat4 = ((getStat(stats, "CD_Base", 0))+(getStat(stats, "CD", 0)))*100;
 
     const stat1_name = "ATK";
     const stat2_name = "PEN";
@@ -180,6 +209,10 @@ function calcularDanoNormal(stats, aturdido) {
         stat2,
         stat3,
         stat4,
+        stat_combat1,
+        stat_combat2,
+        stat_combat3,
+        stat_combat4,
         stat1_name,
         stat2_name,
         stat3_name,
@@ -230,6 +263,7 @@ function calcularDanoAnomaly(stats, aturdido) {
     const Defense = getStat(stats, "Defense", 0);
     const Tasax = getStat(stats, "Tasax", 0);
     const Tasa = getStat(stats, "Tasa", 0);
+    const Tasa_Total = getStat(stats, "Tasa_Total", 0);
     
 
     // Factores de la fórmula Anomaly
@@ -256,7 +290,11 @@ function calcularDanoAnomaly(stats, aturdido) {
     const stat2 = getStat(stats, "Penp", 0);
     const stat3 = getStat(stats, "Tasa", 0);
     const stat4 = getStat(stats, "MA_Base", 0);
-    
+
+    const stat_combat1 = Math.floor(Math.floor((Atk * (1 + Atkx)) + Atkp) * (1+Atkf)) + Atke + Atke_Idol;
+    const stat_combat2 = getStat(stats, "Penp", 0);
+    const stat_combat3 = Tasa_Total;
+    const stat_combat4 = ((getStat(stats, "MA_Base", 0))+(getStat(stats, "MA", 0)));
 
     const stat1_name = "ATK";
     const stat2_name = "PEN";
@@ -273,6 +311,10 @@ function calcularDanoAnomaly(stats, aturdido) {
         stat2,
         stat3,
         stat4,
+        stat_combat1,
+        stat_combat2,
+        stat_combat3,
+        stat_combat4,
         stat1_name,
         stat2_name,
         stat3_name,
@@ -305,6 +347,7 @@ function calcularDanoSheer(stats, aturdido) {
     const Atkp = getStat(stats, "Atkp", 0);
     const Atkf = getStat(stats, "Atkf", 0);
     const Atke = getStat(stats, "Atke", 0);
+    const Atke_Idol = Math.max(0, Math.min(getStat(stats, "Atke_Idol", 0), 50));
 
     const Hp = getStat(stats, "Hp", 0);
     const Hpx = getStat(stats, "Hpx", 0);
@@ -333,7 +376,7 @@ function calcularDanoSheer(stats, aturdido) {
 
     // Factores de la fórmula Sheer
     const Mv_factor = Mv;
-    const Atk_factor = (Math.floor((Atk * (1 + Atkx)) + Atkp) * (1+Atkf)) + Atke;
+    const Atk_factor = (Math.floor((Atk * (1 + Atkx)) + Atkp) * (1+Atkf)) + Atke + Atke_Idol;
     const Hp_factor = (Math.floor((Hp * (1 + Hpx)) + Hpp) * (1+(Hpf+Hpf_Veil))) + Hpe;
     const Sheer_factor = (Atk_factor*0.3 + Hp_factor*0.1) + Sheere;
     const Crit_factor = (1+((Math.min((CR+CR_Base), 1)) * ((CD + CD_Base)+ CD_Freeze)));
@@ -350,10 +393,15 @@ function calcularDanoSheer(stats, aturdido) {
     const danoPromedio = Mv_factor * Sheer_factor * Crit_factor * Dmg_factor * Rdmg_factor * Res_factor * Stun_factor * Cont_factor * Taken_factor;
     const danoReal = Mv_factor * Sheer_factor * Crit_real * Dmg_factor * Rdmg_factor * Res_factor * Stun_factor * Cont_factor * Taken_factor;
     
-    const stat1 = ((Hp * (1 + Hpx)) + Hpp);
-    const stat2 = ((Atk * (1 + Atkx)) + Atkp);
+    const stat1 = Math.floor((Hp * (1 + Hpx)) + Hpp);
+    const stat2 = Math.floor((Atk * (1 + Atkx)) + Atkp);
     const stat3 = getStat(stats, "CR_Base", 0)*100;
     const stat4 = getStat(stats, "CD_Base", 0)*100;
+
+    const stat_combat1 = Math.floor(Math.floor((Hp * (1 + Hpx)) + Hpp) * (1+Hpf+Hpf_Veil)) + Hpe;
+    const stat_combat2 = Math.floor(Math.floor((Atk * (1 + Atkx)) + Atkp) * (1+Atkf)) + Atke + Atke_Idol;
+    const stat_combat3 = ((getStat(stats, "CR_Base", 0))+(getStat(stats, "CR", 0)))*100;
+    const stat_combat4 = ((getStat(stats, "CD_Base", 0))+(getStat(stats, "CD", 0)))*100;
 
     const stat1_name = "HP";
     const stat2_name = "Atk";
@@ -368,6 +416,10 @@ function calcularDanoSheer(stats, aturdido) {
         stat2,
         stat3,
         stat4,
+        stat_combat1,
+        stat_combat2,
+        stat_combat3,
+        stat_combat4,
         stat1_name,
         stat2_name,
         stat3_name,
@@ -398,6 +450,7 @@ function calcularDanoSortedAP(stats, aturdido) {
 
     const Tasa = getStat(stats, "Tasa", 0);
     const Tasax = getStat(stats, "Tasax", 0);
+    const Tasa_Total = getStat(stats, "Tasa_Total", 0);
 
     const Mv = getStat(stats, "Mv", 0);
 
@@ -412,15 +465,20 @@ function calcularDanoSortedAP(stats, aturdido) {
     const danoPromedio = Mv_factor* MA_factor ;
     const danoReal = Mv_factor * MA_factor;
 
-    const stat1 = ((Atk * (1 + Atkx)) + Atkp);
+    const stat1 = Math.floor((Atk * (1 + Atkx)) + Atkp);
     const stat2 = getStat(stats, "Penp", 0);
     const stat3 = (getStat(stats, "MA_Base", 0));
-    const stat4 = Math.floor(Tasa * (1 + Tasax));
+    const stat4 = (Tasa * (1 + Tasax));
+
+    const stat_combat1 = Math.floor((Atk * (1 + Atkx)) + Atkp);
+    const stat_combat2 = getStat(stats, "Penp", 0);
+    const stat_combat3 = Tasa_Total;
+    const stat_combat4 = (getStat(stats, "MA_Base", 0))+getStat(stats, "MA", 0);
 
     const stat1_name = "ATK";
     const stat2_name = "PEN";
-    const stat3_name = "MA";
-    const stat4_name = "AM";
+    const stat3_name = "AM";
+    const stat4_name = "AP";
 
     return {
         danoReal,
@@ -430,6 +488,10 @@ function calcularDanoSortedAP(stats, aturdido) {
         stat2,
         stat3,
         stat4,
+        stat_combat1,
+        stat_combat2,
+        stat_combat3,
+        stat_combat4,
         stat1_name,
         stat2_name,
         stat3_name,
@@ -451,6 +513,7 @@ function calcularDanoSortedAPAtk(stats, aturdido) {
 
     const Tasa = getStat(stats, "Tasa", 0);
     const Tasax = getStat(stats, "Tasax", 0);
+    const Tasa_Total = getStat(stats, "Tasa_Total", 0);
 
     const Mv = getStat(stats, "Mv", 0);
 
@@ -465,15 +528,20 @@ function calcularDanoSortedAPAtk(stats, aturdido) {
     const danoPromedio = Mv_factor * Atk_factor * MA_factor;
     const danoReal = MA + MA_Base;
 
-    const stat1 = ((Atk * (1 + Atkx)) + Atkp);
+    const stat1 = Math.floor((Atk * (1 + Atkx)) + Atkp);
     const stat2 = getStat(stats, "Penp", 0);
     const stat3 = (getStat(stats, "MA_Base", 0));
-    const stat4 = Math.floor(Tasa * (1 + Tasax));
+    const stat4 = (Tasa * (1 + Tasax));
+
+    const stat_combat1 = Math.floor((Atk * (1 + Atkx)) + Atkp);
+    const stat_combat2 = getStat(stats, "Penp", 0);
+    const stat_combat3 = Tasa_Total;
+    const stat_combat4 = (getStat(stats, "MA_Base", 0))+getStat(stats, "MA", 0);
 
     const stat1_name = "ATK";
     const stat2_name = "PEN";
     const stat3_name = "MA";
-    const stat4_name = "AM";
+    const stat4_name = "AP";
 
     return {
         danoReal,
@@ -483,6 +551,10 @@ function calcularDanoSortedAPAtk(stats, aturdido) {
         stat2,
         stat3,
         stat4,
+        stat_combat1,
+        stat_combat2,
+        stat_combat3,
+        stat_combat4,
         stat1_name,
         stat2_name,
         stat3_name,
