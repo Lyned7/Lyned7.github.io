@@ -124,18 +124,6 @@ const we_supp = {
     },
 
     // Stunner
-    "RoxyWE": {
-        ID: 14162,
-        Image: "static/WENGINE/RoxyWE.webp",
-        Clase: "Stunner",
-        buffs: {
-            1: { Dmg: 0.25 },
-            2: { Dmg: 0.035 },
-            3: { Dmg: 0.035 },
-            4: { Dmg: 0.035 },
-            5: { Dmg: 0.045 }
-        }
-    },
     "Chief Sidekick": {
         ID: 14157,
         Image: "static/WENGINE/Chief_Sidekick.webp",
