@@ -537,11 +537,11 @@ body {
 }
 
 .top-label-1 {
-    top: 115px;
+    top: 119px;
 }
 
 .top-label-2 {
-    top: 235px;
+    top: 238px;
 }
 
 .top-slot {
@@ -582,10 +582,10 @@ body {
     font-size: 15px;
     font-weight: 700;
 }
-.slot-base1 { top: 145px; left: 15px; }
-.slot-base2 { top: 145px; left: 148px;}
-.slot-base3 { top: 187px; left: 15px;}
-.slot-base4 { top: 187px; left: 148px;}
+.slot-base1 { top: 152px; left: 15px; }
+.slot-base2 { top: 152px; left: 148px;}
+.slot-base3 { top: 194px; left: 15px;}
+.slot-base4 { top: 194px; left: 148px;}
 
 .slot-top { top: 70px; }
 
@@ -1711,13 +1711,8 @@ body {
     left: 720px;
 }
 
-.top-label-1 {
-    top: 115px;
-}
 
-.top-label-2 {
-    top: 235px;
-}
+
 
 .inv-slot {
     position: absolute;
@@ -1816,10 +1811,7 @@ body {
     font-size: 15px;
     font-weight: 700;
 }
-.slot-base1 { top: 145px; left: 15px; }
-.slot-base2 { top: 145px; left: 148px;}
-.slot-base3 { top: 187px; left: 15px;}
-.slot-base4 { top: 187px; left: 148px;}
+
 
 .import-top { top: 45px; }
 
@@ -2054,13 +2046,8 @@ body {
     left: 720px;
 }
 
-.top-label-1 {
-    top: 115px;
-}
 
-.top-label-2 {
-    top: 235px;
-}
+
 
 .inv-slot {
     position: absolute;
@@ -2411,10 +2398,7 @@ body {
     font-size: 15px;
     font-weight: 700;
 }
-.slot-base1 { top: 145px; left: 15px; }
-.slot-base2 { top: 145px; left: 148px;}
-.slot-base3 { top: 187px; left: 15px;}
-.slot-base4 { top: 187px; left: 148px;}
+
 
 .main-stat-top { top: 45px; }
 .set-top { top: 90px; }
