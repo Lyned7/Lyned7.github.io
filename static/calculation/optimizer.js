@@ -128,6 +128,11 @@ export function optimizarDiscos(state, savedDisks) {
                                 stat3: resultado.stat3,
                                 stat4: resultado.stat4,
 
+                                stat_combat1: resultado.stat_combat1,
+                                stat_combat2: resultado.stat_combat2,
+                                stat_combat3: resultado.stat_combat3,
+                                stat_combat4: resultado.stat_combat4,
+
                                 stat1_name: resultado.stat1_name,
                                 stat2_name: resultado.stat2_name,
                                 stat3_name: resultado.stat3_name,
