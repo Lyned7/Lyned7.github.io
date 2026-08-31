@@ -69,6 +69,7 @@ export const state = {
 
     topResults: [],       // hasta 5 combinaciones { disks, danoPromedio }, de mayor a menor dano
     topResultIndex: -1,   // cual de las 5 esta mostrada actualmente (-1 = ninguna)
+    optimizedStatsMode: "menu", // "menu" | "combat"
 };
 
 /* ------------------------------------------------------------------- */
@@ -966,6 +967,48 @@ function bindOptimizer() {
             cell.classList.toggle("top-result-active", idx === state.topResultIndex);
         });
     }
+    
+    function formatOptimizedStatValue(value) {
+        if (value === null || value === undefined || value === "") return "--";
+        const numeric = Number(value);
+        if (!Number.isFinite(numeric)) return String(value);
+        return numeric.toLocaleString("es-PE", {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 1,
+        });
+    }
+
+    function renderOptimizedStats(entry) {
+        if (!entry) return;
+
+        const useCombat = state.optimizedStatsMode === "combat";
+        const values = [
+            [useCombat ? (entry.stat_combat1 ?? entry.stat1) : entry.stat1, menuStat1, nameStat1, entry.stat1_name],
+            [useCombat ? (entry.stat_combat2 ?? entry.stat2) : entry.stat2, menuStat2, nameStat2, entry.stat2_name],
+            [useCombat ? (entry.stat_combat3 ?? entry.stat3) : entry.stat3, menuStat3, nameStat3, entry.stat3_name],
+            [useCombat ? (entry.stat_combat4 ?? entry.stat4) : entry.stat4, menuStat4, nameStat4, entry.stat4_name],
+        ];
+
+        values.forEach(([value, valueEl, nameEl, name]) => {
+            if (valueEl) {
+                valueEl.textContent = formatOptimizedStatValue(value);
+            }
+            if (nameEl && name !== undefined && name !== null) {
+                nameEl.textContent = String(name).toLocaleString("es-PE");
+            }
+        });
+    }
+
+    function renderStatModeToggle() {
+        const toggle = document.querySelector(".combat-toggle");
+        const knob = document.querySelector(".combat-toggle-1");
+        if (!toggle || !knob) return;
+
+        const isCombat = state.optimizedStatsMode === "combat";
+        knob.textContent = isCombat ? "Combat" : "Menu";
+        knob.classList.toggle("combat-toggle-knob-active", isCombat);
+        toggle.classList.toggle("combat-toggle-active", isCombat);
+    }
 
     function selectTopResult(index) {
         const entry = state.topResults[index];
@@ -977,36 +1020,24 @@ function bindOptimizer() {
         if (dmgEl) {
             dmgEl.textContent = Math.round(entry.danoReal).toLocaleString("es-PE");
         }
-        // Stats Menu
-        if (menuStat1) {
-            menuStat1.textContent = Math.round(entry.stat1).toLocaleString("es-PE");
-        }
-        if (menuStat2) {
-            menuStat2.textContent = Math.round(entry.stat2).toLocaleString("es-PE");
-        }
-        if (menuStat3) {
-            menuStat3.textContent = (entry.stat3).toLocaleString("es-PE");
-        }
-        if (menuStat4) {
-            menuStat4.textContent = (entry.stat4).toLocaleString("es-PE");
-        }
-        // Nombres Stats Menu
-        if (nameStat1) {
-            nameStat1.textContent = (entry.stat1_name).toLocaleString("es-PE");
-        }
-        if (nameStat2) {
-            nameStat2.textContent = (entry.stat2_name).toLocaleString("es-PE");
-        }
-        if (nameStat3) {
-            nameStat3.textContent = (entry.stat3_name).toLocaleString("es-PE");
-        }
-        if (nameStat4) {
-            nameStat4.textContent = (entry.stat4_name).toLocaleString("es-PE");
-        }
+        renderOptimizedStats(entry);
 
         entry.disks.forEach((disk) => renderDiskIntoCard(disk.slot, disk));
     }
 
+    const statToggle = document.querySelector(".combat-toggle");
+    const statToggleKnob = document.querySelector(".combat-toggle-1");
+    if (statToggle && statToggleKnob) {
+        statToggle.classList.add("selectable");
+        statToggle.addEventListener("click", () => {
+            state.optimizedStatsMode = state.optimizedStatsMode === "combat" ? "menu" : "combat";
+            renderStatModeToggle();
+            const entry = state.topResults[state.topResultIndex];
+            if (entry) renderOptimizedStats(entry);
+        });
+        renderStatModeToggle();
+    }
+    
     topCells.forEach((cell) => {
         cell.addEventListener("click", () => {
             const idx = Number(cell.dataset.topIndex);
