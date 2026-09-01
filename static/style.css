@@ -815,8 +815,8 @@ body {
 }
 
 .support-field .field-side {
-    width: 50px;
-    flex-basis: 50px;
+    width: 54px;
+    flex-basis: 54px;
 }
 
 .support-character-image {
@@ -1571,7 +1571,48 @@ body {
     object-fit: contain;
 }
 
+.dupe-inline-menu {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 3px;
+    background:linear-gradient(180deg,rgb(29, 29, 29) 0%,#252525 100%);
+    border: 1px solid #343434;
+    border-radius: 4px;
+    box-shadow: 0 9px 20px rgba(0, 0, 0, 0.42);
+    z-index: 10010;
 
+    width: 50px;
+    box-sizing: border-box;
+}
+
+.dupe-inline-item {
+    height: var(--dupe-item-height, 24px);
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #1616166c;
+    border: 1px solid #3434342c;
+    border-radius: 3px;
+
+    color: #a9a9a9;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
+
+    box-sizing: border-box;
+}
+
+.dupe-inline-item:hover {
+    background: #2b2a2a;
+    color: var(--white);
+}
 
 /* Variante para listas pequeñas (Dupes, Refinamientos) */
 .modal-list {
