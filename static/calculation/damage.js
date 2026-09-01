@@ -286,7 +286,7 @@ function calcularDanoAnomaly(stats, aturdido) {
     const danoPromedio = Mv_factor * Atk_factor * MA_factor * Dmg_factor * Admg_factor * Res_factor * Stun_factor * Defense_factor * 2 * Ref_factor * Taken_factor;
     const danoReal = Mv_factor * Atk_factor * MA_factor * Dmg_factor * Admg_factor * Res_factor * Stun_factor * Defense_factor * 2 * Ref_factor * Taken_factor;
 
-    const stat1 = ((Atk * (1 + Atkx)) + Atkp);
+    const stat1 = Math.floor((Atk * (1 + Atkx)) + Atkp);
     const stat2 = getStat(stats, "Penp", 0);
     const stat3 = getStat(stats, "Tasa", 0);
     const stat4 = getStat(stats, "MA_Base", 0);
@@ -404,7 +404,7 @@ function calcularDanoSheer(stats, aturdido) {
     const stat_combat4 = ((getStat(stats, "CD_Base", 0))+(getStat(stats, "CD", 0)))*100;
 
     const stat1_name = "HP";
-    const stat2_name = "Atk";
+    const stat2_name = "ATK";
     const stat3_name = "CR";
     const stat4_name = "CD";
 
