@@ -333,6 +333,176 @@ const we_supp = {
             5: { Dmg: 0.045},
         }
     },
+    "Hailstorm Shrine": {
+        ID: 14157,
+        Image: "static/WENGINE/Hailstorm_Shrine.webp",
+        Clase: "Anomalo",
+        buffs: {
+            1: {},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+        }
+    },
+    "Sharpened Stinger": {
+        ID: 14157,
+        Image: "static/WENGINE/Sharpened_Stinger.webp",
+        Clase: "Anomalo",
+        buffs: {
+            1: {},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+        }
+    },
+    "Practiced Perfection": {
+        ID: 14157,
+        Image: "static/WENGINE/Practiced_Perfection.webp",
+        Clase: "Anomalo",
+        buffs: {
+            1: {},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+        }
+    },
+    "Angel in the Shell": {
+        ID: 14157,
+        Image: "static/WENGINE/Angel_in_the_Shell.webp",
+        Clase: "Anomalo",
+        buffs: {
+            1: {},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+        }
+    },
+    "Flamemaker Shaker": {
+        ID: 14157,
+        Image: "static/WENGINE/Flamemaker_Shaker.webp",
+        Clase: "Anomalo",
+        buffs: {
+            1: {},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+        }
+    },
+    "Fusion Compiler": {
+        ID: 14157,
+        Image: "static/WENGINE/Fusion_Compiler.webp",
+        Clase: "Anomalo",
+        buffs: {
+            1: {},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+        }
+    },
+    "Frostfall Sickle": {
+        ID: 14157,
+        Image: "static/WENGINE/Frostfall_Sickle.webp",
+        Clase: "Anomalo",
+        buffs: {
+            1: {},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+        }
+    },
+    "Flight of Fancy": {
+        ID: 14157,
+        Image: "static/WENGINE/Flight_of_Fancy.webp",
+        Clase: "Anomalo",
+        buffs: {
+            1: {},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+        }
+    },
+    "Timeweaver": {
+        ID: 14157,
+        Image: "static/WENGINE/Timeweaver.webp",
+        Clase: "Anomalo",
+        buffs: {
+            1: {},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+        }
+    },
+    
+    // Anomalo A-rank
+    "Roaring Ride": {
+        ID: 14157,
+        Image: "static/WENGINE/Roaring_Ride.webp",
+        Clase: "Anomalo",
+        buffs: {
+            1: {},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+        }
+    },
+    "Boisterous Echoes": {
+        ID: 14157,
+        Image: "static/WENGINE/Boisterous_Echoes.webp",
+        Clase: "Anomalo",
+        buffs: {
+            1: {},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+        }
+    },
+    "Electro-Lip Gloss": {
+        ID: 14157,
+        Image: "static/WENGINE/ElectroLip_Gloss.webp",
+        Clase: "Anomalo",
+        buffs: {
+            1: {},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+        }
+    },
+    "Weeping Gemini": {
+        ID: 14157,
+        Image: "static/WENGINE/Weeping_Gemini.webp",
+        Clase: "Anomalo",
+        buffs: {
+            1: {},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+        }
+    },
+    "Rainforest Gourmet": {
+        ID: 14157,
+        Image: "static/WENGINE/Rainforest_Gourmet.webp",
+        Clase: "Anomalo",
+        buffs: {
+            1: {},
+            2: {},
+            3: {},
+            4: {},
+            5: {},
+        }
+    },
 
     // Defensor
     "Half-Sugar Bunny": {
