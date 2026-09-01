@@ -113,7 +113,7 @@ const we_dps = {
             5: { CR: 0.03, Shred_Fire_Aftershock: 0.046}
         }
     },
-    "Sol_Exuvia": {
+    "Sol Exuvia": {
         ID: 14104,
         Clase: "Atacante",
         Image: "static/WENGINE/Sol_Exuvia.webp",
