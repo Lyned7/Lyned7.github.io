@@ -1164,6 +1164,7 @@ document.addEventListener("DOMContentLoaded", () => {
         title: "Cinema",
         stateKey: "dpsCharacterLevel",
         onChange: () => updateSkillDisplay(),
+        compact: true,
     });
 
     /* ---------- DPS: W-Engine ---------- */
@@ -1183,6 +1184,7 @@ document.addEventListener("DOMContentLoaded", () => {
         min: 1, max: 5, prefix: "W",
         title: "W-Engine",
         stateKey: "dpsWeaponLevel",
+        compact: true,
     });
 
     /* ---------- DPS: Sets de discos (4P / 2P) ---------- */
