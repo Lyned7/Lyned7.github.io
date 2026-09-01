@@ -617,7 +617,7 @@ function bindNewDiskCreation({ onSave } = {}) {
     }
 
     function renderSet() {
-        if (setField) setField.textContent = draft.set || "Elegir Set";
+        if (setField) setField.textContent = draft.set || "Disk Set";
         const img = setImage ? setImage.querySelector("img") : null;
         if (img) {
             const entry = draft.set ? disk_dps[draft.set] : null;
@@ -627,7 +627,7 @@ function bindNewDiskCreation({ onSave } = {}) {
     }
 
     function renderMainStat() {
-        if (mainStatField) mainStatField.textContent = getStatDisplayName(draft.mainStat) || "Elegir";
+        if (mainStatField) mainStatField.textContent = getStatDisplayName(draft.mainStat) || "Stat";
         if (mainStatValueField) {
             mainStatValueField.textContent = draft.mainStat ? formatStatValue(draft.mainStatValue) : "--";
         }
