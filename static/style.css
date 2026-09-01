@@ -321,13 +321,17 @@ body {
 }
 
 .field > span:first-child {
+    min-width: 0;
+    overflow: hidden;
     padding-left: 9px;
+    text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 .field-side {
     margin-left: auto;
     width: 54px;
+    flex: 0 0 54px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -803,12 +807,16 @@ body {
 }
 
 .support-field > span:first-child {
+    min-width: 0;
+    overflow: hidden;
     padding-left: 9px;
+    text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 .support-field .field-side {
     width: 50px;
+    flex-basis: 50px;
 }
 
 .support-character-image {
