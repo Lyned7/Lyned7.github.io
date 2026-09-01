@@ -29,6 +29,20 @@ const we_dps = {
             5: { Atkf: 0.08}
         }
     },
+    "Knight's Extolment": {
+        ID: 14104,
+        Clase: "Atacante",
+        Image: "static/WENGINE/Knights_Extolment.webp",
+        Stats_base: { Atk: 713 },
+        Stats_main: { CD_Base: 0.48 },
+        buffs: {
+            1: { CD: 0.64, Res_Ice: 0.20},
+            2: { CD: 0.096, Res_Ice: 0.03}, 
+            3: { CD: 0.096, Res_Ice: 0.03},
+            4: { CD: 0.096, Res_Ice: 0.03},
+            5: { CD: 0.096, Res_Ice: 0.03}
+        }
+    },
     "Cloudcleave Radiance": {
         ID: 14104,
         Clase: "Atacante",
