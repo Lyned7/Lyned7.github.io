@@ -41,6 +41,48 @@ export function closeSelectionMenu() {
     overlay.innerHTML = "";
 }
 
+/** Cierra el menú flotante compacto de niveles (dupes/arma). */
+function closeCompactLevelMenu() {
+    const menu = document.querySelector(".dupe-inline-menu");
+    if (menu) menu.remove();
+}
+
+/**
+ * Abre un menú flotante compacto para niveles C0-C6 / W1-W5 bajo el trigger.
+ * Se usa solo para dupes de DPS/Support y refinamientos de arma.
+ */
+export function openCompactLevelMenu({ anchorEl, items, onSelect }) {
+    if (!anchorEl) return;
+    closeCompactLevelMenu();
+
+    const menu = document.createElement("div");
+    menu.className = "dupe-inline-menu";
+
+    const rect = anchorEl.getBoundingClientRect();
+    const itemWidth = 58;
+    const itemHeight = Math.max(20, Math.round(rect.height - 2));
+
+    menu.style.position = "fixed";
+    menu.style.left = `${Math.max(8, rect.left + (rect.width - itemWidth) / 2)}px`;
+    menu.style.top = `${rect.bottom + 4}px`;
+    menu.style.width = `${itemWidth}px`;
+    menu.style.setProperty("--dupe-item-height", `${itemHeight}px`);
+
+    items.forEach(({ label, value }) => {
+        const item = document.createElement("div");
+        item.className = "dupe-inline-item";
+        item.textContent = label;
+        item.style.height = `${itemHeight}px`;
+        item.addEventListener("click", (e) => {
+            e.stopPropagation();
+            onSelect(value);
+            closeCompactLevelMenu();
+        });
+        menu.appendChild(item);
+    });
+
+    document.body.appendChild(menu);
+}
 /**
  * Abre un menu tipo GRILLA de imagenes (personajes, armas, discos, enemigos).
  *
@@ -200,8 +242,16 @@ document.addEventListener("click", (e) => {
     if (overlay && e.target === overlay) {
         closeSelectionMenu();
     }
+    
+    const popup = document.querySelector(".dupe-inline-menu");
+    if (popup && !e.target.closest(".dupe-inline-menu") && !e.target.closest("[data-select$='-level']")) {
+        closeCompactLevelMenu();
+    }
 });
 
 document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeSelectionMenu();
+    if (e.key === "Escape") {
+        closeSelectionMenu();
+        closeCompactLevelMenu();
+    }
 });
