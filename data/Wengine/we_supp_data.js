@@ -309,7 +309,7 @@ const we_supp = {
 
 
     // Anomalo
-    "Joyau_Dore": {
+    "Joyau Dore": {
         ID: 14157,
         Image: "static/WENGINE/Joyau_Dore.webp",
         Clase: "Anomalo",
