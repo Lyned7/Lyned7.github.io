@@ -27,7 +27,7 @@ import da from "../../data/Enemy/da.js";
 import mainstats from "../../data/Stats/stats.js";
 import substats from "../../data/Stats/sub.js";
 
-import { openGridMenu, openListMenu, openInfoMenu } from "../../seleccion_menu.js";
+import { openGridMenu, openListMenu, openInfoMenu, openCompactLevelMenu } from "../../seleccion_menu.js";
 import { optimizarDiscos } from "../calculation/optimizer.js";
 import { fetchEnkaShowcase, parseEnkaShowcase } from "./enkaImport.js";
 
@@ -214,23 +214,74 @@ function bindGridSelector({ selector, dataObj, ratioClass, title, textEl, imgEl,
 }
 
 /** Binder generico para selectores de NIVEL (C0-C6, W1-W5...). */
-function bindLevelSelector({ selector, min, max, prefix, title, stateKey, onChange }) {
+let activeCompactTrigger = null;
+function bindLevelSelector({ selector, min, max, prefix, title, stateKey, onChange, compact = false }) {
     const trigger = document.querySelector(selector);
     if (!trigger) return;
 
     trigger.classList.add("selectable");
+
     trigger.addEventListener("click", (e) => {
         e.stopPropagation();
+
+        if (compact) {
+            const existingMenu = document.querySelector(".dupe-inline-menu");
+
+            // Si el menú está abierto sobre esta misma celda, cerrarlo
+            if (existingMenu && activeCompactTrigger === trigger) {
+                closeCompactLevelMenu();
+                activeCompactTrigger = null;
+                return;
+            }
+
+            // Si hay otro menú abierto, cerrarlo primero
+            if (existingMenu) {
+                closeCompactLevelMenu();
+            }
+
+            activeCompactTrigger = trigger;
+
+            const items = levelItems(min, max, prefix);
+
+            openCompactLevelMenu({
+                anchorEl: trigger,
+                items,
+                onSelect: (value) => {
+                    trigger.textContent = `${prefix}${value}`;
+
+                    if (stateKey) state[stateKey] = value;
+                    if (onChange) onChange(value);
+
+                    activeCompactTrigger = null;
+                },
+            });
+
+            return;
+        }
+
+        const items = levelItems(min, max, prefix);
+
         openListMenu({
-            items: levelItems(min, max, prefix),
+            items,
             title,
             onSelect: (value) => {
                 trigger.textContent = `${prefix}${value}`;
+
                 if (stateKey) state[stateKey] = value;
                 if (onChange) onChange(value);
             },
         });
     });
+}
+
+function closeCompactLevelMenu() {
+    const menu = document.querySelector(".dupe-inline-menu");
+
+    if (menu) {
+        menu.remove();
+    }
+
+    activeCompactTrigger = null;
 }
 
 /**
@@ -1204,6 +1255,7 @@ document.addEventListener("DOMContentLoaded", () => {
         min: 0, max: 6, prefix: "C",
         title: "Cinema",
         stateKey: "support1CharacterLevel",
+        compact: true,
     });
 
     bindGridSelector({
@@ -1222,6 +1274,7 @@ document.addEventListener("DOMContentLoaded", () => {
         min: 1, max: 5, prefix: "W",
         title: "W-Engine",
         stateKey: "support1WeaponLevel",
+        compact: true,
     });
 
     bindGridSelector({
@@ -1262,6 +1315,7 @@ document.addEventListener("DOMContentLoaded", () => {
         min: 0, max: 6, prefix: "C",
         title: "Cinema",
         stateKey: "support2CharacterLevel",
+        compact: true,
     });
 
     bindGridSelector({
@@ -1280,6 +1334,7 @@ document.addEventListener("DOMContentLoaded", () => {
         min: 1, max: 5, prefix: "W",
         title: "W-Engine",
         stateKey: "support2WeaponLevel",
+        compact: true,
     });
 
     bindGridSelector({
