@@ -436,6 +436,20 @@ const supp = {
             ],
         },
     },
+    "Jane": {
+        ID: 1621,
+        Image: "static/SUPPORT/Jane.webp",
+        Clase: "Anomalo",
+        buffs: {
+            0: {Mv_Physical_Anomalo: 3.565},
+            1: {},
+            2: {Mv_Physical_Anomalo: 3.565, Shred: 0.15},
+            3: {},
+            4: {Admg: 0.18},
+            5: {},
+            6: {}
+        },
+    },
 
     // Defensor
     "Zhao": {
