@@ -178,7 +178,7 @@ function calcularDanoNormal(stats, aturdido) {
     const Target_def = Defense * (1-Shred);
     const Efective_def = Target_def * (1-Penx) - Penp;
     const Defense_factor = Math.max(0,Math.min((794) / (794 + Efective_def), 1));
-    const Stun_factor = aturdido ? (1.5 + Stun + Vuln) : 1;
+    const Stun_factor = aturdido ? (1.5 + Stun + Vuln) : (1+Vuln);
     const Cont_factor = 1 + Cont;
     const Taken_factor = 1 + Taken;
 
