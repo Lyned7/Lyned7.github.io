@@ -557,12 +557,34 @@ function deleteDisk(id) {
     saveDisks(disks);
     renderAllDisks();
 }
-
-/** Combina discos existentes con importados, reemplazando ids repetidos. */
+function getDiskEqualityKey(disk) {
+    const subStats = (disk.subStats || [])
+        .map((sub) => `${sub.stat}:${sub.rolls ?? 0}`)
+        .sort();
+    return JSON.stringify([
+        disk.slot,
+        disk.set,
+        disk.mainStat,
+        disk.mainStatValue,
+        subStats,
+    ]);
+}
+/** Combina discos, omitiendo los que ya existen con los mismos atributos. */
 function mergeDisks(existentes, importados) {
     const porId = new Map(existentes.map((disk) => [disk.id, disk]));
-    importados.forEach((disk) => porId.set(disk.id, disk));
-    return Array.from(porId.values());
+    const clavesExistentes = new Set(existentes.map(getDiskEqualityKey));
+    let duplicados = 0;
+
+    importados.forEach((disk) => {
+        if (clavesExistentes.has(getDiskEqualityKey(disk))) {
+            duplicados++;
+            return;
+        }
+        porId.set(disk.id, disk);
+        clavesExistentes.add(getDiskEqualityKey(disk));
+    });
+
+    return { disks: Array.from(porId.values()), duplicados };
 }
 
 /* ----------------------------------------------------------------------- */
@@ -598,16 +620,19 @@ function bindEnkaImport() {
                 setStatus("No Disks on your Profile");
                 return;
             }
-
-            const combinados = mergeDisks(loadDisks(), disks);
-            saveDisks(combinados);
+            
+            const resultadoMerge = mergeDisks(loadDisks(), disks);
+            saveDisks(resultadoMerge.disks);
             renderAllDisks();
 
             const omitidos = skipped.setDesconocido + skipped.mainStatDesconocido + skipped.otros;
-            let mensaje = `${disks.length} of ${totalEncontrados} Disk Imported.`;
+            let mensaje = `${disks.length - resultadoMerge.duplicados} of ${totalEncontrados} Disk Imported.`;
+            if (resultadoMerge.duplicados > 0) {
+                mensaje += ` ${resultadoMerge.duplicados} omitted duplicates.`;
+            }
             if (omitidos > 0) {
                 mensaje += ` ${omitidos} omitted`;
-                if (skipped.setDesconocido > 0) mensaje += ` (set desconocido: ${skipped.setDesconocido})`;
+                if (skipped.setDesconocido > 0) mensaje += ` (unknown set: ${skipped.setDesconocido})`;
                 mensaje += ".";
             }
             setStatus(mensaje);
