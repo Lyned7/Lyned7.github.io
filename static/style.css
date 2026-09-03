@@ -1778,23 +1778,7 @@ body {
 
 
 
-.inv-slot {
-    position: absolute;
-    left: 50px;
-    width: 120px;
-    height: 35px;
-    background: #1b1b1b;
-    border-radius: 3px;
-    display: grid;
-    grid-template-columns: 45px 45px 45px 45px 45px;
-    align-items: center;
-    padding-left: 6px;
-    padding-right: 5px;
-    gap: 5px;
-    color: #aaaaaa;
-    font-size: 13px;
-    font-weight: 700;
-}
+
 
 .d-slot {
     position: absolute;
@@ -2104,6 +2088,7 @@ body {
     color: #aaaaaa;
     font-size: 13px;
     font-weight: 700;
+    z-index: 999;
 }
 
 .d-slot {
