@@ -447,6 +447,10 @@ function bindNewDiskModal({ onOpen } = {}) {
 /* ----------------------------------------------------------------------- */
 
 const DISKS_STORAGE_KEY = "lyned_disks";
+const diskFilters = {
+    slot: null,
+    mainStat: null,
+};
 
 /** Formatea un valor numerico como porcentaje (ratios <=1) o numero plano. */
 function formatStatValue(value) {
@@ -479,6 +483,44 @@ function saveDisks(disks) {
     } catch (err) {
         console.warn("No se pudieron guardar los discos:", err);
     }
+}
+
+function bindDiskFilters() {
+    const slotButtons = document.querySelectorAll("[data-filter-slot]");
+    const statButtons = document.querySelectorAll("[data-filter-stat]");
+
+    function renderFilterState() {
+        slotButtons.forEach((button) => {
+            button.classList.toggle("slot-selected", button.dataset.filterSlot === diskFilters.slot);
+        });
+        statButtons.forEach((button) => {
+            button.classList.toggle("slot-selected", button.dataset.filterStat === diskFilters.mainStat);
+        });
+    }
+
+    slotButtons.forEach((button) => {
+        button.classList.add("selectable");
+        button.addEventListener("click", () => {
+            diskFilters.slot = diskFilters.slot === button.dataset.filterSlot
+                ? null
+                : button.dataset.filterSlot;
+            renderFilterState();
+            renderAllDisks();
+        });
+    });
+
+    statButtons.forEach((button) => {
+        button.classList.add("selectable");
+        button.addEventListener("click", () => {
+            diskFilters.mainStat = diskFilters.mainStat === button.dataset.filterStat
+                ? null
+                : button.dataset.filterStat;
+            renderFilterState();
+            renderAllDisks();
+        });
+    });
+
+    renderFilterState();
 }
 
 /** Construye el elemento DOM de una tarjeta de disco guardado. */
@@ -546,9 +588,20 @@ function renderAllDisks() {
 
     grid.querySelectorAll(".disk-card").forEach((card) => card.remove());
 
-    if (emptyState) emptyState.style.display = disks.length ? "none" : "";
+    const filteredDisks = disks.filter((disk) => {
+        const matchesSlot = !diskFilters.slot || disk.slot === diskFilters.slot;
+        const matchesMainStat = !diskFilters.mainStat || disk.mainStat === diskFilters.mainStat;
+        return matchesSlot && matchesMainStat;
+    });
 
-    disks.forEach((disk) => grid.appendChild(createDiskCardElement(disk)));
+    if (emptyState) {
+        emptyState.style.display = filteredDisks.length ? "none" : "";
+        emptyState.textContent = disks.length && (diskFilters.slot || diskFilters.mainStat)
+            ? "No hay discos que coincidan con los filtros."
+            : "Aun no has creado ningun disco. Usa \"+ NEW DISK\" para crear el primero.";
+    }
+
+    filteredDisks.forEach((disk) => grid.appendChild(createDiskCardElement(disk)));
 }
 
 /** Elimina un disco por su id y vuelve a dibujar la lista. */
@@ -1158,6 +1211,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Pinta los discos ya guardados (si los hay) al cargar la pagina.
     renderAllDisks();
+    bindDiskFilters();
     bindEnkaImport();
 
     const stunToggle = bindStunToggle();
