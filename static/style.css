@@ -1734,6 +1734,21 @@ body {
     height: 95px;
 }
 
+.inventory-panel2 {
+    position: absolute;
+    left: 225px;
+    top: 35px;
+    width: 1190px;
+    height: 95px;
+}
+
+.inventory-result2 {
+    position: absolute;
+    left: 400px;
+    top: 0;
+    width: 1190px;
+    height: 95px;
+}
 .inv-label {
     top: 53px;
 }
@@ -1754,7 +1769,7 @@ body {
     font-weight: 700;
 }
 .left-inv-label1 {
-    left: 410px;
+    left: 25px;
 }
 .left-inv-label2 {
     left: 720px;
@@ -1798,12 +1813,12 @@ body {
 }
 .left-d-slot1 {
     grid-template-columns: 35px 35px 35px 35px 35px 35px;
-    left: 450px;
+    left: 70px;
     width: 246px;
 }
 .left-d-slot2 {
     grid-template-columns: 46px 46px 46px 46px 46px 46px 46px 46px 52px 46px 30px 30px 30px 30px 30px 30px 30px;
-    left: 803px;
+    left: 390px;
     width: 733px;
 }
 
@@ -1815,18 +1830,7 @@ body {
     display: block;
 }
 
-.filter-slot{
-    height: 25px;
-    background: #272727;
-    border-radius: 3px;
-    padding: 4px 5px;
 
-
-    text-align: center;
-    color: #c4c3c3;
-    font-size: 15px;
-    font-weight: 700;
-}
 .widht-slot{
     width: 35px;
 }
@@ -2092,7 +2096,7 @@ body {
     left: 18px;
 }
 .left-inv-label2 {
-    left: 720px;
+    left: 340px;
 }
 
 
