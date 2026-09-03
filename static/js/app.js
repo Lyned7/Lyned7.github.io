@@ -597,8 +597,8 @@ function renderAllDisks() {
     if (emptyState) {
         emptyState.style.display = filteredDisks.length ? "none" : "";
         emptyState.textContent = disks.length && (diskFilters.slot || diskFilters.mainStat)
-            ? "No hay discos que coincidan con los filtros."
-            : "Aun no has creado ningun disco. Usa \"+ NEW DISK\" para crear el primero.";
+            ? "No Results."
+            : "No disks. Use \"+ NEW DISK\" to create one.";
     }
 
     filteredDisks.forEach((disk) => grid.appendChild(createDiskCardElement(disk)));
