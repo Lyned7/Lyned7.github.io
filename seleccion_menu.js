@@ -51,7 +51,7 @@ function closeCompactLevelMenu() {
  * Abre un menú flotante compacto para niveles C0-C6 / W1-W5 bajo el trigger.
  * Se usa solo para dupes de DPS/Support y refinamientos de arma.
  */
-export function openCompactLevelMenu({ anchorEl, items, onSelect }) {
+export function openCompactLevelMenu({ anchorEl, items, onSelect, width }) {
     if (!anchorEl) return;
     closeCompactLevelMenu();
 
@@ -59,7 +59,7 @@ export function openCompactLevelMenu({ anchorEl, items, onSelect }) {
     menu.className = "dupe-inline-menu";
 
     const rect = anchorEl.getBoundingClientRect();
-    const itemWidth = 58;
+    const itemWidth = width ?? 58;
     const itemHeight = Math.max(20, Math.round(rect.height - 2));
 
     menu.style.position = "fixed";
@@ -67,7 +67,8 @@ export function openCompactLevelMenu({ anchorEl, items, onSelect }) {
     menu.style.top = `${rect.bottom + 4}px`;
     menu.style.width = `${itemWidth}px`;
     menu.style.setProperty("--dupe-item-height", `${itemHeight}px`);
-
+    menu._anchorEl = anchorEl;
+    
     items.forEach(({ label, value }) => {
         const item = document.createElement("div");
         item.className = "dupe-inline-item";
@@ -83,6 +84,7 @@ export function openCompactLevelMenu({ anchorEl, items, onSelect }) {
 
     document.body.appendChild(menu);
 }
+
 /**
  * Abre un menu tipo GRILLA de imagenes (personajes, armas, discos, enemigos).
  *
@@ -244,7 +246,7 @@ document.addEventListener("click", (e) => {
     }
     
     const popup = document.querySelector(".dupe-inline-menu");
-    if (popup && !e.target.closest(".dupe-inline-menu") && !e.target.closest("[data-select$='-level']")) {
+    if (popup && !e.target.closest(".dupe-inline-menu") && !popup._anchorEl?.contains(e.target)) {
         closeCompactLevelMenu();
     }
 });
