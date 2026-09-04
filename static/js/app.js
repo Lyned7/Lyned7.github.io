@@ -938,11 +938,12 @@ function bindNewDiskCreation({ onSave } = {}) {
 /*  SKILL DEL DPS (Damage Results -> "Skill:")                             */
 /* ----------------------------------------------------------------------- */
 
-/** Encuentra la skill a mostrar, priorizando Ultimate si el DPS la tiene. */
-function getDpsSkill(entry) {
+/** Encuentra la skill elegida o la primera por defecto, priorizando Ultimate. */
+function getDpsSkill(entry, selectedName = null) {
     if (!entry || !entry.skills) return null;
     const skillNames = Object.keys(entry.skills);
-    const name = skillNames.find((n) => entry.skills[n].tipo === "Ultimate") || skillNames[0];
+    const defaultName = skillNames.find((n) => entry.skills[n].tipo === "Ultimate") || skillNames[0];
+    const name = selectedName && entry.skills[selectedName] ? selectedName : defaultName;
     if (!name) return null;
     return { name, data: entry.skills[name] };
 }
@@ -957,7 +958,10 @@ function updateSkillDisplay() {
     if (!skillNameEl) return;
 
     const entry = state.dpsCharacter ? dps[state.dpsCharacter] : null;
-    const skill = entry ? getDpsSkill(entry) : null;
+    const skill = entry ? getDpsSkill(entry, state.dpsSkillName) : null;
+    const hasMultipleSkills = Object.keys(entry?.skills || {}).length > 1;
+
+    skillNameEl.classList.toggle("skill-selectable", hasMultipleSkills);
 
     if (!skill) {
         skillNameEl.textContent = "--";
@@ -973,7 +977,33 @@ function updateSkillDisplay() {
     state.dpsSkillName = skill.name;
     state.dpsSkillValue = value;
 }
+/** Permite cambiar la skill solo cuando el DPS tiene mas de una disponible. */
+function bindDpsSkillSelector() {
+    const trigger = document.querySelector(".statd-skill");
+    if (!trigger) return;
 
+    trigger.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        const entry = state.dpsCharacter ? dps[state.dpsCharacter] : null;
+        const skillNames = Object.keys(entry?.skills || {});
+        if (skillNames.length <= 1) return;
+
+        const items = skillNames.map((name) => ({ label: name, value: name }));
+
+        openCompactLevelMenu({
+            anchorEl: trigger,
+            items,
+            width: trigger.getBoundingClientRect().width,
+            onSelect: (skillName) => {
+                state.dpsSkillName = skillName;
+                updateSkillDisplay();
+            },
+        });
+    });
+
+    trigger.dataset.skillSelectorBound = "true";
+}
 /* ----------------------------------------------------------------------- */
 /*  TOGGLE "Stun" (panel Enemy)                                            */
 /*  ON/OFF libre, salvo que el DPS elegido tenga force_stun:true, en cuyo  */
@@ -1236,6 +1266,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (stunToggle) stunToggle.setForceStun(entry.force_stun);
         },
     });
+    
+    bindDpsSkillSelector();
 
     bindLevelSelector({
         selector: "[data-select='dps-character-level']",
