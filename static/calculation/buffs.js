@@ -138,10 +138,12 @@ export function calcularStatsTotales(seleccion) {
             }
         }
 
-        for (const skill of Object.values(dps_buffs.skills || {})) {
-            if (skill[seleccion.dpsDupe]) {
-                sumarStats(statsTotales, skill[seleccion.dpsDupe]);
-            }
+        const skillEntries = Object.entries(dps_buffs.skills || {});
+        const selectedSkill = seleccion.skill_nombre && dps_buffs.skills[seleccion.skill_nombre]
+            ? dps_buffs.skills[seleccion.skill_nombre]
+            : skillEntries.length ? skillEntries[0][1] : null;
+        if (selectedSkill && selectedSkill[seleccion.dpsDupe]) {
+            sumarStats(statsTotales, selectedSkill[seleccion.dpsDupe]);
         }
     }
 
