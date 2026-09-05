@@ -672,6 +672,50 @@ const we_dps = {
         }
     },
 
+    // Armorer
+    "Crimson Thirst": {
+        ID: 14161,
+        Clase: "Armorer",
+        Image: "static/WENGINE/Crimson_Thirst.webp",
+        Stats_base: { Def: 431 },
+        Stats_main: { Defx: 0.48 },
+        buffs: {
+            1: { CR: 0.25, Dmg_Electric: 0.15, Sdmg: 0.12 },
+            2: { CR: 0.025, Dmg_Electric: 0.025, Sdmg: 0.02 }, 
+            3: { CR: 0.025, Dmg_Electric: 0.025, Sdmg: 0.02 },
+            4: { CR: 0.025, Dmg_Electric: 0.025, Sdmg: 0.02 },
+            5: { CR: 0.025, Dmg_Electric: 0.025, Sdmg: 0.02 }
+        }
+    },
+    "Bloodmarrow Coffer": {
+        ID: 14161,
+        Clase: "Armorer",
+        Image: "static/WENGINE/Bloodmarrow_Coffer.webp",
+        Stats_base: { Def: 356 },
+        Stats_main: { CR_Base: 0.20 },
+        buffs: {
+            1: { Dmg: 0.24},
+            2: { Dmg: 0.28 }, 
+            3: { Dmg: 0.32 },
+            4: { Dmg: 0.36 },
+            5: { Dmg: 0.40 }
+        }
+    },
+    "Catty Luck": {
+        ID: 14161,
+        Clase: "Armorer",
+        Image: "static/WENGINE/Catty_Luck.webp",
+        Stats_base: { Def: 356 },
+        Stats_main: { Defx: 0.40 },
+        buffs: {
+            1: { Deff: 0.16},
+            2: { Deff: 0.18}, 
+            3: { Deff: 0.20},
+            4: { Deff: 0.22},
+            5: { Deff: 0.24}
+        }
+    },
+
 
 };
 
