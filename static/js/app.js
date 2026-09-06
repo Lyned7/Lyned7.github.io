@@ -181,7 +181,7 @@ function clampToStep(value, max, step) {
 /*  Binder generico: click en un elemento -> abre grid -> actualiza     */
 /*  texto + imagen + estado.                                           */
 /* ------------------------------------------------------------------- */
-function bindGridSelector({ selector, dataObj, ratioClass, title, textEl, imgEl, stateKey, filter, onChange }) {
+function bindGridSelector({ selector, dataObj, ratioClass, title, characterFilters = false, textEl, imgEl, stateKey, filter, onChange }) {
     const triggers = document.querySelectorAll(selector);
     if (!triggers.length) return;
 
