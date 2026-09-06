@@ -965,7 +965,7 @@ const dps = {
         ID: 1261,
         Image: "static/DPS/Remielle.webp",
         Clase: "Anomalo",
-        Elemento: "Ether",
+        Elemento: "Lumen",
         force_stun: false,
         Tipo_dmg: "SortedAPAtk",
         Stats_base: { Atk: 823, ER: 1.5, Tasa: 144 },
