@@ -96,12 +96,24 @@ export function openCompactLevelMenu({ anchorEl, items, onSelect, width }) {
  * @param {string}   [config.title]     Titulo opcional del menu
  * @param {Function} config.onSelect    (key) => void
  */
-export function openGridMenu({ items, ratioClass, title, onSelect }) {
+export function openGridMenu({ items, ratioClass, title, characterFilters = false, onSelect }) {
     const overlay = getOverlay();
     overlay.innerHTML = "";
 
     const modal = document.createElement("div");
     modal.className = "selection-modal";
+    if (ratioClass === "ratio-dps") {
+        modal.classList.add("selection-modal-dps");
+    }
+    if (ratioClass === "ratio-weapon") {
+        modal.classList.add("selection-modal-weapon");
+    }
+    if (ratioClass === "ratio-disk") {
+        modal.classList.add("selection-modal-disk");
+    }
+    if (ratioClass === "ratio-enemy") {
+        modal.classList.add("selection-modal-enemy");
+    }
 
     if (title) {
         const heading = document.createElement("div");
@@ -110,33 +122,90 @@ export function openGridMenu({ items, ratioClass, title, onSelect }) {
         modal.appendChild(heading);
     }
 
+    let visibleItems = items;
+    if (characterFilters) {
+        const filterBar = document.createElement("div");
+        filterBar.className = "character-filter-bar";
+
+        const classNames = ["Atacante", "Anomalo", "Ruptura", "Apoyo", "Defensor", "Stunner", "Armorer"];
+        const elementNames = ["Physical", "Fire", "Ice", "Electric", "Ether", "Wind", "Lumen"];
+        const selectedFilters = { className: null, element: null };
+
+        function createFilterRow(values, dataKey, folder) {
+            const row = document.createElement("div");
+            row.className = "character-filter-row";
+
+            values.forEach((value) => {
+                const button = document.createElement("div");
+                button.className = "character-filter-button selectable";
+                button.title = value;
+                button.dataset.filterKey = dataKey;
+                button.dataset.filterValue = value;
+
+                const image = document.createElement("img");
+                image.src = `/static/${folder}/${value}.webp`;
+                image.alt = value;
+                button.appendChild(image);
+
+                button.addEventListener("click", () => {
+                    selectedFilters[dataKey] = selectedFilters[dataKey] === value ? null : value;
+                    filterBar.querySelectorAll(`[data-filter-key='${dataKey}']`).forEach((filterButton) => {
+                        filterButton.classList.toggle("filter-selected", filterButton.dataset.filterValue === selectedFilters[dataKey]);
+                    });
+                    visibleItems = items.filter((item) =>
+                        (!selectedFilters.className || item.className === selectedFilters.className) &&
+                        (!selectedFilters.element || item.element === selectedFilters.element)
+                    );
+                    renderItems();
+                });
+
+                row.appendChild(button);
+            });
+
+            return row;
+        }
+
+        filterBar.appendChild(createFilterRow(classNames, "className", "CLASS"));
+        filterBar.appendChild(createFilterRow(elementNames, "element", "ELEMENTS"));
+        modal.appendChild(filterBar);
+    }
+    
     const grid = document.createElement("div");
     grid.className = "modal-grid";
 
-    items.forEach(({ key, name, image }) => {
-        const item = document.createElement("div");
-        item.className = "modal-item";
+    function renderItems() {
+        grid.innerHTML = "";
 
-        const img = document.createElement("img");
-        img.src = image;
-        img.alt = name;
-        img.className = ratioClass || "";
+        visibleItems.forEach(({ key, name, image }) => {
+            const item = document.createElement("div");
+            item.className = "modal-item";
 
-        const label = document.createElement("div");
-        label.textContent = name;
+            const img = document.createElement("img");
+            img.src = image;
+            img.alt = name;
+            img.className = ratioClass || "";
 
-        item.appendChild(img);
-        item.appendChild(label);
+            const label = document.createElement("div");
+            label.textContent = name;
 
-        item.addEventListener("click", () => {
-            onSelect(key);
-            closeSelectionMenu();
+            item.appendChild(img);
+            item.appendChild(label);
+
+            item.addEventListener("click", () => {
+                onSelect(key);
+                closeSelectionMenu();
+            });
+
+            grid.appendChild(item);
         });
+    }
 
-        grid.appendChild(item);
-    });
+    const gridScroll = document.createElement("div");
+    gridScroll.className = "modal-grid-scroll";
+    gridScroll.appendChild(grid);
 
-    modal.appendChild(grid);
+    renderItems();
+    modal.appendChild(gridScroll);
     overlay.appendChild(modal);
     overlay.classList.add("active");
 }
