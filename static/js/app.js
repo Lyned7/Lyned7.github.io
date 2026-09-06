@@ -131,6 +131,8 @@ function toGridItems(dataObj, filter) {
             key,
             name: key,
             image: normalizeImage(val.Image),
+            className: val.Clase,
+            element: val.Elemento,
         }));
 }
 
@@ -193,6 +195,7 @@ function bindGridSelector({ selector, dataObj, ratioClass, title, textEl, imgEl,
                 items: toGridItems(dataObj, filter),
                 ratioClass,
                 title,
+                characterFilters,
                 onSelect: (key) => {
                     const entry = dataObj[key];
                     if (textEl) {
@@ -394,9 +397,10 @@ function bindStatSlotSelector({ selector, slotKey, title, stateKey }) {
             value: statName,
         }));
 
-        openListMenu({
+        openCompactLevelMenu({
+            anchorEl: trigger,
             items,
-            title: title || `Stat principal (${slotKey})`,
+            width: 160,
             onSelect: (statName) => renderStatChip(chipContainer, statName, stateKey),
         });
     });
@@ -938,12 +942,12 @@ function bindNewDiskCreation({ onSave } = {}) {
 /*  SKILL DEL DPS (Damage Results -> "Skill:")                             */
 /* ----------------------------------------------------------------------- */
 
-/** Encuentra la skill elegida o la primera por defecto, priorizando Ultimate. */
-function getDpsSkill(entry, selectedName = null) {
+
+/** Encuentra la skill a mostrar, priorizando Ultimate si el DPS la tiene. */
+function getDpsSkill(entry) {
     if (!entry || !entry.skills) return null;
     const skillNames = Object.keys(entry.skills);
-    const defaultName = skillNames.find((n) => entry.skills[n].tipo === "Ultimate") || skillNames[0];
-    const name = selectedName && entry.skills[selectedName] ? selectedName : defaultName;
+    const name = skillNames.find((n) => entry.skills[n].tipo === "Ultimate") || skillNames[0];
     if (!name) return null;
     return { name, data: entry.skills[name] };
 }
@@ -958,10 +962,12 @@ function updateSkillDisplay() {
     if (!skillNameEl) return;
 
     const entry = state.dpsCharacter ? dps[state.dpsCharacter] : null;
-    const skill = entry ? getDpsSkill(entry, state.dpsSkillName) : null;
-    const hasMultipleSkills = Object.keys(entry?.skills || {}).length > 1;
+    const availableSkills = entry && entry.skills ? Object.keys(entry.skills) : [];
+    const selectedSkillName = availableSkills.includes(state.dpsSkillName)
+        ? state.dpsSkillName
+        : getDpsSkill(entry)?.name;
+    const skill = selectedSkillName && entry ? { name: selectedSkillName, data: entry.skills[selectedSkillName] } : null;
 
-    skillNameEl.classList.toggle("skill-selectable", hasMultipleSkills);
 
     if (!skill) {
         skillNameEl.textContent = "--";
@@ -979,31 +985,27 @@ function updateSkillDisplay() {
 }
 /** Permite cambiar la skill solo cuando el DPS tiene mas de una disponible. */
 function bindDpsSkillSelector() {
-    const trigger = document.querySelector(".statd-skill");
-    if (!trigger) return;
+    const skillNameEl = document.querySelector(".statd-skill");
+    if (!skillNameEl) return;
 
-    trigger.addEventListener("click", (e) => {
-        e.stopPropagation();
-
+    skillNameEl.classList.add("selectable");
+    skillNameEl.addEventListener("click", () => {
         const entry = state.dpsCharacter ? dps[state.dpsCharacter] : null;
-        const skillNames = Object.keys(entry?.skills || {});
-        if (skillNames.length <= 1) return;
-
-        const items = skillNames.map((name) => ({ label: name, value: name }));
+        const skillNames = entry?.skills ? Object.keys(entry.skills) : [];
+        if (skillNames.length < 2) return;
 
         openCompactLevelMenu({
-            anchorEl: trigger,
-            items,
-            width: trigger.getBoundingClientRect().width,
+            anchorEl: skillNameEl,
+            items: skillNames.map((name) => ({ label: name, value: name })),
+            width: 190,
             onSelect: (skillName) => {
                 state.dpsSkillName = skillName;
                 updateSkillDisplay();
             },
         });
     });
-
-    trigger.dataset.skillSelectorBound = "true";
 }
+
 /* ----------------------------------------------------------------------- */
 /*  TOGGLE "Stun" (panel Enemy)                                            */
 /*  ON/OFF libre, salvo que el DPS elegido tenga force_stun:true, en cuyo  */
@@ -1246,6 +1248,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const stunToggle = bindStunToggle();
     bindOptimizer();
+    bindDpsSkillSelector();
 
     /* ---------- DPS: Personaje ---------- */
     bindGridSelector({
@@ -1253,10 +1256,12 @@ document.addEventListener("DOMContentLoaded", () => {
         dataObj: dps,
         ratioClass: "ratio-dps",
         title: "Select DPS",
+        characterFilters: true,
         textEl: "[data-select='dps-character-field'] span:first-child",
         imgEl: "[data-select='dps-character-image'] img",
         stateKey: "dpsCharacter",
         onChange: (key, entry) => {
+            state.dpsSkillName = null;
             if (state.dpsWeapon && we_dps[state.dpsWeapon]?.Clase !== entry.Clase) {
                 state.dpsWeapon = null;
                 document.querySelector("[data-select='dps-weapon-field'] span:first-child").textContent = "W-Engine";
@@ -1350,6 +1355,7 @@ document.addEventListener("DOMContentLoaded", () => {
         dataObj: supp,
         ratioClass: "ratio-support",
         title: "Select a Support",
+        characterFilters: true,
         textEl: "[data-select='support1-character-field'] span:first-child",
         imgEl: "[data-select='support1-character-image'] img",
         stateKey: "support1Character",
@@ -1410,6 +1416,7 @@ document.addEventListener("DOMContentLoaded", () => {
         dataObj: supp,
         ratioClass: "ratio-support",
         title: "Select a Support",
+        characterFilters: true,
         textEl: "[data-select='support2-character-field'] span:first-child",
         imgEl: "[data-select='support2-character-image'] img",
         stateKey: "support2Character",
