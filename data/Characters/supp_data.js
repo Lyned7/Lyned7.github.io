@@ -6,6 +6,7 @@ const supp = {
         ID: 1491,
         Image: "static/SUPPORT/Sunna.webp",
         Clase: "Apoyo",
+        Elemento: "Physical",
         buffs: {
             0: { Stun: 0.30, Atke: 50, },
             1: { Shred: 0.21 },
@@ -33,6 +34,7 @@ const supp = {
         ID: 1451,
         Image: "static/SUPPORT/Lucia.webp",
         Clase: "Apoyo",
+        Elemento: "Ether",
         buffs: {
             0: { Sheere: 12, Dmg: 0.20, Hpf: 0.05, CD: 0.30},
             1: { Res: 0.18 },
@@ -60,6 +62,7 @@ const supp = {
         ID: 1451,
         Image: "static/SUPPORT/Yuzuha.webp",
         Clase: "Apoyo",
+        Elemento: "Physical",
         buffs: {
             0: { Dmg: 0.15, Atke: 1200},
             1: { Res: 0.10, Admg: 0.06 },
@@ -83,6 +86,7 @@ const supp = {
         ID: 1311,
         Image: "static/SUPPORT/Astra.webp",
         Clase: "Apoyo",
+        Elemento: "Ether",
         buffs: {
             0: { Dmg: 0.20, CD: 0.25},
             1: { Res: 0.10, Admg: 0.06 },
@@ -106,6 +110,7 @@ const supp = {
         ID: 1211,
         Image: "static/SUPPORT/Rina.webp",
         Clase: "Apoyo",
+        Elemento: "Electric",
         buffs: {
             0: { Penx: 0.12, Dmg_Electric: 0.10},
             1: { Penx: 0.09},
@@ -147,6 +152,7 @@ const supp = {
         ID: 1031,
         Image: "static/SUPPORT/Nicole.webp",
         Clase: "Apoyo",
+        Elemento: "Ether",
         buffs: {
             0: { Shred: 0.40, Dmg_Ether: 0.25},
             1: {},
@@ -161,6 +167,7 @@ const supp = {
         ID: 1031,
         Image: "static/SUPPORT/Lucy.webp",
         Clase: "Apoyo",
+        Elemento: "Fire",
         buffs: {
             0: { Atke: 104},
             1: {},
@@ -184,6 +191,7 @@ const supp = {
         ID: 1031,
         Image: "static/SUPPORT/Soukaku.webp",
         Clase: "Apoyo",
+        Elemento: "Ice",
         buffs: {
             0: { Dmg_Ice: 0.20},
             1: {},
@@ -209,6 +217,7 @@ const supp = {
         ID: 1621,
         Image: "static/SUPPORT/Lighter.webp",
         Clase: "Stunner",
+        Elemento: "Fire",
         buffs: {
             0: { Res_Fire: 0.15, Res_Ice: 0.15, Dmg_Fire: 0.25, Dmg_Ice: 0.25},
             1: { Res_Fire: 0.10, Res_Ice: 0.10 },
@@ -242,6 +251,7 @@ const supp = {
         ID: 1621,
         Image: "static/SUPPORT/Norma.webp",
         Clase: "Stunner",
+        Elemento: "Fire",
         buffs: {
             0: { Stun: 0.30, Dmg: 0.20},
             1: { Res: 0.15},
@@ -256,6 +266,7 @@ const supp = {
         ID: 1481,
         Image: "static/SUPPORT/Dialyn.webp",
         Clase: "Stunner",
+        Elemento: "Physical",
         buffs: {
             0: {Stun: 0.30, Dmg: 0.40},
             1: {Res: 0.15},
@@ -270,6 +281,7 @@ const supp = {
         ID: 1621,
         Image: "static/SUPPORT/Koleda.webp",
         Clase: "Stunner",
+        Elemento: "Fire",
         buffs: {
             0: {Dmg: 0.35, Dmg_Chain: 0.70, Lac: 0.15, CD_Buff: 0.35},
             1: {},
@@ -284,6 +296,7 @@ const supp = {
         ID: 1391,
         Image: "static/SUPPORT/JuFufu.webp",
         Clase: "Stunner",
+        Elemento: "Fire",
         buffs: {
             0: {CD_Buff: 0.20, Dmg_Ultimate: 0.40, Dmg_Chain: 0.20},
             1: {Stun: 0.35},
@@ -311,6 +324,7 @@ const supp = {
         ID: 1361,
         Image: "static/SUPPORT/Trigger.webp",
         Clase: "Stunner",
+        Elemento: "Electric",
         buffs: {
             0: {Vuln: 0.35},
             1: {Vuln: 0.20},
@@ -325,6 +339,7 @@ const supp = {
         ID: 1511,
         Image: "static/SUPPORT/Nangong.webp",
         Clase: "Stunner",
+        Elemento: "Ether",
         buffs: {
             0: {Atke_Idol: 50, Dmg: 0.25, Stun: 0.30},
             1: {Res: 0.18},
@@ -339,6 +354,7 @@ const supp = {
         ID: 1251,
         Image: "static/SUPPORT/Qingyi.webp",
         Clase: "Stunner",
+        Elemento: "Electric",
         buffs: {
             0: {Stun: 0.80},
             1: {Shred: 0.15},
@@ -353,6 +369,7 @@ const supp = {
         ID: 1251,
         Image: "static/SUPPORT/Lycaon.webp",
         Clase: "Stunner",
+        Elemento: "Ice",
         buffs: {
             0: {Res_Ice: 0.25, Dmg_Fire: 0.30, Dmg_Electric: 0.30, Dmg_Ether: 0.30, Dmg_Physical: 0.30, Dmg_Wind: 0.30, Stun: 0.35},
             1: {},
@@ -369,6 +386,7 @@ const supp = {
         ID: 1351,
         Image: "static/SUPPORT/Pulchra.webp",
         Clase: "Stunner",
+        Elemento: "Physical",
         buffs: {
             0: {Dmg_Aftershock: 0.30},
             1: {},
@@ -383,6 +401,7 @@ const supp = {
         ID: 1011,
         Image: "static/SUPPORT/Anby.webp",
         Clase: "Stunner",
+        Elemento: "Electric",
         buffs: {
             0: {},
             1: {},
@@ -399,6 +418,7 @@ const supp = {
         ID: 1621,
         Image: "static/SUPPORT/Velina.webp",
         Clase: "Anomalo",
+        Elemento: "Wind",
         buffs: {
             0: {},
             1: {},
@@ -413,6 +433,7 @@ const supp = {
         ID: 1621,
         Image: "static/SUPPORT/Remielle.webp",
         Clase: "Anomalo",
+        Elemento: "Lumen",
         buffs: {
             0: {Dmg: 0.18, Ref: 0.10, Atke: 1600},
             1: {Admg: 0.10},
@@ -440,6 +461,7 @@ const supp = {
         ID: 1621,
         Image: "static/SUPPORT/Jane.webp",
         Clase: "Anomalo",
+        Elemento: "Physical",
         buffs: {
             0: {Mv_Physical_Anomalo: 3.565},
             1: {},
@@ -456,6 +478,7 @@ const supp = {
         ID: 1621,
         Image: "static/SUPPORT/Zhao.webp",
         Clase: "Defensor",
+        Elemento: "Ice",
         buffs: {
             0: {Hpf_Veil: 0.05, Atke: 1000, Dmg: 0.10},
             1: {Res: 0.15},
@@ -483,6 +506,7 @@ const supp = {
         ID: 1621,
         Image: "static/SUPPORT/Caesar.webp",
         Clase: "Defensor",
+        Elemento: "Physical",
         buffs: {
             0: {Atke: 1000, Dmg: 0.25},
             1: {Res: 0.15},
@@ -497,6 +521,7 @@ const supp = {
         ID: 1621,
         Image: "static/SUPPORT/Pan_Yinhu.webp",
         Clase: "Defensor",
+        Elemento: "Physical",
         buffs: {
             0: {Dmg: 0.20},
             1: {Dmg: 0.10},
@@ -526,6 +551,7 @@ const supp = {
         ID: 1621,
         Image: "static/SUPPORT/Cissia.webp",
         Clase: "Atacante",
+        Elemento: "Electric",
         buffs: {
             0: {CD: 0.45, Shred_Electric: 0.06},
             1: {Res_Electric: 0.05},
@@ -553,6 +579,7 @@ const supp = {
         ID: 1621,
         Image: "static/SUPPORT/Seed.webp",
         Clase: "Atacante",
+        Elemento: "Electric",
         buffs: {
             0: {Atke: 1000, CD: 0.30, Dmg: 0.25},
             1: {},
@@ -567,6 +594,7 @@ const supp = {
         ID: 1621,
         Image: "static/SUPPORT/Orphie.webp",
         Clase: "Atacante",
+        Elemento: "Fire",
         buffs: {
             0: {Atke: 280},
             1: {Res_Electric: 0.05},
@@ -594,6 +622,7 @@ const supp = {
         ID: 1621,
         Image: "static/SUPPORT/Sanby.webp",
         Clase: "Atacante",
+        Elemento: "Electric",
         buffs: {
             0: {Dmg_Aftershock: 0.50},
             1: {},
