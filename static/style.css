@@ -18,17 +18,17 @@
 
 /* Ancho de la barra */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 3px;
 }
 
 /* Fondo por donde se desplaza */
 ::-webkit-scrollbar-track {
-    background: #151515;
+    background: #15151500;
 }
 
 /* Parte que puedes arrastrar */
 ::-webkit-scrollbar-thumb {
-    background: #555;
+    background: #5555553a;
     border-radius: 5px;
 }
 
@@ -332,7 +332,7 @@ body {
     margin-left: auto;
     width: 54px;
     flex: 0 0 54px;
-    height: 100%;
+    height: 33px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -653,6 +653,7 @@ body {
 .statd-skill.skill-selectable {
     cursor: pointer;
 }
+
 .statd-dmg{
     width: 190px;
     height: 25px;
@@ -1104,6 +1105,7 @@ body {
     object-fit: cover;
     display: block;
 }
+
 .weakness-title {
     position: absolute;
     left: 236px;
@@ -1374,7 +1376,7 @@ body {
    ========================================================= */
 
 .selection-modal {
-    background: rgba(35, 35, 35, 0);
+    background: #23232300;
 
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -1384,11 +1386,15 @@ body {
     border-radius: 10px;
 
     padding: 20px;
+    box-sizing: border-box;
 
     max-width: 80%;
+    height: 80vh;
     max-height: 80vh;
 
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 
@@ -1401,7 +1407,7 @@ body {
 
     grid-template-columns: repeat(5, 140px);
 
-    gap: 15px;
+    gap: 10px;
 
     width: max-content;
     max-width: 100%;
@@ -1409,6 +1415,28 @@ body {
     justify-content: center;
 }
 
+.selection-modal-dps .modal-grid {
+    grid-template-columns: repeat(6, 120px);
+}
+
+.selection-modal-weapon .modal-grid {
+    grid-template-columns: repeat(6, 120px);
+}
+
+.selection-modal-disk .modal-grid {
+    grid-template-columns: repeat(6, 128px);
+}
+
+.selection-modal-enemy .modal-grid {
+    grid-template-columns: repeat(6, 120px);
+}
+
+.modal-grid-scroll {
+    min-height: 0;
+    flex: 1 1 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 
 /* =========================================================
    CELDA BASE
@@ -1442,7 +1470,7 @@ body {
 }
 
 .modal-item:hover {
-    transform: scale(1.05);
+    transform: scale(1.01);
     border-color: var(--text);
 }
 
@@ -1653,11 +1681,25 @@ body {
         max-height: calc(100dvh - 24px);
         padding: 12px;
     }
+    
+    .modal-title {
+        margin-top: -12px;
+    }
 
     .modal-grid {
         grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
         gap: 10px;
         width: 100%;
+    }
+    
+    .selection-modal-dps .modal-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .selection-modal-disk .modal-grid,
+    .selection-modal-enemy .modal-grid,
+    .selection-modal-weapon .modal-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .modal-item,
@@ -1696,6 +1738,28 @@ body {
 
     .ratio-da {
         aspect-ratio: 120 / 120;
+    }
+    
+    .character-filter-bar {
+        width: 100%;
+        box-sizing: border-box;
+        gap: 4px;
+        padding-bottom: 10px;
+    }
+
+    .character-filter-row {
+        flex: 1 1 0;
+        min-width: 0;
+        gap: 1px;
+    }
+
+    .character-filter-button {
+        flex: 1 1 0;
+        width: auto;
+        height: auto;
+        aspect-ratio: 1;
+        min-width: 0;
+        padding: 2px;
     }
 
     .ratio-disk {
@@ -2589,11 +2653,49 @@ body {
 
 /* Titulo opcional dentro de los modales de seleccion */
 .modal-title {
+    padding: 12px 0 12px;
+    margin: -20px 0 0;
+    background: #23232300;
     color: var(--white);
     font-size: 16px;
     font-weight: 800;
-    margin-bottom: 14px;
     text-align: center;
+}
+
+.character-filter-bar {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    padding: 0 0 14px;
+    background: #23232300;
+}
+
+.character-filter-row {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.character-filter-button {
+    width: 31px;
+    height: 31px;
+    box-sizing: border-box;
+    padding: 3px;
+    background: #272727;
+    border-radius: 3px;
+}
+
+.character-filter-button img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.character-filter-button.filter-selected {
+    outline: 2px solid var(--green);
+    outline-offset: -2px;
+    background: #3b3b3b;
 }
 
 /* Elementos clickeables del Optimizer (personajes, armas, sets, enemigo, niveles) */
