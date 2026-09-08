@@ -1183,6 +1183,82 @@ const dps = {
             }
         },
     },
+
+    //Armorer
+    "Claret": {
+        ID: 1611,
+        Image: "static/DPS/Claret.webp",
+        Clase: "Armorer",
+        Tipo_dmg: "Sharp",
+        Elemento: "Electric",
+        force_stun: true,
+        Stats_base: { Def: 441, ER: 1.5, Tasa: 80 },
+        dupes: {
+            0: { CD_Base: 0.50, CR_Base: 0.338, CR: 0.30, Lac: 1.75 },
+            1: {},
+            2: {Res: 0.18},
+            3: {},
+            4: { Dmg_Basic: 0.20, Dmg_Ultimate: 0.20, Dmg_Chain: 0.20 },
+            5: {},
+            6: {}
+        },
+        skills: {
+            "Ultimate: Blood Blossom Oath - Tempered Through Fire": {
+                0: {Mv: 43.712},
+                1: {Mv: 43.712}, 
+                2: {Mv: 43.712}, 
+                3: {Mv: 47.686}, 
+                4: {Mv: 47.686}, 
+                5: {Mv: 51.660}, 
+                6: {Mv: 51.660},
+                tipo: "Ultimate",
+            },
+            "Chain Attack: Bloodbloom Oath - Resonant Blood Pact": {
+                0: {Mv: 21.162},
+                1: {Mv: 21.162}, 
+                2: {Mv: 21.162}, 
+                3: {Mv: 23.086}, 
+                4: {Mv: 23.086}, 
+                5: {Mv: 25.010}, 
+                6: {Mv: 25.010},
+                tipo: "Chain",
+            },
+            "Basic Attack [3]: Bloodbloom Oath": {
+                0: {Mv: 12.597},
+                1: {Mv: 12.597}, 
+                2: {Mv: 12.597}, 
+                3: {Mv: 13.743}, 
+                4: {Mv: 13.743}, 
+                5: {Mv: 14.889}, 
+                6: {Mv: 14.889},
+                tipo: "Basic",
+            },
+            "MAIM": {
+                0: {Mv: 16.256},
+                1: {Mv: 21.1328}, 
+                2: {Mv: 21.1328}, 
+                3: {Mv: 23.0542}, 
+                4: {Mv: 23.0542}, 
+                5: {Mv: 24.9756}, 
+                6: {Mv: 24.9756},
+                tipo: "Ex",
+            }
+        },
+        stat_escalado: {
+            stat_fuente: "CD_Base",
+            umbral: 0,
+            max_buff_umbral: null,
+            stat_buff: [
+                {
+                stat: "CR",
+                razon: 0.0035,
+                paso: 0.01,
+                maxbuff: null
+                },
+            ]
+        },
+        
+    },
     
 }
 
