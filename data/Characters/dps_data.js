@@ -1203,7 +1203,7 @@ const dps = {
             6: {}
         },
         skills: {
-            "Ultimate: Blood Blossom Oath - Tempered Through Fire": {
+            "Ultimate": {
                 0: {Mv: 43.712},
                 1: {Mv: 43.712}, 
                 2: {Mv: 43.712}, 
@@ -1213,7 +1213,7 @@ const dps = {
                 6: {Mv: 51.660},
                 tipo: "Ultimate",
             },
-            "Chain Attack: Bloodbloom Oath - Resonant Blood Pact": {
+            "Chain Attack": {
                 0: {Mv: 21.162},
                 1: {Mv: 21.162}, 
                 2: {Mv: 21.162}, 
@@ -1223,7 +1223,7 @@ const dps = {
                 6: {Mv: 25.010},
                 tipo: "Chain",
             },
-            "Basic Attack [3]: Bloodbloom Oath": {
+            "Basic Attack [3]": {
                 0: {Mv: 12.597},
                 1: {Mv: 12.597}, 
                 2: {Mv: 12.597}, 
