@@ -213,6 +213,45 @@ const supp = {
     },
 
     // Stunner
+    "Roxy": {
+        ID: 1621,
+        Image: "static/SUPPORT/Roxy.webp",
+        Clase: "Stunner",
+        buffs: {
+            0: { Stun: 0.30, Cont: 0.18},
+            1: { Res: 0.15 },
+            2: { Stun: 0.30 },
+            3: {},
+            4: {},
+            5: {},
+            6: {}
+        },
+        stat_escalado: {
+            stat_fuente: "CR",
+            umbral: 0,
+            max_buff_umbral: 1.0,
+            stat_buff: [
+                {
+                stat: "Lac",
+                razon: 0.002,
+                paso: 0.01,
+                maxbuff: 0.20
+                },
+                {
+                stat: "CD_Atacante",
+                razon: 0.004,
+                paso: 0.01,
+                maxbuff: 0.40
+                },
+                {
+                stat: "CD_Ruptura",
+                razon: 0.01,
+                paso: 0.01,
+                maxbuff: 0.40
+                },
+            ],
+        },
+    },
     "Lighter": {
         ID: 1621,
         Image: "static/SUPPORT/Lighter.webp",
@@ -277,13 +316,13 @@ const supp = {
             6: {}
         },
     },
-    "Koleda": {
+    "Koleda (P6)": {
         ID: 1621,
         Image: "static/SUPPORT/Koleda.webp",
         Clase: "Stunner",
         Elemento: "Fire",
         buffs: {
-            0: {Dmg: 0.35, Dmg_Chain: 0.70, Lac: 0.15, CD_Buff: 0.35},
+            0: {Dmg: 0.35, Dmg_Chain: 0.70, Lac: 0.12, CD_Atacante: 0.35, CD_Ruptura: 0.35},
             1: {},
             2: {},
             3: {},
