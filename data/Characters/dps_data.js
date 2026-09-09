@@ -1250,7 +1250,7 @@ const dps = {
             max_buff_umbral: null,
             stat_buff: [
                 {
-                stat: "CR",
+                stat: "CR_Base",
                 razon: 0.0035,
                 paso: 0.01,
                 maxbuff: null
