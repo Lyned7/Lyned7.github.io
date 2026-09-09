@@ -124,6 +124,18 @@ const we_supp = {
     },
 
     // Stunner
+    "Crimson Moon Casket": {
+        ID: 14162,
+        Image: "static/WENGINE/RoxyWE.webp",
+        Clase: "Stunner",
+        buffs: {
+            1: { Dmg: 0.20 },
+            2: { Dmg: 0.03 },
+            3: { Dmg: 0.03 },
+            4: { Dmg: 0.03 },
+            5: { Dmg: 0.03 }
+        }
+    },
     "Chief Sidekick": {
         ID: 14157,
         Image: "static/WENGINE/Chief_Sidekick.webp",
