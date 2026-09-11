@@ -1,11 +1,11 @@
 // ENEMIES
 
 const enemy = {
-    "Phaeton": {
+    "Phaethon": {
         def_enemy: { Defense: 952 },
         buffs_enemy: { Res_Electric: 0.2, Res_Physical: -0.2, Sdmg: 0.40},
         buffs_stunned: { Stun: 0.20},
-        Image: "static/ENEMY/Phaeton.webp"
+        Image: "static/ENEMY/Phaethon.webp"
     },
     "Kusarikku": {
         def_enemy: { Defense: 952 },
