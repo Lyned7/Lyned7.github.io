@@ -1259,6 +1259,61 @@ const dps = {
         },
         
     },
+
+    //Stunner
+    "Roxy": {
+        ID: 1611,
+        Image: "static/DPS/Roxy.webp",
+        Clase: "Stunner",
+        Tipo_dmg: "Normal",
+        Elemento: "Wind",
+        force_stun: true,
+        Stats_base: { Atk: 741, ER: 1.2, Tasa: 80 },
+        dupes: {
+            0: { CD_Base: 0.50, CR_Base: 0.194, CD: 0.40, Dmg: 0.80, Stun: 0.30, Cont: 0.18},
+            1: {CD: 0.40, Res: 0.15},
+            2: {Stun: 0.30},
+            3: {},
+            4: { Dmg_Ultimate: 0.20},
+            5: {},
+            6: {Res: 0.15}
+        },
+        skills: {
+            "Ultimate": {
+                0: {Mv: 42.633},
+                1: {Mv: 42.633}, 
+                2: {Mv: 42.633}, 
+                3: {Mv: 46.509}, 
+                4: {Mv: 46.509}, 
+                5: {Mv: 50.385}, 
+                6: {Mv: 50.385},
+                tipo: "Ultimate",
+            },
+            "Ex": {
+                0: {Mv: 4.174},
+                1: {Mv: 4.174}, 
+                2: {Mv: 4.174}, 
+                3: {Mv: 4.554}, 
+                4: {Mv: 4.554}, 
+                5: {Mv: 4.934}, 
+                6: {Mv: 12.335},
+                tipo: "Ex",
+            },
+        },
+        stat_escalado: {
+            stat_fuente: "ER_Total",
+            umbral: 1.2,
+            stat_buff: [
+                {
+                stat: "Atke",
+                razon: 5,
+                paso: 0.01,
+                maxbuff: 960
+                },
+            ]
+        },
+        
+    },
     
 }
 
