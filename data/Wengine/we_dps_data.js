@@ -716,6 +716,22 @@ const we_dps = {
         }
     },
 
+    // Stunner
+    "Crimson Moon Casket": {
+        ID: 14161,
+        Clase: "Stunner",
+        Image: "static/WENGINE/RoxyWE.webp",
+        Stats_base: { Atk: 713 },
+        Stats_main: { ERx: 0.60 },
+        buffs: {
+            1: { CR: 0.24, Res: 0.15, Dmg: 0.20},
+            2: { CR: 0.02, Res: 0.023, Dmg: 0.03}, 
+            3: { CR: 0.02, Res: 0.022, Dmg: 0.03},
+            4: { CR: 0.02, Res: 0.023, Dmg: 0.03},
+            5: { CR: 0.02, Res: 0.022, Dmg: 0.03}
+        }
+    },
+
 
 };
 
