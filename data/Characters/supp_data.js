@@ -351,7 +351,7 @@ const supp = {
             max_buff_umbral: 3400,
             stat_buff: [
                 {
-                stat: "CD_Buff",
+                stat: "CD",
                 razon: 0.0005,
                 paso: 1,
                 maxbuff: 0.30
@@ -379,7 +379,7 @@ const supp = {
             max_buff_umbral: 3400,
             stat_buff: [
                 {
-                stat: "CD_Buff",
+                stat: "CD",
                 razon: 0.0005,
                 paso: 1,
                 maxbuff: 0.30
