@@ -359,6 +359,34 @@ const supp = {
             ],
         },
     },
+    "JuFufu2": {
+        ID: 1391,
+        Image: "static/SUPPORT/JuFufu.webp",
+        Clase: "Stunner",
+        Elemento: "Fire",
+        buffs: {
+            0: {CD_Buff: 0.20, Dmg_Ultimate: 0.40, Dmg_Chain: 0.20, Cont_Chain: 0.10, Cont_Ulti: 0.30, Stun: 0.25},
+            1: {Stun: 0.35},
+            2: {CD_Buff: 0.22},
+            3: {},
+            4: {},
+            5: {},
+            6: {}
+        },
+        stat_escalado: {
+            stat_fuente: "Atk",
+            umbral: 2800,
+            max_buff_umbral: 3400,
+            stat_buff: [
+                {
+                stat: "CD_Buff",
+                razon: 0.0005,
+                paso: 1,
+                maxbuff: 0.30
+                }
+            ],
+        },
+    },
     "Trigger": {
         ID: 1361,
         Image: "static/SUPPORT/Trigger.webp",
