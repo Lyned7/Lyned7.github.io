@@ -29,6 +29,20 @@ const we_dps = {
             5: { Atkf: 0.08}
         }
     },
+    "SeverianWE": {
+        ID: 14104,
+        Clase: "Atacante",
+        Image: "static/WENGINE/Brimstone.webp",
+        Stats_base: { Atk: 713 },
+        Stats_main: { CR: 0.24 },
+        buffs: {
+            1: { CR: 0.20, Atkf: 0.10, Res_Wind: 0.15},
+            2: { CR: 0.03, Atkf: 0.015, Res_Wind: 0.023}, 
+            3: { CR: 0.03, Atkf: 0.015, Res_Wind: 0.022},
+            4: { CR: 0.03, Atkf: 0.015, Res_Wind: 0.023},
+            5: { CR: 0.03, Atkf: 0.015, Res_Wind: 0.022}
+        }
+    },
     "Knight's Extolment": {
         ID: 14104,
         Clase: "Atacante",
